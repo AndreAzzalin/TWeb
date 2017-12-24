@@ -6,15 +6,15 @@
  * Time: 18:20
  */
 
-class home extends Controller {
+class Home extends Controller {
 
-        public function index(){
-          /*  $user=$this->model('User');
-            $user->nickname=$nickname;*/
-            echo 'home/index';
-        }
-
-        public function test($var=''){
-            echo $var.' ciao';
-        }
+    //posso passare all'index name e other come parametri
+    public function index($name = '',$other = ' ') {
+        echo '<br>name= ' . $name . ' other=' . $other;
+        print_r($other);
     }
+
+    public function test() {
+        echo 'test';
+    }
+}
