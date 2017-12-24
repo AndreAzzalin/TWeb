@@ -15,7 +15,7 @@ class App {
     protected $params = [];
 
     /**
-     * App constructor.
+     * App constructor, quando viene costruito vengono eseguite queste funzioni
      */
     public function __construct() {
         $url = $this->parseUrl();

@@ -9,9 +9,12 @@
 class Home extends Controller {
 
     //posso passare all'index name e other come parametri
-    public function index($name = '',$other = ' ') {
-        echo '<br>name= ' . $name . ' other=' . $other;
-        print_r($other);
+    public function index($name = '') {
+        //verificare cin setName
+      $user = $this->model('User');
+      $user-> name = $name;
+        var_dump($user);
+     $this->view('home/index',['name'=> $user->name]);
     }
 
     public function test() {

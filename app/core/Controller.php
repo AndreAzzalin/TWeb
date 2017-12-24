@@ -10,13 +10,18 @@
 
  class Controller {
 
-    public function __construct() {
-
-    }
-
-    protected function model($model) {
+    //il controller crea il model necessario
+    public function model($model) {
         require_once '../app/models/'.$model.'.php';
         return new $model();
     }
+
+    public function view($view,$data = []){
+        //creo view richiesta dal client
+        require_once '../app/views/'.$view.'.php';
+
+    }
+
+
 
 }
