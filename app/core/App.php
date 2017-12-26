@@ -10,7 +10,7 @@
 class App {
 
     //dichiaro i controller e metodi di default
-    protected $controller = 'home';
+    protected $controller = 'login';
     protected $method = 'index';
     protected $params = [];
 
@@ -19,7 +19,6 @@ class App {
      */
     public function __construct() {
         $url = $this->parseUrl();
-        print_r($url);
 
         //verifico se esiste un controller per la pagina cercata se non esiste rimane il controller home
         if (file_exists('../app/controllers/' . $url[0] . '.php')) {
@@ -33,8 +32,6 @@ class App {
         $this->controller = new $this->controller;
 
 
-
-
         //verifico se il secondo parametro nell'url esiste nel controller essendo la richiesta di un metodo
         if (isset($url[1])) {
             if (method_exists($this->controller,$url[1])) {
@@ -45,11 +42,11 @@ class App {
         }
         //aggiungo i parametri nella variabile se nonci sono lascio array vuoto
         $this->params = $url ? array_values($url) : [];
-        print_r($this->params);
-        //eseguo il metodo $method del controller $controller con i parametri $params
-       call_user_func_array([$this->controller,$this->method],$this->params);
 
-       }
+        //eseguo il metodo $method del controller $controller con i parametri $params
+        call_user_func_array([$this->controller,$this->method],$this->params);
+
+    }
 
     //prende url del prowser e ne crea un array
     public function parseUrl() {
