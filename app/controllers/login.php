@@ -22,7 +22,7 @@ class Login extends Controller {
     }
 
     # Redirects current page to the given URL and optionally sets flash message.
-    function redirect($url,$flash_message = NULL) {
+    protected function redirect($url,$flash_message = NULL) {
         if ($flash_message) {
             $_SESSION["flash"] = $flash_message;
         }
@@ -30,5 +30,7 @@ class Login extends Controller {
         header("Location: $url");
         die;
     }
+
+
 
 }

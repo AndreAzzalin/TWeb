@@ -9,13 +9,33 @@
 class LoginManager {
 
     public function getlogin() {
-        // here goes some hardcoded values to simulate the database
-        if (isset($_POST['username']) && isset($_POST['password'])) {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-            if ($_POST['username'] == 'admin' && $_POST['password'] == 'admin') {
-                return 'login';
-            } else {
-                return 'invalid user';
+            $action = $_POST['action'];
+            $nickname = $_POST['nickname'];
+            $psw = $_POST['password'];
+
+            if ($action == 'signin') {
+
+                if (isset($nickname) && isset($psw)) {
+
+                    if ($nickname == 'admin' && $psw == 'admin') {
+                        return 'login';
+                    } else {
+                        return 'invalid user';
+                    }
+                }
+            }
+
+            if ($_POST['action'] == 'signup') {
+
+                if (isset($nickname) && isset($psw) && isset($rePsw)) {
+                    if (strcmp($_POST['password'],$_POST['repass']) == 0) {
+                        echo 'inserisci psw uguali';
+
+                    }
+
+                }
             }
         }
     }
