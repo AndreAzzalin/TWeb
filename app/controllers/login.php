@@ -9,28 +9,38 @@
 class Login extends Controller {
 
     public function index() {
+        //imposto il model
         $loginManager = $this->model('loginManager');
+        //imposto la view
         $this->view('login/loginPage');
+        //
+        if (isset($_POST['btn-login'])) {
 
-        if ($loginManager->getLogin() == 'login') {
-            $this->redirect('http://localhost/TWeb/public/home/','logged in');
-            exit;
-        }
-        else {
-            echo $loginManager->getLogin();
+            if ($this->sendToModel($loginManager)) {
+                $this->redirect('http://localhost/TWeb/public/home/','logged in');
+            }
         }
     }
 
-    # Redirects current page to the given URL and optionally sets flash message.
-    protected function redirect($url,$flash_message = NULL) {
-        if ($flash_message) {
-            $_SESSION["flash"] = $flash_message;
+    function sendToModel($loginManager) {
+        $user_nickName = trim($_POST['nickname']);
+        $user_password = trim($_POST['password']);
+        session_start();
+        // $password = md5($user_password);
+        if ($loginManager->getLogin($user_nickName,$user_password)) {
+            return true;
         }
-        # session_write_close();
-        header("Location: $url");
-        die;
+        return false;
     }
 
 
 
+    function logout() {
+        session_start();
+        unset($_SESSION['user_session']);
+
+        if (session_destroy()) {
+            header("Location: index.php");
+        }
+    }
 }

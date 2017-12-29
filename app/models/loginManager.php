@@ -6,37 +6,40 @@
  * Time: 21:46
  */
 
-class LoginManager {
+require_once 'DbConfig.php';
 
-    public function getlogin() {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+class loginManager {
 
-            $action = $_POST['action'];
-            $nickname = $_POST['nickname'];
-            $psw = $_POST['password'];
 
-            if ($action == 'signin') {
+    public function getLogin($user_nickname,$password) {
+        $db_host = "localhost";
+        $db_name = "twebdb";
+        $db_user = "root";
+        $db_pass = "";
 
-                if (isset($nickname) && isset($psw)) {
+        try {
+            $db_con = new PDO("mysql:host={$db_host};dbname={$db_name}",$db_user,$db_pass);
+            $db_con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
 
-                    if ($nickname == 'admin' && $psw == 'admin') {
-                        return 'login';
-                    } else {
-                        return 'invalid user';
-                    }
-                }
+        try {
+            $stmt = $db_con->prepare("SELECT * FROM user WHERE user_nickname=:email");
+            $stmt->execute(array(":email" => $user_nickname));
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $count = $stmt->rowCount();
+            if ($row['user_password'] == $password) {
+                $_SESSION['user_session'] = $row['user_id'];
+                return TRUE; // log in
+
+            } else {
+
+                RETURN FALSE; // wrong details
             }
 
-            if ($_POST['action'] == 'signup') {
-
-                if (isset($nickname) && isset($psw) && isset($rePsw)) {
-                    if (strcmp($_POST['password'],$_POST['repass']) == 0) {
-                        echo 'inserisci psw uguali';
-
-                    }
-
-                }
-            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
         }
     }
 }

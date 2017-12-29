@@ -23,5 +23,16 @@
     }
 
 
+# Redirects current page to the given URL and optionally sets flash message.
+  public function redirect($url,$flash_message = 'gay') {
+        if (1) {
+        var_dump( $_SESSION["flash"] = $flash_message)  ;
+        }
+        # session_write_close();
+        header("Location: $url");
+        die;
+    }
+
+
 
 }
