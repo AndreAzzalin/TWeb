@@ -7,8 +7,8 @@
  */
 
 class User{
-    public $name;
-    private $mail;
+    public $nickname;
+    public $psw;
 
 
 

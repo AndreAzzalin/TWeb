@@ -10,9 +10,8 @@ include '../app/views/common/top.html';
     <div class="py-5">
         <h1>TWEB</h1>
         <p>
-            <?= $data['name'] ?>
+            <?= $data['nickname'] , $data['psw'] ?>
         </p>
-
         <a href="#!" class="btn btn-primary">Default Button</a>
 
         <a href="#!" class="btn btn-outline-primary">Outline Button</a>

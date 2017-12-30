@@ -11,6 +11,8 @@ require_once 'DbConfig.php';
 class loginManager {
 
 
+
+
     public function getLogin($user_nickname,$password) {
         $db_host = "localhost";
         $db_name = "twebdb";
@@ -25,21 +27,21 @@ class loginManager {
         }
 
         try {
-            $stmt = $db_con->prepare("SELECT * FROM user WHERE user_nickname=:email");
-            $stmt->execute(array(":email" => $user_nickname));
+            $stmt = $db_con->prepare("SELECT * FROM user WHERE user_nickname=:email AND user_password=:psw");
+            $stmt->execute(array(":email" => $user_nickname,":psw"=>$password));
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             $count = $stmt->rowCount();
-            if ($row['user_password'] == $password) {
+            if ($count) {
                 $_SESSION['user_session'] = $row['user_id'];
+                //var_dump($_SESSION['user_session']);
                 return TRUE; // log in
-
             } else {
 
                 RETURN FALSE; // wrong details
             }
-
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
+        return FALSE;
     }
 }

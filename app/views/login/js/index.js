@@ -1,61 +1,36 @@
-document.querySelector('.img__btn').addEventListener('click', function () {
-    document.querySelector('.cont').classList.toggle('s--signup');
-});
+window.onload = function () {
+    $("#btn-login").click(submitForm);
 
-$('document').ready(function () {
-    /* validation */
-    $("#login-form").validate({
-        rules:
-            {
-                password: {
-                    required: true,
-                },
-                user_email: {
-                    required: true,
-                    email: true
-                },
-            },
-        messages:
-            {
-                password: {
-                    required: "please enter your password"
-                },
-                user_email: "please enter your email address",
-            },
-        submitHandler: submitForm
-    });
-    /* validation */
+}
 
-    /* login submit */
-    function submitForm() {
-        var data = $("#login-form").serialize();
+/* login submit */
+function submitForm() {
+    var data = $("#login-form").serialize();
+    //  alert(data);
 
-        $.ajax({
-
-            type: 'POST',
-            url: 'login_process.php',
-            data: data,
-            beforeSend: function () {
-                $("#error").fadeOut();
-                $("#btn-login").html('<span class="glyphicon glyphicon-transfer"></span> &nbsp; sending ...');
-            },
-            success: function (response) {
-                if (response == "ok") {
-
-                    $("#btn-login").html('<img src="btn-ajax-loader.gif" /> &nbsp; Signing In ...');
-                    setTimeout(' window.location.href = "home.php"; ', 4000);
-                }
-                else {
-
-                    $("#error").fadeIn(1000, function () {
-                        $("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; ' + response + ' !</div>');
-                        $("#btn-login").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In');
-                    });
-                }
+    $.ajax({
+        type: 'POST',
+        url: '/tweb/public/login/checkLogin',
+        data: data,
+        beforeSend: function () {
+            $("#error").fadeOut();
+            $("#btn-login").html('<span class="glyphicon glyphicon-transfer"></span> &nbsp; sending ...');
+        },
+        success: function (response) {
+            if (response === "ok") {
+                $("#btn-login").html('Signing In ...');
+                setTimeout('window.location.href = "/tweb/public/home"; ', 4000);
             }
-        });
-        return false;
-    }
+            else {
 
-    /* login submit */
-});
+                $("#error").fadeIn(1000, function () {
+                    $("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; ' + response + ' !</div>');
+                    $("#btn-login").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In');
+                });
+            }
+        }
+    });
+    return false;
+}
+
+
