@@ -10,13 +10,15 @@
 class Logout extends Controller {
 
     public function index() {
+        session_start();
         //imposto la view
         $this->view('login/loginPage');
-        session_start();
-        unset($_SESSION['user_session']);
+        //session_start();
+        if (isset($_SESSION['nickname'])) {
 
         if (session_destroy()) {
             $this->redirect('http://localhost/TWeb/public/','loggin out');
         }
+    }
     }
 }
