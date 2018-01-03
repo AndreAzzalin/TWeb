@@ -16,9 +16,15 @@ function submitForm() {
             $("#btn-login").html('<span class="glyphicon glyphicon-transfer"></span>  Sending ...');
         },
         success: function (response) {
-            if (response === 'ok') {
+           if (response =='signin') {
+
                 $("#btn-login").html('Signing In ...');
                 setTimeout('window.location.href = "/tweb/public/home/"+$("#email").val(); ', 4000);
+            }else if(response=='signup'){
+                $("#error").fadeIn(4000, function () {
+                    $("#error").html('<div class="alert alert-success"> <span class=""></span> Registrazione effettuata con successo, ora puoi loggare !</div>');
+                    $("#btn-login").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In');
+                });
             }
             else {
                 $("#error").fadeIn(1000, function () {

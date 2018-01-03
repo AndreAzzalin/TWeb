@@ -17,8 +17,9 @@ include '../app/views/common/nav.php';
             <?php
             if (isset($_SESSION)) {
                 var_dump($_SESSION);
+               // var_dump($_COOKIE['User']);
             }
-                       ?>
+            ?>
 
 
         </p>

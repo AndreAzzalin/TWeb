@@ -9,12 +9,16 @@
 class Login extends Controller {
 
     public function index() {
+
         //imposto la view
         $this->view('login/loginPage');
         //inizializzo una sessione appena si accede all'homepage del sito
-   session_start();
-   var_dump($_SESSION);
+        /* $this->sec_session_start();
+           if(isset($_SESSION)){
+               //session_regenerate_id(TRUE);
+               var_dump($_SESSION);
 
+           }*/
     }
 
     //verifico se l'utente vuole registrarsi o fare il login
@@ -23,14 +27,14 @@ class Login extends Controller {
             $this->signIn();
         }
         if ($_POST['action'] == 'signup') {
-            echo 'registrazione';
+           $this->signUp();
         }
     }
 
     function signIn() {
         $loginManager = $this->model('loginManager');
         /* $user_nickName = trim($_POST['nickname']);
-         $user_password = trim($_POST['password']);*/
+        $user_password = trim($_POST['password']);*/
         //  var_dump('btn: '.isset($_POST['btn-login']));
         // var_dump('nick: '.$_POST['nickname']);
         //var_dump('psw: '.$_POST['password']);
@@ -41,16 +45,37 @@ class Login extends Controller {
             $user_password = $_POST['password'];
 
 
-
             //chiedo al metodo del model di verificare le credenziali sul db
-            if ($loginManager->getLogin($user_nickname,$user_password)) {
+            if ($loginManager->checkCredential($user_nickname,$user_password)) {
+                $this->sec_session_start();
+                $_SESSION['User'] = $user_nickname;
                 //$this->redirect('http://localhost/TWeb/public/home/','logged in');
                 //var_dump(   $_SESSION['nickname']);
-                $_SESSION['nickname'] =$user_nickname;
-                echo 'ok';
+                //  $_SESSION['nickname'] =$user_nickname;
+                echo 'signin';
 
             } else
                 echo 'psw o nick errati';
+        }
+    }
+
+    function signUp() {
+        $loginManager = $this->model('loginManager');
+        if (isset($_POST['nickname']) && isset($_POST['password']) && isset($_POST['repass'])) {
+            $user_nickname = $_POST['nickname'];
+            $user_password = $_POST['password'];
+            $response = $loginManager->register($user_nickname,$user_password);
+            switch ($response) {
+                case 'UAE':
+                    echo 'utente già registrato';
+                    break;
+                case true:
+                    echo 'signup';
+                    break;
+                case false:
+                    echo ' errore';
+                    break;
+            }
         }
     }
 

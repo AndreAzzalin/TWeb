@@ -35,7 +35,7 @@ include '../app/views/common/top.html';
 </div>
 </body>
 <?php
-if (isset($_SESSION)) var_dump($_SESSION); ?>
+if (isset($_SESSION) && isset($_COOKIE)){ var_dump($_SESSION); var_dump($_COOKIE['User']); }?>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
