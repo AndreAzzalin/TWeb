@@ -16,17 +16,14 @@ window.onload = function () {
                 },
                 repass: {
                     required: function () {
-                        return $('#signup').is(':checked');
-
+                        return $('#signup').is(':checked')
                     },
                     equalTo: {
-                        param: '#repass',
+                        param: '#pass',
                         depends: function (element) {
                             return $('#signup').is(':checked');
                         }
                     }
-
-
                 }
             },
         messages:
@@ -68,10 +65,10 @@ window.onload = function () {
                 }
                 else {
                     $("#error").fadeIn(1000, function () {
-                        $("#error").html('<div class="alert alert-warning"> &nbsp; ' + response + ' !</div>');
+                        $("#error").html('<label class="alert alert-warning"> &nbsp; ' + response + ' !</label>');
                         $("#btn-login").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In');
                     });
-                    $("#error").fadeOut(2000);
+                    // $("#error").fadeOut(2000);
                 }
             }
         });
