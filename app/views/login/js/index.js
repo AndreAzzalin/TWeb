@@ -51,22 +51,22 @@ window.onload = function () {
             data: data,
             beforeSend: function () {
                 $("#error").fadeOut();
-                $("#btn-login").html('<i class="glyphicon glyphicon-transfer"></i>  Sending ...');
+                $("#btn-login").html('<i class="fa fa-cog fa-spin fa-2x fa-fw"></i> &nbsp; Sending ...');
             },
             success: function (response) {
                 if (response === 'signin') {
-                    $("#btn-login").html('Signing In ...');
+                    $("#btn-login").html('<i class="fa fa-cog fa-spin fa-2x fa-fw"></i>&nbsp; Signing In ...');
                     setTimeout('window.location.href = "/tweb/public/home/"+$("#nickname").val(); ', 4000);
                 } else if (response === 'signup') {
                     $("#error").fadeIn(4000, function () {
                         $("#error").html('<div class="alert alert-success"> Registrazione effettuata con successo, ora puoi loggare !</div>');
-                        $("#btn-login").html('<i class="glyphicon glyphicon-log-in"></i> &nbsp; Sign In');
+                        $("#btn-login").html('Sign In');
                     });
                 }
                 else {
                     $("#error").fadeIn(1000, function () {
                         $("#error").html('<label class="alert alert-warning"> &nbsp; ' + response + ' !</label>');
-                        $("#btn-login").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In');
+                        $("#btn-login").html('Sign In');
                     });
                     // $("#error").fadeOut(2000);
                 }
