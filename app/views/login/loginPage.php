@@ -2,6 +2,7 @@
 include '../app/views/common/top.html';
 ?>
 <link rel="stylesheet" href="../login/css/style.css">
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 
 <script src="../login/js/index.js"></script>
 </head>
@@ -19,7 +20,7 @@ include '../app/views/common/top.html';
         <label for='signup'>Sign up</label>
         <div id='wrapper'>
             <div id='arrow'></div>
-            <input id='email' name="nickname" placeholder='Nickname' type='text' required>
+            <input id='nickname' name="nickname" placeholder='Nickname' type='text' required>
             <input id='pass' name="password" placeholder='Password' type='password' required>
             <input id='repass' name="repass" placeholder='Repeat password' type='password'>
         </div>
@@ -35,10 +36,6 @@ include '../app/views/common/top.html';
 </div>
 </body>
 <?php
-if (isset($_SESSION) && isset($_COOKIE)){ var_dump($_SESSION); var_dump($_COOKIE['User']); }?>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
-
+//if (isset($_SESSION) && isset($_COOKIE)){ var_dump($_SESSION); var_dump($_COOKIE['User']); }?>
 </html>
 

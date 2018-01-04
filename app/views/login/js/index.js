@@ -1,41 +1,82 @@
 window.onload = function () {
-    $("#btn-login").click(submitForm);
-}
 
-/* login submit */
-function submitForm() {
-    var data = $("#login-form").serialize();
+// $("#btn-login").click(submitForm);
+    $("#login-form").validate({
+        errorLabelContainer: $("#error"),
+        rules:
+            {
+                nickname: {
+                    required: true,
+                    // minlength: 3
+                },
+                password: {
+                    required: true,
+                    //minlength:6;
+                    maxlength: 10
+                },
+                repass: {
+                    required: function () {
+                        return $('#signup').is(':checked');
 
-    //invio i dati al controller che li recupera tramire $_POST[]
-    $.ajax({
-        type: 'POST',
-        url: '/tweb/public/login/getAction',
-        data: data,
-        beforeSend: function () {
-            $("#error").fadeOut();
-            $("#btn-login").html('<span class="glyphicon glyphicon-transfer"></span>  Sending ...');
-        },
-        success: function (response) {
-           if (response =='signin') {
+                    },
+                    equalTo: {
+                        param: '#repass',
+                        depends: function (element) {
+                            return $('#signup').is(':checked');
+                        }
+                    }
 
-                $("#btn-login").html('Signing In ...');
-                setTimeout('window.location.href = "/tweb/public/home/"+$("#email").val(); ', 4000);
-            }else if(response=='signup'){
-                $("#error").fadeIn(4000, function () {
-                    $("#error").html('<div class="alert alert-success"> <span class=""></span> Registrazione effettuata con successo, ora puoi loggare !</div>');
-                    $("#btn-login").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In');
-                });
-            }
-            else {
-                $("#error").fadeIn(1000, function () {
-                    $("#error").html('<div class="alert alert-warning"> <span class=""></span> &nbsp; ' + response + ' !</div>');
-                    $("#btn-login").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In');
-                });
-              //  $("#error").fadeOut(2000);
-            }
-        }
+
+                }
+            },
+        messages:
+            {
+                password: {
+                    required: '<div class="alert alert-warning"> please enter your password </div>'
+                },
+                nickname: {
+                    required: '<div class="alert alert-warning"> please enter your email address </div>'
+                }
+            },
+        submitHandler: submitForm
     });
-    return false;
-}
+    /* validation */
 
 
+    /* login submit */
+    function submitForm() {
+        var data = $("#login-form").serialize();
+
+        //funzione che invia e  riceve risposta dal server tramite ajax con metodo post
+        $.ajax({
+            type: 'POST',
+            url: '/tweb/public/login/getAction',
+            data: data,
+            beforeSend: function () {
+                $("#error").fadeOut();
+                $("#btn-login").html('<i class="glyphicon glyphicon-transfer"></i>  Sending ...');
+            },
+            success: function (response) {
+                if (response === 'signin') {
+                    $("#btn-login").html('Signing In ...');
+                    setTimeout('window.location.href = "/tweb/public/home/"+$("#nickname").val(); ', 4000);
+                } else if (response === 'signup') {
+                    $("#error").fadeIn(4000, function () {
+                        $("#error").html('<div class="alert alert-success"> Registrazione effettuata con successo, ora puoi loggare !</div>');
+                        $("#btn-login").html('<i class="glyphicon glyphicon-log-in"></i> &nbsp; Sign In');
+                    });
+                }
+                else {
+                    $("#error").fadeIn(1000, function () {
+                        $("#error").html('<div class="alert alert-warning"> &nbsp; ' + response + ' !</div>');
+                        $("#btn-login").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In');
+                    });
+                    $("#error").fadeOut(2000);
+                }
+            }
+        });
+        return false;
+    }
+
+
+};

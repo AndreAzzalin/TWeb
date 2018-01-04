@@ -28,13 +28,13 @@ class loginManager extends DbManager {
         $stmt->execute([":nickname" => $nickname]);
         $count = $stmt->rowCount();
         if ($count) {
-            return "UAE";
+           return "UAE";
         } else {
             $stmt = $this->db_connection()->prepare("INSERT INTO user (user_nickname, user_password) VALUES (:nickname ,:psw)");
             $stmt->execute([":nickname" => $nickname,":psw" => $password]);
-            return true;
+            return TRUE;
         }
-        return false;
+        return FALSE;
     }
 
 
