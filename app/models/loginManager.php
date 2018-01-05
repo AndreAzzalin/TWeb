@@ -11,12 +11,13 @@ class loginManager extends DbManager {
 
     public function checkCredential($nickname,$password) {
         //usando prepare() si previene sql injection
-        $stmt = $this->db_connection()->prepare("SELECT * FROM user WHERE user_nickname=:nickname AND user_password=:psw LIMIT 1");
-        $stmt->execute([":nickname" => $nickname,":psw" => $password]);
+        $stmt = $this->db_connection()->prepare("SELECT user_nickname,user_password FROM user WHERE user_nickname=:nickname LIMIT 1");
+        $stmt->execute([":nickname" => $nickname]);
+        $row = $stmt->fetch();
         $count = $stmt->rowCount();
         //se esiste almeno 1 utente con nickname verifico se corrisponde la password
         if ($count) {
-            return true; // log in
+           return  password_verify($password,$row['user_password']); // log in
         } else {
             return false; // wrong details
         }
@@ -28,15 +29,16 @@ class loginManager extends DbManager {
         $stmt->execute([":nickname" => $nickname]);
         $count = $stmt->rowCount();
         if ($count) {
-           return "UAE";
+            return "UAE";
         } else {
+            //PASSWORD_DEFAULT che utilizza l'algoritmo bcrypt
+            $hash = password_hash($password,PASSWORD_DEFAULT);
             $stmt = $this->db_connection()->prepare("INSERT INTO user (user_nickname, user_password) VALUES (:nickname ,:psw)");
-            $stmt->execute([":nickname" => $nickname,":psw" => $password]);
-            return TRUE;
+            $stmt->execute([":nickname" => $nickname,":psw" => $hash]);
+            return true;
         }
-        return FALSE;
+        return false;
     }
-
 
 }
 

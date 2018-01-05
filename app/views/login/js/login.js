@@ -1,6 +1,6 @@
 window.onload = function () {
 
-// $("#btn-login").click(submitForm);
+    // uso plugin validator js di jQuery
     $("#login-form").validate({
         errorLabelContainer: $("#error"),
         rules:
@@ -29,18 +29,20 @@ window.onload = function () {
         messages:
             {
                 password: {
-                    required: '<div class="alert alert-warning"> please enter your password </div>'
+                    required: '<div class="alert alert-warning"> Please enter your password </div>'
                 },
                 nickname: {
-                    required: '<div class="alert alert-warning"> please enter your email address </div>'
+                    required: '<div class="alert alert-warning"> Please enter your email address </div>'
+                },
+                repass: {
+                    required: '<div class="alert alert-warning"> Please enter a secure password </div>',
+                    equalTo: '<div class="alert alert-warning"> Please enter the same value again </div>'
+
                 }
             },
         submitHandler: submitForm
     });
-    /* validation */
 
-
-    /* login submit */
     function submitForm() {
         var data = $("#login-form").serialize();
 
@@ -56,7 +58,7 @@ window.onload = function () {
             success: function (response) {
                 if (response === 'signin') {
                     $("#btn-login").html('<i class="fa fa-cog fa-spin fa-2x fa-fw"></i>&nbsp; Signing In ...');
-                    setTimeout('window.location.href = "/tweb/public/home/"+$("#nickname").val(); ', 4000);
+                    setTimeout('window.location.href = "/tweb/public/home/"; ', 4000);
                 } else if (response === 'signup') {
                     $("#error").fadeIn(4000, function () {
                         $("#error").html('<div class="alert alert-success"> Registrazione effettuata con successo, ora puoi loggare !</div>');
@@ -68,7 +70,7 @@ window.onload = function () {
                         $("#error").html('<label class="alert alert-warning"> &nbsp; ' + response + ' !</label>');
                         $("#btn-login").html('Sign In');
                     });
-                    // $("#error").fadeOut(2000);
+                    $("#error").fadeOut(2000);
                 }
             }
         });

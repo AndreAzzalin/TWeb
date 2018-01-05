@@ -5,7 +5,7 @@
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/tweb/public/home">
             <img src="./images/logo.gif" width="100" height="50" alt="">
             SYM
         </a>
@@ -13,7 +13,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-md-0">
                 <li class="nav-item">
-                    <a href="#!" class="btn btn-warning btn-shadow">Artists</a>
+                    <a href="/tweb/public/artists" class="btn btn-warning btn-shadow">Artists</a>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
@@ -56,7 +56,7 @@
                 <div class="dropdown-menu border-warning" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item text-light" href="#">Action</a>
                     <a class="dropdown-item text-light" href="#">Another action</a>
-                    <a class="dropdown-item text-light" href="http://localhost/TWeb/public/logout/">Logout</a>
+                    <a class="dropdown-item text-light" href="/tweb/public/logout/">Logout</a>
                 </div>
             </div>
         </div>

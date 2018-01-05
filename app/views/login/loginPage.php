@@ -4,7 +4,7 @@ include '../app/views/common/top.html';
 <link rel="stylesheet" href="../login/css/style.css">
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 
-<script src="../login/js/index.js"></script>
+<script src="../login/js/login.js"></script>
 </head>
 <body>
 

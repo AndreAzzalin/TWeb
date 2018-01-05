@@ -40,9 +40,8 @@ class Login extends Controller {
                 $this->sec_session_start();
                 $_SESSION['User'] = $user_nickname;
                 echo 'signin';
-
             } else
-                echo 'psw o nick errati';
+                echo 'Password o nickname errati';
         }
     }
 
@@ -52,15 +51,13 @@ class Login extends Controller {
             $user_nickname = $_POST['nickname'];
             $user_password = $_POST['password'];
             $response = $loginManager->register($user_nickname,$user_password);
-            //echo $response;
             if ($response == 1) {
                 echo 'signup';
             } else if ($response === 'UAE') {
-                echo 'utente già registrato';
+                echo 'Utente già registrato';
             }
         }
     }
-
 
 
 }

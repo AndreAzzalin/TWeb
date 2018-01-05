@@ -15,13 +15,7 @@ class Home extends Controller {
         /* session_start();
          if (isset($_SESSION)) {
              session_regenerate_id(true);*/
-        $this->sec_session_start();
-      //  setcookie("User",$nickname);
-        if (!isset($_SESSION['User'])) {
-           //$_SESSION['User'] = $nickname;
-            $this->redirect('http://localhost/TWeb/public/');
-
-        }
+        $this->checkLogin();
         //  }
 
 
@@ -29,7 +23,7 @@ class Home extends Controller {
         // $user = $this->model('User');
         //$user->nickname = $nickname;
         //$user->psw = $psw;
-        $this->view('home/index',['nickname' => $nickname]);
+        $this->view('home/homePage',['nickname' => $nickname]);
 
         //  $this->sec_session_start($nickname);
     }
