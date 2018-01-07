@@ -43,6 +43,7 @@ window.onload = function () {
         submitHandler: submitForm
     });
 
+    //dividere le funzioni on success on fail...
     function submitForm() {
         var data = $("#login-form").serialize();
 
