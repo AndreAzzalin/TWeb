@@ -3,31 +3,27 @@ window.onload = function () {
 };
 
 function loadAll() {
-
     $.ajax({
         type: 'GET',
         url: 'package.json',
         dataType: 'json',
         success: function (data) {
 
-
             $.each(data, function (i) {
+
                 var loveBtn = 'loveBtn_' + data[i].titolo;
                 var $block = $(' <div class="grid-item">\n' +
                     '            <img href="#" src="' + data[i].src + '" />\n' +
                     '            <div class="grid-item-color">\n' +
                     '                <span class="bottom-left">\n' +
-                    '              <a href="homePage.php">' + data[i].titolo + ' </a>\n' +
+                    '              <a href="/tweb/public/home/' + data[i].titolo + '">' + data[i].titolo + ' </a>\n' +
                     '               </span>\n' +
                     '                <a href="http://localhost/tweb/public/home/#" class="top-right">' +
                     '                <i id="' + loveBtn + '" class="top-right fa fa-heart-o fa-3x"></i></a>\n' +
                     '            </div>\n' +
                     '        </div>');
-                //var $Block = $(block);
-                //$('grid').append(' <div class="grid-item"> <img href="#" src="' + data[i].src + '" /> <div class="grid-item-color"><span class="bottom-left"> <a href="homePage.php">' + data[i].titolo + ' </a> </span>  <a href="homePage.php" class="top-right"><i class="fa fa-heart-o fa-3x"></i></a></div> </div> ');
+
                 $('div.grid').append($block);
-                // $('.grid').masonry('appended',block);
-                // $('.grid')
                 console.log(loveBtn);
                 $('#' + loveBtn).click(pin);
             });
@@ -45,14 +41,10 @@ function pin() {
             $("#msg").html('<label class="alert alert-warning"> u love it, see all in your account page</label>');
         });
         $("#msg").fadeOut(2500);
-
     } else {
         $($this).removeClass('fa-heart');
         $($this).addClass('fa-heart-o');
-
     }
-
-
 }
 
 function initMasonry() {
@@ -65,5 +57,12 @@ function initMasonry() {
     $grid.imagesLoaded().progress(function () {
         $grid.masonry();
     });
+}
 
+//funzione che invia tramite ajax richiesta al server di aggiongerre l'immagine x tra i preferiti dell'utente $_SESSION['User']
+function loveIt(titolo){
+};
+
+//funzione che cliccando sul titolo dell'immagine verrà indirizzata a un metodo del controller /tweb/public/home/titolo
+function getImagePage(titolo) {
 }

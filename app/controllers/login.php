@@ -25,13 +25,7 @@ class Login extends Controller {
 
     function signIn() {
         $loginManager = $this->model('loginManager');
-        /* $user_nickName = trim($_POST['nickname']);
-        $user_password = trim($_POST['password']);*/
-        //  var_dump('btn: '.isset($_POST['btn-login']));
-        // var_dump('nick: '.$_POST['nickname']);
-        //var_dump('psw: '.$_POST['password']);
-        //var_dump('repsw: '.$_POST['repass']);
-        //var_dump('action: '. $_POST['action']);
+
         if (isset($_POST['nickname']) && isset($_POST['password'])) {
             $user_nickname = $_POST['nickname'];
             $user_password = $_POST['password'];
@@ -41,7 +35,7 @@ class Login extends Controller {
                 $_SESSION['User'] = $user_nickname;
                 echo 'signin';
             } else
-                echo 'Password o nickname errati';
+                echo 'Wrong nickname or password';
         }
     }
 
@@ -54,7 +48,7 @@ class Login extends Controller {
             if ($response == 1) {
                 echo 'signup';
             } else if ($response === 'UAE') {
-                echo 'Utente già registrato';
+                echo 'Nickname already exist';
             }
         }
     }

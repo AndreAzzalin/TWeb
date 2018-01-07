@@ -34,8 +34,8 @@
 
 .grid-item img {
     display: block;
-   // max-width: 100%;
-   width: 100%;
+/ / max-width: 100 %;
+    width: 100%;
 }
 
 .grid-item .grid-item-color {
@@ -95,12 +95,14 @@ a {
     text-align: center;
     font-size: large;
 }
+
 .top-right {
     position: absolute;
     top: 8px;
     right: 16px;
 }
-.alert-warning{
-   width: 100%;
+
+.alert-warning {
+    width: 100%;
     text-align: center;
 }
