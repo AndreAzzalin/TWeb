@@ -17,7 +17,7 @@ class loginManager extends DbManager {
         $count = $stmt->rowCount();
         //se esiste almeno 1 utente con nickname verifico se corrisponde la password
         if ($count) {
-           return  password_verify($password,$row['user_password']); // log in
+            return password_verify($password,$row['user_password']); // log in
         } else {
             return false; // wrong details
         }

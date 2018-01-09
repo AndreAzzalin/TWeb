@@ -5,18 +5,20 @@ window.onload = function () {
 function loadAll() {
     $.ajax({
         type: 'GET',
-        url: 'package.json',
+        url: '/tweb/public/home/memesToJson/',
         dataType: 'json',
         success: function (data) {
-
+            console.log(data);
             $.each(data, function (i) {
+                console.log(data[i]);
+                var loveBtn = 'loveBtn_' + data[i].title;
+                var src ="/tweb/public/media/"+ data[i].title +".gif";
 
-                var loveBtn = 'loveBtn_' + data[i].titolo;
                 var $block = $(' <div class="grid-item">\n' +
-                    '            <img href="#" src="' + data[i].src + '" />\n' +
+                    '            <img href="#" src="/tweb/public/media/' + data[i].title + '.gif" />\n' +
                     '            <div class="grid-item-color">\n' +
                     '                <span class="bottom-left">\n' +
-                    '              <a href="/tweb/public/home/' + data[i].titolo + '">' + data[i].titolo + ' </a>\n' +
+                    '              <a href="/tweb/public/media/'+ data[i].title +'.gif">' + data[i].title + ' </a>\n' +
                     '               </span>\n' +
                     '                <a href="http://localhost/tweb/public/home/#" class="top-right">' +
                     '                <i id="' + loveBtn + '" class="top-right fa fa-heart-o fa-3x"></i></a>\n' +

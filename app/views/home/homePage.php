@@ -20,10 +20,13 @@ include '../app/views/common/top.html';
 include '../app/views/common/nav.php';
 ?>
 
+
+
 <!--<button id="ajax" name="btn-login" class="btn btn-warning btn-shadow" type='submit'>ajax</button>-->
 
 <div class="container">
     <h1>ALL MEMES</h1>
+
     <div id="msg"></div>
     <div class="grid">
         <div class="grid-sizer"></div>

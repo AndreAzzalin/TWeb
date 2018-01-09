@@ -24,8 +24,18 @@ class Home extends Controller {
         //$user->nickname = $nickname;
         //$user->psw = $psw;
         $this->view('home/homePage',['nickname' => $nickname]);
+        $this->memesToJson();
 
         //  $this->sec_session_start($nickname);
+    }
+
+    public function memesToJson(){
+        $mediaManager = $this->model('mediaManager');
+        $memes =  $mediaManager->getAllMemes();
+        //var_dump($memes);
+        foreach ($memes as $meme) {
+            echo json_encode($meme);
+        }
     }
 
 }
