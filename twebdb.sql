@@ -1,22 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Creato il: Gen 08, 2018 alle 00:02
--- Versione del server: 10.1.25-MariaDB
--- Versione PHP: 7.1.7
+-- Host: localhost:3306
+-- Creato il: Gen 10, 2018 alle 17:08
+-- Versione del server: 5.6.35
+-- Versione PHP: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `twebdb`
@@ -25,42 +17,61 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `user`
+-- Struttura della tabella `memes`
 --
 
-CREATE TABLE `user` (
-  `user_id` int(11) NOT NULL,
-  `user_nickname` varchar(25) NOT NULL,
-  `user_password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `memes` (
+  `id` int(11) NOT NULL,
+  `title` varchar(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
 
 --
--- Dump dei dati per la tabella `user`
+-- Struttura della tabella `users`
 --
 
-INSERT INTO `user` (`user_id`, `user_nickname`, `user_password`) VALUES
-(1, 'admin', '$2y$10$nV7Hv5J1eExJ9AlnCxtmVuNDtGgcyUiwU8hlw4kbAUizFHo/weU/q');
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `nickname` varchar(16) NOT NULL,
+  `psw` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dump dei dati per la tabella `users`
+--
+
+INSERT INTO `users` (`id`, `nickname`, `psw`) VALUES
+(1, 'a', '$2y$10$DPL371.A9iyFPDvNOFbrr.9cu9JdqurxocUid62oAgdkNYveP8APK'),
+(2, 'admin', '$2y$10$Pc1ELQt4Jr2bB06EElg8XuzMQ/3ZxUNYQFQ.ctjwu29MHKkyiCTCu');
 
 --
 -- Indici per le tabelle scaricate
 --
 
 --
--- Indici per le tabelle `user`
+-- Indici per le tabelle `memes`
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`);
+ALTER TABLE `memes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indici per le tabelle `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT per le tabelle scaricate
 --
 
 --
--- AUTO_INCREMENT per la tabella `user`
+-- AUTO_INCREMENT per la tabella `memes`
 --
-ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ALTER TABLE `memes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT per la tabella `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
