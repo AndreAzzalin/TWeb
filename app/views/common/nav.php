@@ -36,9 +36,9 @@
                 </li>-->
             </ul>
 
-            <form class="form-inline my-2 my-lg-0">
+           <!-- <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            </form>
+            </form>-->
 
             <div class="dropdown my-2 my-lg-0">
                 <button class="btn btn-danger  btn-shadow " type="button" id="dropdownMenuButton" data-toggle="dropdown"

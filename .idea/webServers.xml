@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="6c8d057f-d8e5-4d5e-95e4-511157ea84fc" name="xamp" url="http://localhost/TWeb">
-        <fileTransfer port="0" mountedRoot="C:\xampp\htdocs\TWeb" accessType="MOUNT" />
+      <webServer id="6c8d057f-d8e5-4d5e-95e4-511157ea84fc" name="xamp" url="http://localhost/">
+        <fileTransfer port="0" mountedRoot="$APPLICATION_HOME_DIR$/bin/C:\xampp\htdocs\" accessType="MOUNT" />
       </webServer>
     </option>
   </component>

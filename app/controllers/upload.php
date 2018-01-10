@@ -11,7 +11,6 @@ class Upload extends Controller{
 
     public function index() {
 
-
         $this->checkLogin();
 
         $this->view('upload/uploadPage');

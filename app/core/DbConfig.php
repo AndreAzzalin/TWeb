@@ -9,6 +9,9 @@
 define ("DB_HOST", "localhost");
 define ("DB_NAME", "twebdb");
 define ("DB_USER", "root");
-define ("DB_PASSWORD", "");
+//XAMPP
+//    define ("DB_PASSWORD", "root");
+//MAMP
+define ("DB_PASSWORD", "root");
 
 
