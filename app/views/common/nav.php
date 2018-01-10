@@ -29,11 +29,11 @@
                     </div>
                 </li>
                 <li class="nav-ite">
-                    <a href="#!" class="btn btn-success btn-shadow">Upload</a>
+                    <a href="/tweb/public/upload" class="btn btn-success btn-shadow">Upload</a>
                 </li>
-                <li class="nav-item">
+             <!--   <li class="nav-item">
                     <a href="#!" class="btn btn-light btn-shadow">Create</a>
-                </li>
+                </li>-->
             </ul>
 
             <form class="form-inline my-2 my-lg-0">

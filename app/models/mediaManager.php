@@ -24,10 +24,8 @@ class MediaManager extends DbManager {
         $stmt = $this->db_connection()->prepare("SELECT title FROM memes");
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // var_dump($rows);
         $memes['memes'] = $rows;
         return $memes;
-
     }
 
 }
