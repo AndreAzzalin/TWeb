@@ -14,11 +14,16 @@ include '../app/views/common/top.html';
 
 
 </head>
+<?php
+
+?>
 
 <style>
 
+
+
     .file-upload {
-        background-color: #ffffff;
+        background-color: #32334a;
         width: 600px;
         margin: 0 auto;
         padding: 20px;
@@ -69,14 +74,23 @@ include '../app/views/common/top.html';
 
     .image-upload-wrap {
         margin-top: 20px;
-        border: 4px dashed #1FB264;
+        border: 4px dashed #dbebfb;
         position: relative;
+
+
     }
 
+    .file-upload,.image-dropping,
+    .image-upload-wrap{
+        border-radius: 5px;
+        width:100%
+    }
     .image-dropping,
     .image-upload-wrap:hover {
-        background-color: #1FB264;
-        border: 4px dashed #ffffff;
+        background-color: 	rgba(255, 193, 7,0.8);
+        border: 4px dashed #dbebfb;
+        border-radius: 5px;
+
     }
 
     .image-title-wrap {
@@ -91,7 +105,7 @@ include '../app/views/common/top.html';
     .drag-text h3 {
         font-weight: 100;
         text-transform: uppercase;
-        color: #15824B;
+        color: #dbebfb;
         padding: 60px 0;
     }
 
@@ -127,7 +141,15 @@ include '../app/views/common/top.html';
     .remove-image:active {
         border: 0;
         transition: all .2s ease;
-    }</style>
+    }
+
+ #btn_add{
+
+     width: 100%;
+
+
+ }
+</style>
 
 <?php
 include '../app/views/common/nav.php';
@@ -140,8 +162,10 @@ include '../app/views/common/nav.php';
     <h1>UPLOAD</h1>
 
     <div class="file-upload">
-        <button id='btn_add' class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image
+        <button id='btn_add' class="btn btn-success btn-shadow btn-lg" type="button" onclick="$('.file-upload-input').trigger( 'click' )">
+            Add Image
         </button>
+
 
         <div class="image-upload-wrap">
             <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*"/>
@@ -152,7 +176,7 @@ include '../app/views/common/nav.php';
         <div class="file-upload-content">
             <img class="file-upload-image" src="#" alt="your image"/>
             <div class="image-title-wrap">
-                <button id="btn_remove" type="button"  class="remove-image">Remove <span class="image-title">Uploaded Image</span>
+                <button id="btn_remove" type="button" class="remove-image">Remove <span class="image-title">Uploaded Image</span>
                 </button>
             </div>
         </div>
@@ -163,12 +187,17 @@ include '../app/views/common/nav.php';
 <script>
 
     window.onload = function () {
-      $('#btn_remove').click(removeUpload);
-      $('#btn_add').click(readURL);
+        $('#btn_remove').click(removeUpload);
+        // $('#btn_add').click(readURL);
+        //$('.file-upload-input').change(readURL(this));
+
+
     };
 
 
     function readURL(input) {
+        // var input = $(this);
+
         if (input.files && input.files[0]) {
 
             var reader = new FileReader();
@@ -182,12 +211,16 @@ include '../app/views/common/nav.php';
                 $('.image-title').html(input.files[0].name);
             };
 
-            reader.readAsDataURL(input.files[0]);
+
+            return  reader.readAsDataURL(input.files[0]);
 
         } else {
             removeUpload();
         }
     }
+
+
+
 
     //quando clicco su pulsante rimuovi img
     function removeUpload() {
