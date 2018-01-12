@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/TWeb.iml" filepath="$PROJECT_DIR$/.idea/TWeb.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../tweb_Lab/.idea/tweb.iml" filepath="$PROJECT_DIR$/../tweb_Lab/.idea/tweb.iml" />
     </modules>
   </component>
 </project>

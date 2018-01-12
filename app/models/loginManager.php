@@ -11,11 +11,8 @@ class loginManager extends DbManager {
 
     public function checkCredential($nickname,$password) {
         //usando prepare() si previene sql injection
-
         $stmt = $this->db_connection()->prepare("SELECT nickname,psw FROM users WHERE nickname=:nickname LIMIT 1");
-
         $stmt->execute([":nickname" => $nickname]);
-
         $row = $stmt->fetch();
         $count = $stmt->rowCount();
 
@@ -30,7 +27,7 @@ class loginManager extends DbManager {
     public function register($nickname,$password) {
         //se utente esiste già ritorna UAE altrimenti TRUE o FALSE
         $stmt = $this->db_connection()->prepare("SELECT * FROM users WHERE nickname=:nickname LIMIT 1");
-         $stmt->execute([":nickname" => $nickname]);
+        $stmt->execute([":nickname" => $nickname]);
         $count = $stmt->rowCount();
         if ($count) {
             return "UAE";

@@ -71,7 +71,7 @@ window.onload = function () {
                         $("#error").html('<label class="alert alert-warning"> &nbsp; ' + response + ' !</label>');
                         $("#btn-login").html('Sign In');
                     });
-                    $("#error").fadeOut(2000);
+                   // $("#error").fadeOut(2000);
                 }
             }
         });

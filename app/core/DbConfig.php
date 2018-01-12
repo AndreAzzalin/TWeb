@@ -6,12 +6,12 @@
  */
 
 //DEFINISCO PARAMTRI DB COME COSTANTI
-define ("DB_HOST", "localhost");
-define ("DB_NAME", "twebdb");
-define ("DB_USER", "root");
+define("DB_HOST","localhost");
+define("DB_NAME","twebdb");
+define("DB_USER","root");
 //XAMPP
-//    define ("DB_PASSWORD", "root");
+define("DB_PASSWORD","");
 //MAMP
-define ("DB_PASSWORD", "root");
+//define ("DB_PASSWORD", "root");
 
 
