@@ -39,7 +39,7 @@ function pin() {
     if ($this.hasClass('fa-heart-o')) {
         $($this).removeClass('fa-heart-o');
         $($this).addClass('fa-heart');
-        $("#msg").fadeIn(1000, function () {
+        $("#msg").fadeIn(2000, function () {
             $("#msg").html('<label class="alert alert-warning"> u love it, see all in your account page</label>');
         });
         $("#msg").fadeOut(2500);

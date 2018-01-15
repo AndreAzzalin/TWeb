@@ -1,6 +1,4 @@
 <?php
-
-
 include '../app/views/common/top.html';
 ?>
 <link rel="stylesheet" href="../home/css/home.css">

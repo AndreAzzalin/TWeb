@@ -9,8 +9,46 @@ window.onload = function () {
         readURL(e.target);
     });
 
+    $("#upload_form").validate({
+        errorLabelContainer: $("#msg"),
+        rules:
+            {
+                title: {
+                    required: true,
+                    // minlength: 3
+                } },
+
+        messages:
+            {
+                title: {
+                    required: '<div class="alert alert-warning"> Please enter your title </div>'
+                }
+
+            },
+        submitHandler: submitGif
+    });
+
 
 };
+
+function submitGif(){
+    var data = $("#upload_form").serialize();
+    $('input[type="file"]').val();
+    console.log(data);console.log($('input[type="file"]').val());
+
+    //funzione che invia e  riceve risposta dal server tramite ajax con metodo post
+    $.ajax({
+        type: 'POST',
+        url: '/tweb/public/login/getAction',
+        data: data,
+        beforeSend: function () {
+            $("#msg").fadeOut();
+        },
+        success: alert(data)
+    });
+    return false;
+
+}
 
 
 function readURL(input) {

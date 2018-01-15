@@ -2,7 +2,7 @@ window.onload = function () {
 
     // uso plugin validator js di jQuery
     $("#login-form").validate({
-        errorLabelContainer: $("#error"),
+        errorLabelContainer: $("#msg"),
         rules:
             {
                 nickname: {
@@ -53,7 +53,7 @@ window.onload = function () {
             url: '/tweb/public/login/getAction',
             data: data,
             beforeSend: function () {
-                $("#error").fadeOut();
+                $("#msg").fadeOut();
                 $("#btn-login").html('<i class="fa fa-cog fa-spin fa-2x fa-fw"></i> &nbsp; Sending ...');
             },
             success: function (response) {
@@ -61,17 +61,17 @@ window.onload = function () {
                     $("#btn-login").html('<i class="fa fa-cog fa-spin fa-2x fa-fw"></i>&nbsp; Signing In ...');
                     setTimeout('window.location.href = "/tweb/public/home/"; ', 4000);
                 } else if (response === 'signup') {
-                    $("#error").fadeIn(4000, function () {
-                        $("#error").html('<div class="alert alert-success"> Registrazione effettuata con successo, ora puoi loggare !</div>');
+                    $("#msg").fadeIn(4000, function () {
+                        $("#msg").html('<div class="alert alert-success"> Registrazione effettuata con successo, ora puoi loggare !</div>');
                         $("#btn-login").html('Sign In');
                     });
                 }
                 else {
-                    $("#error").fadeIn(1000, function () {
-                        $("#error").html('<label class="alert alert-warning"> &nbsp; ' + response + ' !</label>');
+                    $("#msg").fadeIn(1000, function () {
+                        $("#msg").html('<label class="alert alert-warning"> &nbsp; ' + response + ' !</label>');
                         $("#btn-login").html('Sign In');
                     });
-                   // $("#error").fadeOut(2000);
+                   // $("#msg").fadeOut(2000);
                 }
             }
         });

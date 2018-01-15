@@ -8,8 +8,8 @@ include '../app/views/common/top.html';
 </head>
 <body>
 
-<div id="error">
-    <!-- l'errore verrà visualizzato in questo div -->
+<div id="msg">
+    <!-- l'msge verrà visualizzato in questo div -->
 </div>
 
 <div class="container">
