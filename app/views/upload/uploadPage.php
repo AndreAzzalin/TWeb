@@ -29,15 +29,16 @@ include '../app/views/common/nav.php';
     <div id="msg">
         <!-- l'msge verrà visualizzato in questo div -->
     </div>
-    <form id="upload_form">
+
+    <form enctype="multipart/form-data" id="upload_form">
         <div class="file-upload">
-            <button id='btn_add' class="btn btn-success btn-shadow btn-lg" type="button">
+            <button id='btn_add' class="btn btn-warning btn-shadow btn-lg" type="button">
                 Add Image
             </button>
 
 
             <div class="image-upload-wrap">
-                <input id="file" class="file-upload-input" type='file' accept="image/*"/>
+                <input name="file" id="file" class="file-upload-input" type='file' accept="image/*"/>
                 <div class="drag-text">
                     <h3>Drag and drop a file or select add Image</h3>
                 </div>
@@ -51,28 +52,28 @@ include '../app/views/common/nav.php';
                     </button>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                    <h3>Title</h3>
+                    <input name="title" class="form-control" type="text" placeholder="Title.." id="titile" required>
+                    </p>
+                </div>
 
-            <p>
-            <h3>Title</h3>
-            <input name="title" class="form-control" type="text" placeholder="Text input" id="titile" required>
-            </p>
-            <p>
-            <h3>Category</h3>
-            <select class="custom-select">
-                <option selected="">category1</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-            </p>
-            <h3>Category</h3>
-            <div class="custom-control custom-radio">
-                <input type="checkbox"id="customCheck1">
-                <label type="checkbox" class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+                <div class="checkbox col-md-6 col-sx-6 ">
+                    <p>
+                    <h3>Category</h3>
+                    <input name="cat[]" type="checkbox" id="category" class="custom-control-label" value="animals">
+                    <label type="checkbox" for="animals">Animals</label>
 
+                    <input name="cat[]" type="checkbox" id="category" class="custom-control-label" value="emoticons">
+                    <label type="checkbox" for="emoticons">Emoticons</label>
+
+                    <input name="cat[]" type="checkbox" id="category" class="custom-control-label" value="memes">
+                    <label type="checkbox" for="memes">Memes</label>
+                    </p>
+                </div>
             </div>
-
-
             <p>
                 <button id='btn_upload' class="btn btn-success btn-shadow btn-lg" type="submit">
                     Upload image
@@ -80,6 +81,7 @@ include '../app/views/common/nav.php';
             </p>
 
         </div>
+
     </form>
 </div>
 

@@ -69,7 +69,7 @@
 
 .image-dropping,
 .image-upload-wrap:hover {
-    background-color: rgba(255, 193, 7, 0.8);
+    background-color: rgba(111, 66, 193, 0.8);
     border: 4px dashed #dbebfb;
     border-radius: 5px;
 
@@ -128,5 +128,24 @@
 #btn_add, #btn_remove {
     margin: auto;
     width: 100%;
+
+}
+
+p, h3 {
+    text-align: center;
+}
+
+p {
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.checkbox {
+    text-align: center;
+}
+
+.custom-control-label {
+    margin: 4px;
 
 }

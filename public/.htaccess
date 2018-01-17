@@ -2,7 +2,7 @@ Options -MultiViews
 
 RewriteEngine on
 
-RewriteBase /TWeb/public
+RewriteBase /TWeb/public/
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

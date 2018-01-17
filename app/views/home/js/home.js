@@ -12,13 +12,13 @@ function loadAll() {
             $.each(data, function (i) {
                 console.log(data[i]);
                 var loveBtn = 'loveBtn_' + data[i].title;
-                var src ="/tweb/public/media/"+ data[i].title +".gif";
+                var src ="/tweb/app/uploads/"+ data[i].src +".gif";
 
                 var $block = $(' <div class="grid-item">\n' +
-                    '            <img href="#" src="/tweb/public/media/' + data[i].title + '.gif" />\n' +
+                    '            <img href="#" src="'+src+'" />\n' +
                     '            <div class="grid-item-color">\n' +
                     '                <span class="bottom-left">\n' +
-                    '              <a href="/tweb/public/media/'+ data[i].title +'.gif">' + data[i].title + ' </a>\n' +
+                    '              <a href="./app/uploads/'+ data[i].src +'.gif">' + data[i].title + ' </a>\n' +
                     '               </span>\n' +
                     '                <a href="http://localhost/tweb/public/home/#" class="top-right">' +
                     '                <i id="' + loveBtn + '" class="top-right fa fa-heart-o fa-3x"></i></a>\n' +
@@ -35,18 +35,18 @@ function loadAll() {
 }
 
 function pin() {
-    var $this = $(this);
-    if ($this.hasClass('fa-heart-o')) {
-        $($this).removeClass('fa-heart-o');
-        $($this).addClass('fa-heart');
-        $("#msg").fadeIn(2000, function () {
-            $("#msg").html('<label class="alert alert-warning"> u love it, see all in your account page</label>');
-        });
-        $("#msg").fadeOut(2500);
-    } else {
-        $($this).removeClass('fa-heart');
-        $($this).addClass('fa-heart-o');
-    }
+        var $this = $(this);
+        if ($this.hasClass('fa-heart-o')) {
+            $($this).removeClass('fa-heart-o');
+            $($this).addClass('fa-heart');
+            $("#msg").fadeIn(2000, function () {
+                $("#msg").html('<label class="alert alert-warning"> u love it, see all in your account page</label>');
+            });
+            $("#msg").fadeOut(2500);
+        } else {
+            $($this).removeClass('fa-heart');
+            $($this).addClass('fa-heart-o');
+        }
 }
 
 function initMasonry() {

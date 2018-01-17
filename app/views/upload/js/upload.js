@@ -1,8 +1,7 @@
-
 window.onload = function () {
     $('#btn_remove').click(removeUpload);
-    $('#btn_add').click(function(){
-        $('.file-upload-input').trigger( 'click' )
+    $('#btn_add').click(function () {
+        $('.file-upload-input').trigger('click')
     });
     $('input[type="file"]').change(function (e) {
         //ritorna il file
@@ -16,14 +15,29 @@ window.onload = function () {
                 title: {
                     required: true,
                     // minlength: 3
-                } },
+                },
+                file: {
+                    required: true,
+                    // minlength: 3
+                },
+                'cat[]': {
+                    required: true,
+                    maxlength: 2
+                }
+            },
 
         messages:
             {
                 title: {
                     required: '<div class="alert alert-warning"> Please enter your title </div>'
+                },
+                file: {
+                    required: '<div class="alert alert-warning"> Please enter your file </div>'
+                },
+                'cat[]': {
+                    required: '<div class="alert alert-warning">You must check at least 1 category </div>',
+                    maxlength: '<div class="alert alert-warning">Check no more than {0} boxes </div>'
                 }
-
             },
         submitHandler: submitGif
     });
@@ -31,22 +45,41 @@ window.onload = function () {
 
 };
 
-function submitGif(){
-    var data = $("#upload_form").serialize();
-    $('input[type="file"]').val();
-    console.log(data);console.log($('input[type="file"]').val());
+function submitGif() {
+    //$("#upload_form").serialize();
+    var form = $('#upload_form')[0];
+    var data = new FormData(form);
+
+    console.log(data); //
+    // console.log($('input[type="file"]').val());
+
 
     //funzione che invia e  riceve risposta dal server tramite ajax con metodo post
     $.ajax({
         type: 'POST',
-        url: '/tweb/public/login/getAction',
+        url: '/tweb/public/upload/getNewGif',
         data: data,
+        contentType: false,
+        cache: false,
+        processData: false,
         beforeSend: function () {
             $("#msg").fadeOut();
         },
-        success: alert(data)
+        success: function (response) {
+            if (response == 1) {
+                $("#msg").fadeIn(1000, function () {
+                    $("#msg").html('<label class="alert alert-success"> &nbsp; Upload successfull!</label>');
+                });
+            } else {
+                $("#msg").fadeIn(1000, function () {
+                    $("#msg").html('<label class="alert alert-warning"> &nbsp; '+ response+'</label>');
+                });
+            }
+         //   $("#msg").fadeOut(2000);
+
+        }
     });
-    return false;
+    //return false;
 
 }
 

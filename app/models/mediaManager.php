@@ -11,21 +11,46 @@ require_once '../app/core/DbManager.php';
 class MediaManager extends DbManager {
 
     function getAllMemes() {
-        $stmt = $this->db_connection()->prepare("SELECT title FROM memes");
+        $stmt = $this->db_connection()->prepare("SELECT src FROM gifs");
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-       // var_dump($rows);
-        $memes['memes'] = $rows;
-        return $memes;
+        // var_dump($rows);
+        $gifs['src'] = $rows;
+
+        return $gifs;
 
     }
 
-    function getCategory($category){
-        $stmt = $this->db_connection()->prepare("SELECT title FROM memes");
+    function getCategory($category) {
+        $stmt = $this->db_connection()->prepare("SELECT title FROM gifs");
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $memes['memes'] = $rows;
         return $memes;
     }
+
+    function existTitle($title) {
+        $stmt = $this->db_connection()->prepare("SELECT title FROM gifs WHERE title=:title LIMIT 1");
+        $stmt->execute([":title" => $title]);
+        // $row = $stmt->fetch();
+        $count = $stmt->rowCount();
+        if ($count) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function uploadToDb($title,$src,$owner) {
+
+        $stmt = $this->db_connection()->prepare("INSERT INTO gifs (title, src,owner)  VALUES (:title,:src,:owner)");
+        $stmt->bindParam(':title',$title);
+        $stmt->bindParam(':src',$src);
+        $stmt->bindParam(':owner',$owner);
+        return $stmt->execute();
+
+
+    }
+
 
 }

@@ -49,5 +49,12 @@ class Controller {
         }
     }
 
+    protected function getUser() {
+        $this->sec_session_start();
+        if (isset($_SESSION['User'])) {
+            return $_SESSION['User'];
+        }
+    }
+
 
 }
