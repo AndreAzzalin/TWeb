@@ -11,7 +11,7 @@ require_once '../app/core/DbManager.php';
 class MediaManager extends DbManager {
 
     function getAllMemes() {
-        $stmt = $this->db_connection()->prepare("SELECT src FROM gifs");
+        $stmt = $this->db_connection()->prepare("SELECT title,src FROM gifs");
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         // var_dump($rows);

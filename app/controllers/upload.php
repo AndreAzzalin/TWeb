@@ -50,7 +50,7 @@ class Upload extends Controller {
             } else {
                 echo 'Title already exist';
             }
-        }
+        } else 'niente file';
 
 
     }
