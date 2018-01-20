@@ -1,0 +1,6 @@
+<DbConfig>
+    <host>localhost</host>
+    <db>tweb</db>
+    <user>root</user>
+    <psw>root</psw>
+</DbConfig>

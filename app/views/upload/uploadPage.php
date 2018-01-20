@@ -6,9 +6,6 @@ include '../app/views/common/top.html';
 <title>Upload - TWeb</title>
 
 
-<!--<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>-->
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script src="../upload/js/upload.js"></script>
 
@@ -35,7 +32,6 @@ include '../app/views/common/nav.php';
             <button id='btn_add' class="btn btn-warning btn-shadow btn-lg" type="button">
                 Add Image
             </button>
-
 
             <div class="image-upload-wrap">
                 <input name="file" id="file" class="file-upload-input" type='file' accept="image/*"/>

@@ -11,7 +11,7 @@ class Artists extends Controller {
     public function index() {
         $this->checkLogin();
 
-        $this->view('artists/index');
+        $this->view('artists/artistPage');
     }
 
 

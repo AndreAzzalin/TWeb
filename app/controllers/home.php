@@ -10,32 +10,28 @@ class Home extends Controller {
 
     //posso passare all'index name e other come parametri
     public function index($nickname = null) {
-
-
-        /* session_start();
-         if (isset($_SESSION)) {
-             session_regenerate_id(true);*/
         $this->checkLogin();
-        //  }
-
-
-        //verificare cin setName
-        // $user = $this->model('User');
-        //$user->nickname = $nickname;
-        //$user->psw = $psw;
         $this->view('home/homePage',['nickname' => $nickname]);
-        $this->memesToJson();
-
-        //  $this->sec_session_start($nickname);
     }
 
-    public function memesToJson(){
+    public function memesToJson() {
         $mediaManager = $this->model('mediaManager');
-        $memes =  $mediaManager->getAllMemes();
-        //var_dump($memes);
+        $memes = $mediaManager->getAllGifs($this->getUser());
         foreach ($memes as $meme) {
-            echo json_encode($meme);
+             echo json_encode($meme);
         }
+    }
+
+    function favGif() {
+        $mediaManager = $this->model('mediaManager');
+        if (isset($_POST['id'])) {
+            $id = $_POST['id'];
+            if ($mediaManager->favGifToDb($this->getUser(),$id)) {
+                echo 'u love it, see all in your account page';
+            }
+        } else echo 'Error on favorite';
+
+
     }
 
 }

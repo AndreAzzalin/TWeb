@@ -54,8 +54,7 @@
                 </button>
 
                 <div class="dropdown-menu border-warning" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item text-light" href="#">Action</a>
-                    <a class="dropdown-item text-light" href="#">Another action</a>
+                    <a class="dropdown-item text-light" href="#">My space</a>
                     <a class="dropdown-item text-light" href="/tweb/public/logout/">Logout</a>
                 </div>
             </div>

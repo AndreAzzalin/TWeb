@@ -54,11 +54,11 @@ window.onload = function () {
             data: data,
             beforeSend: function () {
                 $("#msg").fadeOut();
-                $("#btn-login").html('<i class="fa fa-cog fa-spin fa-2x fa-fw"></i> &nbsp; Sending ...');
+                $("#btn-login").html('<i class="fa fa-cog fa-spin fa-fw"></i> &nbsp; Sending ...');
             },
             success: function (response) {
                 if (response === 'signin') {
-                    $("#btn-login").html('<i class="fa fa-cog fa-spin fa-2x fa-fw"></i>&nbsp; Signing In ...');
+                    $("#btn-login").html('<i class="fa fa-cog fa-spin fa-fw"></i>&nbsp; Signing In ...');
                     setTimeout('window.location.href = "/tweb/public/home/"; ', 4000);
                 } else if (response === 'signup') {
                     $("#msg").fadeIn(4000, function () {

@@ -47,10 +47,14 @@ class Controller {
             //$_SESSION['User'] = $nickname;
             $this->redirect('http://localhost/TWeb/public/');
         }
+        return $_SESSION['User'];
     }
 
     protected function getUser() {
-        $this->sec_session_start();
+        if(!isset($_SESSION)){
+            $this->sec_session_start();
+        }
+
         if (isset($_SESSION['User'])) {
             return $_SESSION['User'];
         }

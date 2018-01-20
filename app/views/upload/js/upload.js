@@ -64,18 +64,21 @@ function submitGif() {
         processData: false,
         beforeSend: function () {
             $("#msg").fadeOut();
+            $("#btn_upload").html('<i class="fa fa-cog fa-spin fa-fw"></i> &nbsp; Sending ...');
         },
         success: function (response) {
             if (response == 1) {
                 $("#msg").fadeIn(1000, function () {
                     $("#msg").html('<label class="alert alert-success"> &nbsp; Upload successfull!</label>');
+                    $("#btn_upload").html('Upload image');
                 });
             } else {
                 $("#msg").fadeIn(1000, function () {
                     $("#msg").html('<label class="alert alert-warning"> &nbsp; '+ response+'</label>');
+                    $("#btn_upload").html('Upload image');
                 });
             }
-         //   $("#msg").fadeOut(2000);
+           $("#msg").fadeOut(2000);
 
         }
     });

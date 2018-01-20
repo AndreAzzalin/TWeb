@@ -10,15 +10,14 @@ require_once '../app/core/DbManager.php';
 
 class MediaManager extends DbManager {
 
-    function getAllMemes() {
-        $stmt = $this->db_connection()->prepare("SELECT title,src FROM gifs");
+    function getAllGifs($user) {
+        $stmt = $this->db_connection()->prepare("SELECT  DISTINCT id,title,src,user,owner FROM `favorite` right JOIN gifs on gif_id=id and user=:user_id ");
+        $stmt->bindParam(':user_id',$user);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // var_dump($rows);
-        $gifs['src'] = $rows;
-
-        return $gifs;
-
+        shuffle($rows);
+        $gif['gif'] = $rows;
+        return $gif;
     }
 
     function getCategory($category) {
@@ -42,14 +41,18 @@ class MediaManager extends DbManager {
     }
 
     function uploadToDb($title,$src,$owner) {
-
         $stmt = $this->db_connection()->prepare("INSERT INTO gifs (title, src,owner)  VALUES (:title,:src,:owner)");
         $stmt->bindParam(':title',$title);
         $stmt->bindParam(':src',$src);
         $stmt->bindParam(':owner',$owner);
         return $stmt->execute();
+    }
 
-
+    function favGifToDb($user_id,$gif_id) {
+        $stmt = $this->db_connection()->prepare("INSERT INTO favorite  VALUES (:user_id,:gif_id)");
+        $stmt->bindParam(':user_id',$user_id);
+        $stmt->bindParam(':gif_id',$gif_id);
+        return $stmt->execute();
     }
 
 

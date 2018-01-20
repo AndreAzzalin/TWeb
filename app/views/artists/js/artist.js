@@ -30,7 +30,7 @@ function loadAllGifs() {
 
                 if (data[i].user === null) {
                     //non è tra i preferiti
-                    $('#' + loveBtn).click(loveItEvent);
+
                     $('#' + loveBtn).addClass('fa-heart-o');
                 } else {
                     //è tra i preferiti non permettere di mettere like e riempi il cuore <3
@@ -42,19 +42,6 @@ function loadAllGifs() {
     });
 }
 
-function loveItEvent() {
-    var $this = $(this);
-    if ($this.hasClass('fa-heart-o')) {
-        //chiedo al controller di aggiungere la gif nei preferiti
-        loveIt($this.attr('id'));
-
-        $($this).removeClass('fa-heart-o');
-        $($this).addClass('fa-heart');
-
-    } else {
-        $('#' + loveBtn).off('click');
-    }
-}
 
 function initMasonry() {
     var $grid = $('.grid').masonry({
@@ -65,26 +52,5 @@ function initMasonry() {
     });
     $grid.imagesLoaded().progress(function () {
         $grid.masonry();
-    });
-}
-
-//funzione che invia tramite ajax richiesta al server di aggiongerre l'immagine x tra i preferiti dell'utente $_SESSION['User']
-function loveIt(id) {
-    var id = id.substring(id.indexOf("_") + 1);
-
-    $.ajax({
-        type: 'POST',
-        url: '/tweb/public/home/favGif',
-        data: {id: id},
-        beforeSend: function () {
-            $("#msg").fadeOut();
-        },
-        success: function (response) {
-            $("#msg").fadeIn(2000, function () {
-                $("#msg").html('<label class="alert alert-success"> ' + response + '</label>');
-            });
-            $("#msg").fadeOut(2500);
-
-        }
     });
 }
