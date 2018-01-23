@@ -7,7 +7,7 @@
  */
 require_once '../app/core/DbManager.php';
 
-class loginManager extends DbManager {
+class LoginManager extends DbManager {
 
     public function checkCredential($nickname,$password) {
         //usando prepare() si previene sql injection

@@ -40,7 +40,25 @@ class MediaManager extends DbManager {
         }
     }
 
-    function uploadToDb($title,$src,$owner) {
+
+    function getLastId() {
+        $stmt = $this->db_connection()->prepare("SELECT id FROM gifs ORDER BY id DESC LIMIT 1");
+        $stmt->execute();
+        $rows = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $rows;
+    }
+
+    function uploadCatDb($gif_id,$cat) {
+
+        $stmt = $this->db_connection()->prepare("INSERT INTO categories (gif_id, category)  VALUES (:gif_id,:category)");
+        $stmt->bindParam(':gif_id',$gif_id);
+        $stmt->bindParam(':category',$cat);
+        return $stmt->execute();
+    }
+
+
+    function uploadDb($title,$src,$owner) {
+
         $stmt = $this->db_connection()->prepare("INSERT INTO gifs (title, src,owner)  VALUES (:title,:src,:owner)");
         $stmt->bindParam(':title',$title);
         $stmt->bindParam(':src',$src);
@@ -48,11 +66,59 @@ class MediaManager extends DbManager {
         return $stmt->execute();
     }
 
-    function favGifToDb($user_id,$gif_id) {
+    function favGifDb($user_id,$gif_id) {
         $stmt = $this->db_connection()->prepare("INSERT INTO favorite  VALUES (:user_id,:gif_id)");
         $stmt->bindParam(':user_id',$user_id);
         $stmt->bindParam(':gif_id',$gif_id);
         return $stmt->execute();
+    }
+
+    //DELETE FROM `favorite` WHERE gif_id='32'
+
+    function delFavDb($gif_id) {
+        $stmt = $this->db_connection()->prepare("DELETE FROM favorite WHERE gif_id=:gif_id");
+        $stmt->bindParam(':gif_id',$gif_id);
+        return $stmt->execute();
+    }
+
+    function getArtistGif($user_id) {
+        $stmt = $this->db_connection()->prepare("SELECT * FROM gifs WHERE owner=:owner");
+        $stmt->bindParam(':owner',$user_id);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        shuffle($rows);
+        $gif['own'] = $rows;
+        return $gif;
+    }
+
+    function getArtistFav($user_id) {
+        $stmt = $this->db_connection()->prepare(" SELECT DISTINCT id,title,src,user,owner FROM `favorite`JOIN gifs on gif_id=id and user=:user_id");
+        $stmt->bindParam(':user_id',$user_id);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        shuffle($rows);
+        $gif['fav'] = $rows;
+        return $gif;
+    }
+
+    function delUploadsToDb($gif_id) {
+        $stmt = $this->db_connection()->prepare(" DELETE FROM gifs WHERE id=:gif_id");
+        $stmt->bindParam(':gif_id',$gif_id);
+        return $stmt->execute();
+    }
+
+    function getAllArtistsDb() {
+        $stmt = $this->db_connection()->prepare("SELECT nickname FROM users");
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        shuffle($rows);
+        $artists['art'] = $rows;
+        return $artists;
+    }
+
+    //SELECT COUNT(id) as prefered FROM gifs WHERE owner ='a'
+    function getLikedGifs($artist) {
+
     }
 
 

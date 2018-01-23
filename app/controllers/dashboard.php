@@ -6,23 +6,11 @@
  * Time: 09:56
  */
 
-class Artists extends Controller {
+class Dashboard extends Controller {
 
-    public function index($nickname = null) {
+    public function index() {
         $this->checkLogin();
-        //$this->view('artists/artistsPage');
-        $this->view('artists/artistsPage');
-        var_dump($nickname);
-        $this->test($nickname);
-    }
-
-
-    function test($nickname) {
-        if ($nickname != null) {
-            $this->view('artists/publicPage',['nickname' => $nickname]);
-
-        }
-        //echo 'nickname = '.$nickname;
+        $this->view('artists/PrivatePage');
     }
 
 
@@ -40,7 +28,7 @@ class Artists extends Controller {
         $mediaManager = $this->model('mediaManager');
         if (isset($_POST['id'])) {
             $id = $_POST['id'];
-            if ($mediaManager->delUploadsDb($id)) {
+            if ($mediaManager->delUploadsToDb($id)) {
                 echo 'Delete successful';
             }
         } else echo 'Error on Delete';
@@ -51,31 +39,11 @@ class Artists extends Controller {
         $mediaManager = $this->model('mediaManager');
         if (isset($_POST['id'])) {
             $id = $_POST['id'];
-            if ($mediaManager->delFavDb($id)) {
+            if ($mediaManager->delFavToDb($id)) {
                 echo 'Delete successful';
             }
         } else echo 'Error on Delete';
     }
-
-    function getArtist() {
-        $mediaManager = $this->model('mediaManager');
-        if (isset($_POST['artist'])) {
-            $artist = $_POST['artist'];
-
-            if ($mediaManager->getArtistsDb()) {
-                echo 'ok';
-
-            } else 'error on get Db';
-        }
-
-
-    }
-
-    function getArtistsList() {
-        $mediaManager = $this->model('mediaManager');
-        $this->toJson($mediaManager->getAllArtistsDb());
-    }
-
 
 
 }

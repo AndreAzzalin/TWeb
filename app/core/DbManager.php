@@ -8,23 +8,11 @@
  */
 
 
-require 'DbConfig.php';
+require_once 'DbConfig.php';
 
 class DbManager {
 
-    /* function getDbConfig() {
-       if(file_exists('../app/core/DbConfig_XAMPP.xml')){
-           echo 'esistefile esiste';
-           if($DbConfig = simplexml_load_file('../app/core/DbConfig_XAMPP.xml')){
-               echo 'file caricato';
-               var_dump($DbConfig);
-               echo '<p> ccazzo'.($DbConfig->host).'</p>';
-           }
-       }
-         echo '<p> file non esiste</p>';
 
-     }
- */
     protected function db_connection() {
         try {
             $db_con = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME,DB_USER,DB_PASSWORD);

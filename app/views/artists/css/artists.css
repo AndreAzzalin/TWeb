@@ -1,0 +1,32 @@
+
+#avatar {
+ // filter: hue-rotate(50deg);
+}
+
+.bottom-left{
+    color:#e4e2ff;
+}
+
+span {
+    color: #1FB264;
+}
+
+.info-box {
+    background-color: #32334a;
+
+}
+
+p {
+    padding-top: 20px;
+}
+
+hr {
+    height: 5px;
+
+    background: #e4e2ff;
+
+}
+
+th,td{
+    text-align: center;
+}

@@ -78,7 +78,7 @@ function submitGif() {
                     $("#btn_upload").html('Upload image');
                 });
             }
-           $("#msg").fadeOut(2000);
+          // $("#msg").fadeOut(2000);
 
         }
     });

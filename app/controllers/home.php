@@ -14,19 +14,16 @@ class Home extends Controller {
         $this->view('home/homePage',['nickname' => $nickname]);
     }
 
-    public function memesToJson() {
+    public function gifsToJson() {
         $mediaManager = $this->model('mediaManager');
-        $memes = $mediaManager->getAllGifs($this->getUser());
-        foreach ($memes as $meme) {
-             echo json_encode($meme);
-        }
+        $this->toJson($mediaManager->getAllGifs($this->getUser()));
     }
 
     function favGif() {
         $mediaManager = $this->model('mediaManager');
         if (isset($_POST['id'])) {
             $id = $_POST['id'];
-            if ($mediaManager->favGifToDb($this->getUser(),$id)) {
+            if ($mediaManager->favGifDb($this->getUser(),$id)) {
                 echo 'u love it, see all in your account page';
             }
         } else echo 'Error on favorite';

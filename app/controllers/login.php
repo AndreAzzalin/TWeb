@@ -25,7 +25,7 @@ class Login extends Controller {
     }
 
     function signIn() {
-        $loginManager = $this->model('loginManager');
+        $loginManager = $this->model('LoginManager');
 
         if (isset($_POST['nickname']) && isset($_POST['password'])) {
             $user_nickname = $_POST['nickname'];
@@ -42,7 +42,7 @@ class Login extends Controller {
     }
 
     function signUp() {
-        $loginManager = $this->model('loginManager');
+        $loginManager = $this->model('LoginManager');
 
         if (isset($_POST['nickname']) && isset($_POST['password']) && isset($_POST['repass'])) {
             $user_nickname = $_POST['nickname'];

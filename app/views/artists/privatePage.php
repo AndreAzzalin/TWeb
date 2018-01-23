@@ -6,42 +6,9 @@ include '../app/views/common/top.html';
 <title>HomePage - TWeb</title>
 
 <link rel="stylesheet" href="../home/css/home.css">
-
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<link rel="stylesheet" href="../artists/css/artists.css">
 
 </head>
-
-<style>
-
-    #avatar {
-        -webkit-filter: brightness(30%) sepia(100%);
-        filter: hue-rotate(500deg);
-        background-color: #32334a;
-    }
-
-    span {
-        color: #1FB264;
-    }
-
-    .info-box {
-        background-color: #32334a;
-
-    }
-
-    p {
-        padding-top: 20px;
-    }
-
-    hr {
-        height: 5px;
-
-        background: #e4e2ff;
-
-    }
-
-</style>
 
 <?php
 include '../app/views/common/nav.php';
@@ -53,8 +20,9 @@ include '../app/views/common/nav.php';
                 echo $_SESSION['User'];
             } else {
                 echo 'User';
-            } ?> </span>GIFs</h1>
+            } ?>'s</span> GIFs</h1>
 
+    <div id="msg"></div>
 
     <div class="info-box">
         <div class="row">
@@ -64,15 +32,15 @@ include '../app/views/common/nav.php';
             <div class="col-md-6 col-sx-6 ">
                 <p>
                 <h1>
-                    GIFs Uploaded: 35
+                    GIFs Uploaded:<span id="countUploads">0</span>
                 </h1>
 
                 <h1>
-                    GIFs Favorited: 35
+                    GIFs Favorited: <span id="countFav">0</span>
                 </h1>
 
-                <a class="btn btn-success btn-shadow btn-lg" href="/tweb/public/artists/#favorited">Go to favorite</a>
-                <a class="btn btn-success btn-shadow btn-lg" href="/tweb/public/artists/#uploaded"> Go to Upload</a>
+                <a class="btn btn-success btn-shadow btn-lg" href="/tweb/public/dashboard#favorited">Go to favorite</a>
+                <a class="btn btn-success btn-shadow btn-lg" href="/tweb/public/dashboard#uploaded"> Go to Upload</a>
 
                 </p>
             </div>
@@ -84,7 +52,7 @@ include '../app/views/common/nav.php';
         <i class="fa fa-heart" aria-hidden="true"></i>&nbsp Favorited GIFs
     </h1>
 
-    <div class="grid">
+    <div id="gifsFav" class="grid">
         <div class="grid-sizer"></div>
         <div class="gutter-sizer"></div>
     </div>
@@ -94,7 +62,7 @@ include '../app/views/common/nav.php';
         <i class="fa fa-upload" aria-hidden="true"></i>&nbsp Uploeaded GIFs
     </h1>
 
-    <div class="grid">
+    <div  id="gifsUploads" class="grid">
         <div class="grid-sizer"></div>
         <div class="gutter-sizer"></div>
     </div>
@@ -102,7 +70,13 @@ include '../app/views/common/nav.php';
 
 
 </body>
-<script src="../artists/js/artist.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+<script src="../artists/js/artistFunctions.js"></script>
+<script src="../artists/js/privatePage.js"></script>
+
 </html>
 
 

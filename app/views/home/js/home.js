@@ -2,15 +2,27 @@ window.onload = function () {
     loadAllGifs();
 };
 
+
+function initMasonry() {
+    var $grid = $('.grid').masonry({
+        itemSelector: '.grid-item',
+        percentPosition: true,
+        columnWidth: '.grid-sizer',
+        gutter: '.gutter-sizer'
+    });
+    $grid.imagesLoaded().progress(function () {
+        $grid.masonry();
+    });
+}
+
 function loadAllGifs() {
     $.ajax({
         type: 'GET',
-        url: '/tweb/public/home/memesToJson/',
+        url: '/tweb/public/home/gifsToJson',
         dataType: 'json',
         success: function (data) {
 
             $.each(data, function (i) {
-                //       console.log(data);
                 var loveBtn = 'loveBtn_' + data[i].id;
                 var src = "/tweb/app/uploads/" + data[i].src + ".gif";
 
@@ -18,10 +30,9 @@ function loadAllGifs() {
                     '            <img href="#" src="' + src + '" />\n' +
                     '            <div class="grid-item-color">\n' +
                     '                <span class="bottom-left">\n' +
-                    //pagina artista
-                    '              <a href="./app/uploads/' + src + '.gif">' + data[i].title + ' upload by ' + data[i].owner + ' </a>\n' +
+                    '              <a href="/tweb/public/artists/'+data[i].owner+'">' + data[i].title + ' upload by ' + data[i].owner + ' </a>\n' +
                     '               </span>\n' +
-                    '                <a href="http://localhost/tweb/public/home/#" class="top-right">' +
+                    '                <a href="http://localhost/tweb/public/home#" class="top-right">' +
                     '                <i id="' + loveBtn + '" class="top-right fa fa-3x"></i></a>\n' +
                     '            </div>\n' +
                     '        </div>');
@@ -47,7 +58,6 @@ function loveItEvent() {
     if ($this.hasClass('fa-heart-o')) {
         //chiedo al controller di aggiungere la gif nei preferiti
         loveIt($this.attr('id'));
-
         $($this).removeClass('fa-heart-o');
         $($this).addClass('fa-heart');
 
@@ -56,21 +66,11 @@ function loveItEvent() {
     }
 }
 
-function initMasonry() {
-    var $grid = $('.grid').masonry({
-        itemSelector: '.grid-item',
-        percentPosition: true,
-        columnWidth: '.grid-sizer',
-        gutter: '.gutter-sizer'
-    });
-    $grid.imagesLoaded().progress(function () {
-        $grid.masonry();
-    });
-}
-
 //funzione che invia tramite ajax richiesta al server di aggiongerre l'immagine x tra i preferiti dell'utente $_SESSION['User']
 function loveIt(id) {
-    var id = id.substring(id.indexOf("_") + 1);
+  //  var id = id.substring(id.indexOf("_") + 1);
+    var info = id.split("_");
+    id = info[1];
 
     $.ajax({
         type: 'POST',

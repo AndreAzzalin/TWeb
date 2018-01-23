@@ -6,8 +6,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="/tweb/public/home">
-            <img src="./images/logo.gif" width="100" height="50" alt="">
-            SYM
+            <h2 id="logo"><i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp ShareYourGIFs</h2>
         </a>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -54,7 +53,7 @@
                 </button>
 
                 <div class="dropdown-menu border-warning" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item text-light" href="#">My space</a>
+                    <a class="dropdown-item text-light" href="/tweb/public/dashboard">Dashboard</a>
                     <a class="dropdown-item text-light" href="/tweb/public/logout/">Logout</a>
                 </div>
             </div>
