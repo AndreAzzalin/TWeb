@@ -1,14 +1,11 @@
 window.onload = function () {
-  //  loadListArtists();
-   // $('#close').click(close);
-    getNickname();
-    $('#dio').click(mostra);
+
+  //  getNickname();
+    loadGifs('getUploads');
 
 };
 
-function mostra (){
 
-}
 
 function getNickname(){
     artist= $('#nickname').html();

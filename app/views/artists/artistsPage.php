@@ -1,9 +1,8 @@
 <?php
-
-
 include '../app/views/common/top.html';
 ?>
-<title>HomePage - TWeb</title>
+
+<title>Artist | TWeb</title>
 
 <link rel="stylesheet" href="../home/css/home.css">
 <link rel="stylesheet" href="../artists/css/artists.css">
