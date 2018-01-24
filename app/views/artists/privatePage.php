@@ -3,7 +3,7 @@
 
 include '../app/views/common/top.html';
 ?>
-<title>HomePage - TWeb</title>
+<title>Private | TWeb</title>
 
 <link rel="stylesheet" href="../home/css/home.css">
 <link rel="stylesheet" href="../artists/css/artists.css">
@@ -20,7 +20,7 @@ include '../app/views/common/nav.php';
                 echo $_SESSION['User'];
             } else {
                 echo 'User';
-            } ?>'s</span> GIFs</h1>
+            } ?></span>'s GIFs</h1>
 
     <div id="msg"></div>
 
@@ -49,7 +49,7 @@ include '../app/views/common/nav.php';
     </div>
     <hr>
     <h1 id="favorited">
-        <i class="fa fa-heart" aria-hidden="true"></i>&nbsp Favorited GIFs
+        <i class="fa fa-heart" aria-hidden="true"></i> Favorited GIFs
     </h1>
 
     <div id="gifsFav" class="grid">
@@ -59,7 +59,7 @@ include '../app/views/common/nav.php';
 
     <hr>
     <h1 id="uploaded">
-        <i class="fa fa-upload" aria-hidden="true"></i>&nbsp Uploeaded GIFs
+        <i class="fa fa-upload" aria-hidden="true"></i> Uploaded GIFs
     </h1>
 
     <div  id="gifsUploads" class="grid">

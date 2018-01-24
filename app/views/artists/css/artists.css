@@ -1,10 +1,10 @@
 
 #avatar {
- // filter: hue-rotate(50deg);
+/ / filter: hue-rotate(50 deg);
 }
 
-.bottom-left{
-    color:#e4e2ff;
+.bottom-left {
+    color: #e4e2ff;
 }
 
 span {
@@ -27,6 +27,10 @@ hr {
 
 }
 
-th,td{
+th, td {
     text-align: center;
+}
+
+h1,#countUploads,#countFav {
+    padding-top: 0px;
 }

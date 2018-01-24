@@ -25,21 +25,19 @@ include '../app/views/common/nav.php';
         </tr>
         </thead>
         <tbody id="artistsList">
-
-
-
         </tbody>
     </table>
-
-    <div id="privateSection"
 </div>
+
+<div id="publicSection"></div>
+
 
 </body>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 <script src="../artists/js/artistFunctions.js"></script>
-<script src="../artists/js/publicPage.js"></script>
+<script src="../artists/js/artistsPage.js"></script>
 </html>
 
 

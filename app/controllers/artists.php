@@ -8,23 +8,20 @@
 
 class Artists extends Controller {
 
+    public $nickname;
     public function index($nickname = null) {
         $this->checkLogin();
         //$this->view('artists/artistsPage');
         $this->view('artists/artistsPage');
-        var_dump($nickname);
-        $this->test($nickname);
+
     }
 
-
-    function test($nickname) {
+    function profile($nickname=null) {
         if ($nickname != null) {
             $this->view('artists/publicPage',['nickname' => $nickname]);
-
         }
         //echo 'nickname = '.$nickname;
     }
-
 
     function getUploads() {
         $mediaManager = $this->model('mediaManager');
@@ -57,25 +54,23 @@ class Artists extends Controller {
         } else echo 'Error on Delete';
     }
 
-    function getArtist() {
-        $mediaManager = $this->model('mediaManager');
-        if (isset($_POST['artist'])) {
-            $artist = $_POST['artist'];
-
-            if ($mediaManager->getArtistsDb()) {
-                echo 'ok';
-
-            } else 'error on get Db';
-        }
-
-
-    }
-
     function getArtistsList() {
         $mediaManager = $this->model('mediaManager');
         $this->toJson($mediaManager->getAllArtistsDb());
     }
 
+    function setNickname(){
+        $mediaManager = $this->model('mediaManager');
+        $this->nickname = $_POST['artist'];
+        $this->toJson($mediaManager->getArtistGif( $this->nickname ));
+    }
+
+    function getArtistGifs() {
+      // var_dump($_POST['artist']);
+      $mediaManager = $this->model('mediaManager');
+
+        $this->toJson($mediaManager->getArtistGif( $_POST['artist']));
+    }
 
 
 }

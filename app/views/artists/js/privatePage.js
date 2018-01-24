@@ -2,8 +2,10 @@ window.onload = function () {
 
     loadGifs('getFav');
     loadGifs('getUploads');
-    randomColor();
+
 };
+
+
 
 /****************** PAGINA PRIVATA ********************/
 
@@ -34,7 +36,7 @@ function deleteIt(id) {
     var gif_id = info[1];
 
     $('#count' + method).html($('#count' + method).html() - 1);
-    console.log('delete' + method + 'Gif');
+
 
     $.ajax({
         type: 'POST',
@@ -46,6 +48,7 @@ function deleteIt(id) {
         success: function (response) {
             $("#msg").fadeIn(1000, function () {
                 $("#msg").html('<label class="alert alert-success"> ' + response + '</label>');
+
             });
             $("#msg").fadeOut(2500);
 

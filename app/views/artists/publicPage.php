@@ -1,25 +1,22 @@
-<style>
-    .border-warning {
-        border: solid 5px;
-    }
+<?php
 
-    .container {
-        position: relative;
-    }
 
-    #cross {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        margin-right: 15px;
-    }
+include '../app/views/common/top.html';
+?>
+<title><?= $data['nickname'] ?> | TWeb</title>
 
-</style>
+<link rel="stylesheet" href="../home/css/home.css">
+<link rel="stylesheet" href="../artists/css/artists.css">
 
-<div id="publicSection" class="container border-warning">
+</head>
 
-    <h1> Explore <span><?= $data['nickname'] ?></span>'s GIFs <a href="http://localhost/tweb/public/artists/"><i
-                    id="cross" class=" fa fa-times "></i></a></h1>
+<?php
+include '../app/views/common/nav.php';
+?>
+
+<div class="container">
+
+    <h1>Explore <span id="nickname"><?= $data['nickname'] ?></span>'s GIFs</h1>
 
     <div id="msg"></div>
 
@@ -38,7 +35,7 @@
                     GIFs Favorited: <span id="countFav">0</span>
                 </h1>
 
-                <a class="btn btn-success btn-shadow btn-lg" href="/tweb/public/dashboard#favorited">Go to favorite</a>
+                <a id="dio" class="btn btn-success btn-shadow btn-lg">console nickname</a>
                 <a class="btn btn-success btn-shadow btn-lg" href="/tweb/public/dashboard#uploaded"> Go to Upload</a>
 
                 </p>
@@ -49,7 +46,7 @@
 
     <hr>
     <h1 id="uploaded">
-        <i class="fa fa-upload" aria-hidden="true"></i>&nbspUploeaded GIFs
+        <i class="fa fa-upload" aria-hidden="true"></i> Uploaded GIFs
     </h1>
 
     <div id="gifsUploads" class="grid">
@@ -57,6 +54,24 @@
         <div class="gutter-sizer"></div>
     </div>
 </div>
+<script>$('#dio').click(mostra);
+
+
+    function mostra() {
+        console.log($('#nickname').html());
+    }</script>
+
+</body>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+<script src="../artists/js/artistFunctions.js"></script>
+<script src="../artists/js/publicPage.js"></script>
+
+</html>
+
+
 
 
 

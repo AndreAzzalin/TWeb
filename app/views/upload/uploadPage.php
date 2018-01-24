@@ -21,7 +21,7 @@ include '../app/views/common/nav.php';
 <!--<button id="ajax" name="btn-login" class="btn btn-warning btn-shadow" type='submit'>ajax</button>-->
 
 <div class="container">
-    <h1>UPLOAD</h1>
+    <h1><i class="fa fa-upload" aria-hidden="true"></i> UPLOAD</h1>
 
     <div id="msg">
         <!-- l'msge verrà visualizzato in questo div -->

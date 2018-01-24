@@ -1,51 +1,49 @@
 window.onload = function () {
-    loadListArtists();
+  //  loadListArtists();
+   // $('#close').click(close);
+    getNickname();
+    $('#dio').click(mostra);
 
-    $('#close').click(close);
 };
 
+function mostra (){
 
-function loadListArtists() {
+}
+
+function getNickname(){
+    artist= $('#nickname').html();
+    $.ajax({
+        type: 'POST',
+        url: '/tweb/public/artists/setNickname',
+        data:{artist:artist},
+        success:function (response) {
+            console.log(response);
+           // alert('inviato'+artist);
+            loadGifs('getUploads');
+
+        }
+        });
+}
+
+
+
+function loadGifs(method) {
+    artist= $('#nickname').html();
+    var split = method.split("get");
+    var preBtn = split[1];
+    var id = '#gifsUploads';
+    var count = '#count' + split[1];
 
     $.ajax({
-        type: 'GET',
-        url: '/tweb/public/artists/getArtistsList',
-        dataType: 'json',
+        type: 'POST',
+        url: '/tweb/public/artists/getArtistGifs',
+        data:{artist:artist},
+        dataType:'json',
         success: function (data) {
             console.log(data);
             $.each(data, function (i) {
 
-
-                var artist_id = data[i].nickname;
-
-                var $block = $('<tr id="' + artist_id + '"><td><h3>' + artist_id + '</h3></td></tr>');
-
-                $('#artistsList').append($block);
-
-                $('#' + artist_id).click(function () {
-                    window.location.replace('http://localhost/tweb/public/artists/' + artist_id);
-                    //  $('#art2').addClass('hover');
-                });
-            });
-        }
-    });
-}
-
-function loadGifs(method) {
-
-    var split = method.split("get");
-    var preBtn = split[1];
-    var id = '#gifs' + split[1];
-    var count = '#count' + split[1];
-
-    $.ajax({
-        type: 'GET',
-        url: '/tweb/public/dashboard/' + method,
-        dataType: 'json',
-        success: function (data) {
-            $.each(data, function (i) {
-                //       console.log(data);
-                var btn_id = preBtn + '_' + data[i].id;
+                var loveBtn = preBtn + '_' + data[i].id;
                 var src = "/tweb/app/uploads/" + data[i].src + ".gif";
 
                 var $block = $(' <div class="grid-item">\n' +
@@ -55,14 +53,20 @@ function loadGifs(method) {
                     '             ' + data[i].title + '\n' +
                     '               </span>\n' +
                     '                <a href="http://localhost/tweb/public/dashboard#" class="top-right">' +
-                    '                <i id="' + btn_id + '" class="top-right fa fa-3x"></i></a>\n' +
+                    '                <i id="' + loveBtn + '" class="top-right fa fa-3x"></i></a>\n' +
                     '            </div>\n' +
                     '        </div>');
 
                 $(id).append($block);
 
-                $('#' + btn_id).addClass('fa fa-times');
-                $('#' + btn_id).click(deleteItEvent);
+                if (data[i].user === null) {
+                    //non è tra i preferiti
+                    $('#' + loveBtn).click(loveItEvent);
+                    $('#' + loveBtn).addClass('fa-heart-o');
+                } else {
+                    //è tra i preferiti non permettere di mettere like e riempi il cuore <3
+                    $('#' + loveBtn).addClass('fa-heart');
+                }
 
                 $(count).html(i + 1);
             });
@@ -70,3 +74,5 @@ function loadGifs(method) {
         }
     });
 }
+
+
