@@ -1,5 +1,5 @@
 window.onload = function () {
-
+    randomColor();
     loadGifs('getFav');
     loadGifs('getUploads');
 

@@ -30,7 +30,7 @@ function loadAllGifs() {
                     '            <img href="#" src="' + src + '" />\n' +
                     '            <div class="grid-item-color">\n' +
                     '                <span class="bottom-left">\n' +
-                    '              <a href="/tweb/public/artists/'+data[i].owner+'">' + data[i].title + ' upload by ' + data[i].owner + ' </a>\n' +
+                    '              <a href="/tweb/public/artists/profile/'+data[i].owner+'">' + data[i].title + ' upload by ' + data[i].owner + ' </a>\n' +
                     '               </span>\n' +
                     '                <a href="http://localhost/tweb/public/home#" class="top-right">' +
                     '                <i id="' + loveBtn + '" class="top-right fa fa-3x"></i></a>\n' +
