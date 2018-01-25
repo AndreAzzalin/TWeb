@@ -30,14 +30,7 @@ include '../app/views/common/nav.php';
                 <h1>
                     GIFs Uploaded:<span id="countUploads">0</span>
                 </h1>
-
-                <h1>
-                    GIFs Favorited: <span id="countFav">0</span>
-                </h1>
-
-                <a id="dio" class="btn btn-success btn-shadow btn-lg">console nickname</a>
-                <a class="btn btn-success btn-shadow btn-lg" href="/tweb/public/dashboard#uploaded"> Go to Upload</a>
-
+                <a href="http://localhost/tweb/public/artists" id="return" class="btn btn-success btn-shadow btn-lg">Return to artists</a>
                 </p>
             </div>
 
@@ -54,12 +47,6 @@ include '../app/views/common/nav.php';
         <div class="gutter-sizer"></div>
     </div>
 </div>
-<script>$('#dio').click(mostra);
-
-
-    function mostra() {
-        console.log($('#nickname').html());
-    }</script>
 
 </body>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
@@ -68,6 +55,7 @@ include '../app/views/common/nav.php';
 
 <script src="../artists/js/artistFunctions.js"></script>
 <script src="../artists/js/publicPage.js"></script>
+<script src="../common/js/functions.js"></script>
 
 </html>
 

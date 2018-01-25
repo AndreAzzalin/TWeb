@@ -9,6 +9,7 @@
 class Artists extends Controller {
 
     public $nickname;
+
     public function index($nickname = null) {
         $this->checkLogin();
         //$this->view('artists/artistsPage');
@@ -16,8 +17,9 @@ class Artists extends Controller {
 
     }
 
-    function profile($nickname=null) {
+    function profile($nickname = null) {
         if ($nickname != null) {
+            $this->checkLogin();
             $this->view('artists/publicPage',['nickname' => $nickname]);
         }
         //echo 'nickname = '.$nickname;
@@ -59,17 +61,16 @@ class Artists extends Controller {
         $this->toJson($mediaManager->getAllArtistsDb());
     }
 
-    function setNickname(){
-        $mediaManager = $this->model('mediaManager');
-        $this->nickname = $_POST['artist'];
-        $this->toJson($mediaManager->getArtistGif( $this->nickname ));
+
+    function getNickname() {
+        echo $this->getUser();
     }
 
-    function getArtistGifs() {
-      // var_dump($_POST['artist']);
-      $mediaManager = $this->model('mediaManager');
 
-        $this->toJson($mediaManager->getArtistGif( $_POST['artist']));
+    function getArtistGifs() {
+        // var_dump($_POST['artist']);
+        $mediaManager = $this->model('mediaManager');
+        $this->toJson($mediaManager->getArtistGif($_POST['artist']));
     }
 
 

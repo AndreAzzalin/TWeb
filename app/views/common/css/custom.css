@@ -29,5 +29,9 @@ body {
 }
 
 h1 {
-    padding-top:10px;
+    padding-top: 10px;
+}
+
+.fa-heart:hover, .fa-heart-o:hover {
+    color: #e83e8c;
 }

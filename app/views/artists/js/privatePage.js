@@ -2,9 +2,7 @@ window.onload = function () {
     randomColor();
     loadGifs('getFav');
     loadGifs('getUploads');
-
 };
-
 
 
 /****************** PAGINA PRIVATA ********************/
@@ -48,7 +46,6 @@ function deleteIt(id) {
         success: function (response) {
             $("#msg").fadeIn(1000, function () {
                 $("#msg").html('<label class="alert alert-success"> ' + response + '</label>');
-
             });
             $("#msg").fadeOut(2500);
 

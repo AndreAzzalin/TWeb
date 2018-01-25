@@ -33,4 +33,8 @@ th, td {
 
 h1,#countUploads,#countFav {
     padding-top: 0px;
+    vertical-align: middle;
+}
+#return{
+margin: auto;
 }

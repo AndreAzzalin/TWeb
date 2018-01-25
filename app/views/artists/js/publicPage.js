@@ -1,31 +1,12 @@
 window.onload = function () {
     randomColor();
-  //  getNickname();
-    loadGifs('getUploads');
+    loadGifs('getUploads', $('#user').html());
 
 };
 
 
-
-function getNickname(){
-    artist= $('#nickname').html();
-    $.ajax({
-        type: 'POST',
-        url: '/tweb/public/artists/setNickname',
-        data:{artist:artist},
-        success:function (response) {
-            console.log(response);
-           // alert('inviato'+artist);
-            loadGifs('getUploads');
-
-        }
-        });
-}
-
-
-
-function loadGifs(method) {
-    artist= $('#nickname').html();
+function loadGifs(method, nickname) {
+    artist = $('#nickname').html();
     var split = method.split("get");
     var preBtn = split[1];
     var id = '#gifsUploads';
@@ -34,8 +15,8 @@ function loadGifs(method) {
     $.ajax({
         type: 'POST',
         url: '/tweb/public/artists/getArtistGifs',
-        data:{artist:artist},
-        dataType:'json',
+        data: {artist: artist},
+        dataType: 'json',
         success: function (data) {
             console.log(data);
             $.each(data, function (i) {
@@ -49,21 +30,13 @@ function loadGifs(method) {
                     '                <span class="bottom-left">\n' +
                     '             ' + data[i].title + '\n' +
                     '               </span>\n' +
-                    '                <a href="http://localhost/tweb/public/dashboard#" class="top-right">' +
                     '                <i id="' + loveBtn + '" class="top-right fa fa-3x"></i></a>\n' +
                     '            </div>\n' +
                     '        </div>');
 
                 $(id).append($block);
 
-                if (data[i].user === null) {
-                    //non è tra i preferiti
-                    $('#' + loveBtn).click(loveItEvent);
-                    $('#' + loveBtn).addClass('fa-heart-o');
-                } else {
-                    //è tra i preferiti non permettere di mettere like e riempi il cuore <3
-                    $('#' + loveBtn).addClass('fa-heart');
-                }
+                loadButtons(loveBtn, data[i].user, nickname);
 
                 $(count).html(i + 1);
             });

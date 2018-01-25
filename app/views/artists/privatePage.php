@@ -16,7 +16,7 @@ include '../app/views/common/nav.php';
 
 <div class="container">
 
-    <h1>Explore <span><?php if (isset($_SESSION['User'])) {
+    <h1><i class="fa fa-user-circle" aria-hidden="true"></i> Explore <span><?php if (isset($_SESSION['User'])) {
                 echo $_SESSION['User'];
             } else {
                 echo 'User';
@@ -62,7 +62,7 @@ include '../app/views/common/nav.php';
         <i class="fa fa-upload" aria-hidden="true"></i> Uploaded GIFs
     </h1>
 
-    <div  id="gifsUploads" class="grid">
+    <div id="gifsUploads" class="grid">
         <div class="grid-sizer"></div>
         <div class="gutter-sizer"></div>
     </div>
@@ -75,6 +75,7 @@ include '../app/views/common/nav.php';
 <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 
 <script src="../artists/js/artistFunctions.js"></script>
+<script src="../common/js/functions.js"></script>
 <script src="../artists/js/privatePage.js"></script>
 
 </html>

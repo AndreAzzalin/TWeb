@@ -1,15 +1,3 @@
-function initMasonry(id) {
-    var $grid = $(id + '.grid').masonry({
-        itemSelector: '.grid-item',
-        percentPosition: true,
-        columnWidth: '.grid-sizer',
-        gutter: '.gutter-sizer'
-    });
-    $grid.imagesLoaded().progress(function () {
-        $grid.masonry();
-    });
-}
-
 
 function close() {
     $('#publicSection').empty();

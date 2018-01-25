@@ -28,7 +28,7 @@ class Dashboard extends Controller {
         $mediaManager = $this->model('mediaManager');
         if (isset($_POST['id'])) {
             $id = $_POST['id'];
-            if ($mediaManager->delUploadsToDb($id)) {
+            if ($mediaManager->delUploadsDb($id)) {
                 echo 'Delete successful';
             }
         } else echo 'Error on Delete';
@@ -39,7 +39,7 @@ class Dashboard extends Controller {
         $mediaManager = $this->model('mediaManager');
         if (isset($_POST['id'])) {
             $id = $_POST['id'];
-            if ($mediaManager->delFavToDb($id)) {
+            if ($mediaManager->delFavDb($id)) {
                 echo 'Delete successful';
             }
         } else echo 'Error on Delete';

@@ -21,11 +21,12 @@ class MediaManager extends DbManager {
     }
 
     function getCategory($category) {
-        $stmt = $this->db_connection()->prepare("SELECT title FROM gifs");
+        $stmt = $this->db_connection()->prepare("SELECT * FROM `categories`JOIN gifs ON gif_id = id where category = :category");
+        $stmt->bindParam(':category',$category);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $memes['memes'] = $rows;
-        return $memes;
+        $categories['cat'] = $rows;
+        return $categories;
     }
 
     function existTitle($title) {
@@ -39,7 +40,6 @@ class MediaManager extends DbManager {
             return false;
         }
     }
-
 
     function getLastId() {
         $stmt = $this->db_connection()->prepare("SELECT id FROM gifs ORDER BY id DESC LIMIT 1");
@@ -82,7 +82,7 @@ class MediaManager extends DbManager {
     }
 
     function getArtistGif($user_id) {
-        $stmt = $this->db_connection()->prepare("SELECT * FROM gifs WHERE owner=:owner");
+        $stmt = $this->db_connection()->prepare("SELECT * FROM gifs   WHERE owner=:owner");
         $stmt->bindParam(':owner',$user_id);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -101,7 +101,7 @@ class MediaManager extends DbManager {
         return $gif;
     }
 
-    function delUploadsToDb($gif_id) {
+    function delUploadsDb($gif_id) {
         $stmt = $this->db_connection()->prepare(" DELETE FROM gifs WHERE id=:gif_id");
         $stmt->bindParam(':gif_id',$gif_id);
         return $stmt->execute();
@@ -115,11 +115,5 @@ class MediaManager extends DbManager {
         $artists['art'] = $rows;
         return $artists;
     }
-
-    //SELECT COUNT(id) as prefered FROM gifs WHERE owner ='a'
-    function getLikedGifs($artist) {
-
-    }
-
 
 }

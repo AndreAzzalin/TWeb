@@ -1,16 +1,18 @@
 window.onload = function () {
-    loadAllGifs($('#user').html());
+    category = $('#category').html();
+    nickname = $('#user').html();
+    loadCategory(category, nickname, 'requestCategory', 'div.grid');
 };
 
 
+function loadCategory(category, nickname, method, id) {
 
-function loadAllGifs(nickname) {
     $.ajax({
-        type: 'GET',
-        url: '/tweb/public/home/gifsToJson',
+        type: 'POST',
+        url: '/tweb/public/categories/' + method,
+        data: {category: category},
         dataType: 'json',
         success: function (data) {
-
             $.each(data, function (i) {
                 var loveBtn = 'loveBtn_' + data[i].id;
                 var src = "/tweb/app/uploads/" + data[i].src + ".gif";
@@ -25,20 +27,12 @@ function loadAllGifs(nickname) {
                     '            </div>\n' +
                     '        </div>');
 
-                $('div.grid').append($block);
+                $(id).append($block);
 
-                if (data[i].user === nickname) {
-                    //è tra i preferiti non permettere di mettere like e riempi il cuore <3
-                    $('#' + loveBtn).addClass('fa-heart');
 
-                } else {
-                    //non è tra i preferiti
-                    $('#' + loveBtn).click(loveItEvent);
-                    $('#' + loveBtn).addClass('fa-heart-o');
-
-                }
+                loadButtons(loveBtn, data[i].user, nickname);
             });
-            initMasonry('');
+            initMasonry(id);
         }
     });
 }
