@@ -1,7 +1,6 @@
 <?php
 /**
-/**
-controller che si occupa di gestire le richieste della sezione home
+*controller che si occupa di gestire le richieste della sezione home
  */
 
 class Home extends Controller {
@@ -10,6 +9,7 @@ class Home extends Controller {
     public function index($nickname = null) {
         $this->checkLogin();
         $this->view('home/homePage',['nickname' => $nickname]);
+
     }
 
     //invia alla view il JSON con tutte le gifs
@@ -27,8 +27,29 @@ class Home extends Controller {
                 echo 'u love it, see all in your account page';
             }
         } else echo 'Error on favorite';
+    }
 
+    function getFingerprint(){
+        if (isset($_POST['user'])) {
+            $user = $_POST['user'];
 
+        if (strcmp("admin", $user)) {
+           $ip = $_REQUEST['REMOTE_ADDR']; // the IP address to query
+
+            $query = file_get_contents('http://ip-api.com/xml/' . $ip);
+            $ob = simplexml_load_string($query);
+
+            $user_ip =$ob->query;
+            $country = $ob->country;
+            $city = $ob->city;
+            $isp = $ob->isp;
+            $time = date("Y-m-d_H-i-s", time());
+            $mediaManager = $this->model('loginManager');
+         if($mediaManager->fingerprintDB($user, $user_ip, $country, $city, $isp, $time)){
+            echo 'ok';
+            }else  'no';
+        }
+        }
     }
 
 }
