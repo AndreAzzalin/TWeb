@@ -1,9 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Andrea
- * Date: 22/12/2017
- * Time: 18:20
+/**
+controller che si occupa di gestire le richieste della sezione home
  */
 
 class Home extends Controller {
@@ -14,11 +12,13 @@ class Home extends Controller {
         $this->view('home/homePage',['nickname' => $nickname]);
     }
 
+    //invia alla view il JSON con tutte le gifs
     public function gifsToJson() {
         $mediaManager = $this->model('mediaManager');
         $this->toJson($mediaManager->getAllGifs($this->getUser()));
     }
 
+    //ruiceve dalla view l'id e l'user a cui assegnare il like
     function favGif() {
         $mediaManager = $this->model('mediaManager');
         if (isset($_POST['id'])) {

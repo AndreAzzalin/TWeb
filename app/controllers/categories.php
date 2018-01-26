@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Andrea
- * Date: 05/01/2018
- * Time: 09:56
+controller che si occupa di gestire le richieste della sezione categorie
  */
 
 class Categories extends Controller {
@@ -12,11 +9,12 @@ class Categories extends Controller {
 
     public function index($category = null) {
         $this->checkLogin();
-        //$this->view('artists/artistsPage');
+        //in base alla richiesta dell'url mostro la categoria richiesta
         $this->view('categories/categoryPage',['category' => $category]);
 
     }
 
+    //richiede la categoria e risponde con JSON con categorue
     function requestCategory() {
         $mediaManager = $this->model('mediaManager');
         if (isset($_POST['category'])) {

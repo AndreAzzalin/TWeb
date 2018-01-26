@@ -1,14 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Andrea
- * Date: 26/01/2018
- * Time: 00:17
+controller che si occupa di gestire le richieste della sezione errori
  */
-
 class Errors extends Controller {
 
-
+    //in base all'errore il file di configurazione httaccess mostrerà la pagina custom
     public function index($errors = null) {
         switch ($errors) {
             case 404:

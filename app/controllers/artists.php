@@ -1,20 +1,18 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Andrea
- * Date: 05/01/2018
- * Time: 09:56
+ * controller che si occupa di gestire la pagina di tutti gli artisti
  */
 
 class Artists extends Controller {
 
-
+    //view per la pagina con la lista di tutti gli artisti
     public function index() {
         $this->checkLogin();
         $this->view('artists/artistsPage');
 
     }
 
+    //view per la pagina pubblica dell'artista con $nickname
     function profile($nickname = null) {
         if ($nickname != null) {
             $this->checkLogin();
@@ -38,17 +36,9 @@ class Artists extends Controller {
         $this->toJson($mediaManager->getAllArtistsDb());
     }
 
-
-    function getNickname() {
-        echo $this->getUser();
-    }
-
-
+    //invia alla view tutte le gifs dell'artista richiesto
     function getArtistGifs() {
-        // var_dump($_POST['artist']);
         $mediaManager = $this->model('mediaManager');
         $this->toJson($mediaManager->getArtistGif($_POST['artist']));
     }
-
-
 }

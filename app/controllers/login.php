@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Andrea
- * Date: 26/12/2017
- * Time: 21:39
+controller che si occupa di gestire il login
  */
 
 class Login extends Controller {
@@ -24,6 +21,7 @@ class Login extends Controller {
         }
     }
 
+    //se si vuole semplicemente loggare
     function signIn() {
         $loginManager = $this->model('LoginManager');
 
@@ -41,6 +39,7 @@ class Login extends Controller {
         }
     }
 
+    //se vuole registrarsi
     function signUp() {
         $loginManager = $this->model('LoginManager');
 

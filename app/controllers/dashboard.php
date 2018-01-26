@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Andrea
- * Date: 05/01/2018
- * Time: 09:56
+controller che si occupa di gestire la dashboard dell'utente loggato
  */
 
 class Dashboard extends Controller {
@@ -13,17 +10,19 @@ class Dashboard extends Controller {
         $this->view('artists/PrivatePage');
     }
 
-
+    //invia alla view le gif uploadate
     function getUploads() {
         $mediaManager = $this->model('mediaManager');
         $this->toJson($mediaManager->getArtistGif($this->getUser()));
     }
 
+    //invia alla view le gif favorite
     function getFav() {
         $mediaManager = $this->model('mediaManager');
         $this->toJson($mediaManager->getArtistFav($this->getUser()));
     }
 
+    //riceve da view id e cancella la gif con $id
     function deleteUploadsGif() {
         $mediaManager = $this->model('mediaManager');
         if (isset($_POST['id'])) {
