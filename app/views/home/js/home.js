@@ -1,5 +1,6 @@
 window.onload = function () {
     loadAllGifs($('#user').html());
+    fingerprintData($('#user').html());
 };
 
 
@@ -41,4 +42,25 @@ function loadAllGifs(nickname) {
             initMasonry('');
         }
     });
+}
+
+function fingerprintData($nickname) {
+
+        $.ajax({
+            type: 'POST',
+            url: '/tweb/public/home/getFingerprint',
+            data: {user: $nickname},
+            beforeSend: function () {
+                $("#msg").fadeOut();
+            },
+            success: function (data) {
+                console.log(data);
+
+
+            },
+            error: function () {
+                console.log('er');
+            }
+        });
+
 }
