@@ -30,6 +30,9 @@
                 <li class="nav-ite">
                     <a href="/tweb/public/upload" class="btn btn-success btn-shadow">Upload</a>
                 </li>
+                <li class="nav-ite">
+                    <a href="/tweb/public/faq" class="btn btn-light btn-shadow">FAQ</a>
+                </li>
 
             </ul>
 

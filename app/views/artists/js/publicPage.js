@@ -41,6 +41,12 @@ function loadGifs(method, nickname) {
                 $(count).html(i + 1);
             });
             initMasonry(id);
+        },
+        error: function () {
+            $("#msg").fadeIn(2000, function () {
+                $("#msg").html('<label class="alert alert-success"> Error on Load, retry later... </label>');
+            });
+            $("#msg").fadeOut(2500);
         }
     });
 }

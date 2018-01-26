@@ -8,7 +8,6 @@
 
 class Artists extends Controller {
 
-    public $nickname;
 
     public function index($nickname = null) {
         $this->checkLogin();

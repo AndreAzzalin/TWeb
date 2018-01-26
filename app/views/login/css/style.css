@@ -159,3 +159,10 @@ span {
 .btn-shadow {
     margin: 0;
 }
+
+.jumbotron{
+     text-align: center;
+ }
+.jumbotron h1{
+ color:#16a4de;
+}

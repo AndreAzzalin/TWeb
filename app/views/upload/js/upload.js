@@ -78,8 +78,14 @@ function submitGif() {
                     $("#btn_upload").html('Upload image');
                 });
             }
-          // $("#msg").fadeOut(2000);
+           $("#msg").fadeOut(2000);
 
+        },
+        error: function () {
+            $("#msg").fadeIn(2000, function () {
+                $("#msg").html('<label class="alert alert-success"> Error on Upload, retry later... </label>');
+            });
+            $("#msg").fadeOut(2500);
         }
     });
     //return false;

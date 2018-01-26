@@ -56,7 +56,6 @@ class MediaManager extends DbManager {
         return $stmt->execute();
     }
 
-
     function uploadDb($title,$src,$owner) {
 
         $stmt = $this->db_connection()->prepare("INSERT INTO gifs (title, src,owner)  VALUES (:title,:src,:owner)");
@@ -73,7 +72,6 @@ class MediaManager extends DbManager {
         return $stmt->execute();
     }
 
-    //DELETE FROM `favorite` WHERE gif_id='32'
 
     function delFavDb($gif_id) {
         $stmt = $this->db_connection()->prepare("DELETE FROM favorite WHERE gif_id=:gif_id");

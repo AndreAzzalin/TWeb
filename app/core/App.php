@@ -28,7 +28,6 @@ class App {
         }
         require_once '../app/controllers/' . $this->controller . '.php';
         //creo un oggetto controller (con il parametro $contrller)
-
         $this->controller = new $this->controller;
 
 
@@ -36,7 +35,6 @@ class App {
         if (isset($url[1])) {
             if (method_exists($this->controller,$url[1])) {
                 $this->method = $url[1];
-                // echo '<br>'. $this->method. ' metodo<br>';
                 unset($url[1]);
             }
         }

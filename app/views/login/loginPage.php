@@ -13,6 +13,16 @@ include '../app/views/common/top.html';
 </div>
 
 <div class="container">
+
+    <div id="msg"></div>
+
+    <div class="jumbotron">
+            <h1>WELCOME TO SYG</h1>
+        <p>SignUp for Upload and share GIFs with other people.</p>
+
+    </div>
+
+<div class="container">
     <form id="login-form">
         <input checked id='signin' name='action' type='radio' value='signin'>
         <label for='signin'>Sign in</label>

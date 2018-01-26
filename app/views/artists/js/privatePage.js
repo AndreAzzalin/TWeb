@@ -49,6 +49,12 @@ function deleteIt(id) {
             });
             $("#msg").fadeOut(2500);
 
+        },
+        error: function () {
+            $("#msg").fadeIn(2000, function () {
+                $("#msg").html('<label class="alert alert-success"> Error on Delete, retry later... </label>');
+            });
+            $("#msg").fadeOut(2500);
         }
 
     });

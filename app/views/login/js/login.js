@@ -62,7 +62,7 @@ window.onload = function () {
                     setTimeout('window.location.href = "/tweb/public/home/"; ', 4000);
                 } else if (response === 'signup') {
                     $("#msg").fadeIn(4000, function () {
-                        $("#msg").html('<div class="alert alert-success"> Registrazione effettuata con successo, ora puoi loggare !</div>');
+                        $("#msg").html('<div class="alert alert-success">Registration successfully now you can log !</div>');
                         $("#btn-login").html('Sign In');
                     });
                 }
@@ -73,6 +73,12 @@ window.onload = function () {
                     });
                     $("#msg").fadeOut(2000);
                 }
+            },
+            error: function () {
+                $("#msg").fadeIn(2000, function () {
+                    $("#msg").html('<label class="alert alert-success"> Error on Sign In/Up, retry later... </label>');
+                });
+                $("#msg").fadeOut(2500);
             }
         });
         return false;

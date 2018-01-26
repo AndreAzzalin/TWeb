@@ -10,16 +10,6 @@
 class Logout extends Controller {
 
     public function index() {
-        /*session_start();
-        //imposto la view
-        $this->view('login/loginPage');
-        //session_start();
-        if (isset($_SESSION['nickname'])) {
-
-        if (session_destroy()) {
-            $this->redirect('http://localhost/TWeb/public/','loggin out');
-        }
-    }*/
         $this->logout();
     }
 
@@ -30,8 +20,7 @@ class Logout extends Controller {
         $_SESSION = array();
         // Recupera i parametri di sessione.
         $params = session_get_cookie_params();
-        // Cancella i cookie attuali.
-        setcookie(session_name(),'',time() - 42000,$params["path"],$params["domain"],$params["secure"],$params["httponly"]);
+
         // Cancella la sessione.
         session_destroy();
         $this->redirect('http://localhost/TWeb/public/');

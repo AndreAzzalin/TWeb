@@ -1,4 +1,3 @@
-
 function close() {
     $('#publicSection').empty();
 }
@@ -44,6 +43,12 @@ function loadGifs(method) {
                 $(count).html(i + 1);
             });
             initMasonry(id);
+        },
+        error: function () {
+            $("#msg").fadeIn(2000, function () {
+                $("#msg").html('<label class="alert alert-success"> Error on LoveIt, retry later... </label>');
+            });
+            $("#msg").fadeOut(2500);
         }
     });
 }
@@ -70,6 +75,12 @@ function loadListArtists() {
                     //  $('#art2').addClass('hover');
                 );
             });
+        },
+        error: function () {
+            $("#msg").fadeIn(2000, function () {
+                $("#msg").html('<label class="alert alert-success"> Error on Load, retry later... </label>');
+            });
+            $("#msg").fadeOut(2500);
         }
     });
 }
