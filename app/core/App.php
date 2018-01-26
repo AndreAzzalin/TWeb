@@ -3,8 +3,6 @@
  * classe chhe si occupa di  gestire le richieste della url e instradarle al giusto controller che soddisferà la richiesta
 */
 
-
-
 class App {
 
     //dichiaro i controller e metodi di default
@@ -22,6 +20,8 @@ class App {
             $this->controller = $url[0];
             unset($url[0]);
         }
+
+
         require_once '../app/controllers/' . $this->controller . '.php';
         //creo un oggetto controller (con il parametro $contrller)
         $this->controller = new $this->controller;
@@ -34,22 +34,23 @@ class App {
                 unset($url[1]);
             }
         }
+
+
         //aggiungo i parametri nella variabile se nonci sono lascio array vuoto
         $this->params = $url ? array_values($url) : [];
 
-        //eseguo il metodo $method del controller $controller con i parametri $params
+        //esegue callback(metdo che richiama altri metodi) eseguo il metodo $method del controller $controller con i parametri $params
         call_user_func_array([$this->controller,$this->method],$this->params);
 
     }
+
 
     //prende url del prowser e ne crea un array
     public function parseUrl() {
         if (isset($_GET['url'])) {
             //crea array con valori trimmando /
             return $url = explode('/',filter_var(rtrim($_GET['url'],'/'),FILTER_SANITIZE_URL));
-
         }
-
         return null;
     }
 }

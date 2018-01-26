@@ -1,16 +1,20 @@
+ #gestisce errori
 ErrorDocument 404   /errors/404
 ErrorDocument 403   /errors/403
 ErrorDocument 500     /errors/500
 
+#ricerca file/dir per verificare se la richiesta ricevuta dall'url può essere soddisfatta
 Options -MultiViews
 
+ #attiva regole htccess
 RewriteEngine on
 
-RewriteBase /TWeb/public/
+#imposto public come root utile per i link relativi
+RewriteBase /TWeb/public
 
+ #disabilita l'accesso alle directory e ai files direttamente dalla url
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 
-
-
+ #core del routing, $1 sarà il parametro dell'url che invocherà un controller
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
