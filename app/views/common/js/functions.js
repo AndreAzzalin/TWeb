@@ -65,4 +65,13 @@ function loadButtons(id,user,nickname){
 }
 
 
+function isBadGuy($admin) {
+    if($admin==='admin'){
+        $('#userMenu').append('<a class="dropdown-item text-light" href="/tweb/public/fingerprint">BadGuy</a>')
+
+    }
+
+}
+
+
 

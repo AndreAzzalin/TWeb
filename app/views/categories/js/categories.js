@@ -2,7 +2,7 @@ window.onload = function () {
     category = $('#categoryId').html();
     nickname = $('#user').html();
     loadCategory(category, nickname, 'requestCategory', 'div.grid');
-    console.log(nickname);
+    isBadGuy($('#user').html());
 };
 
 

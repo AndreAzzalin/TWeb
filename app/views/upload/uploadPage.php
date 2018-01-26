@@ -6,10 +6,6 @@ include '../app/views/common/top.html';
 <title>Upload - TWeb</title>
 
 
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-<script src="../upload/js/upload.js"></script>
-
-
 </head>
 
 
@@ -83,6 +79,8 @@ include '../app/views/common/nav.php';
 </div>
 
 </body>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="../upload/js/upload.js"></script><script src="../common/js/functions.js"></script>
 </html>
 
 

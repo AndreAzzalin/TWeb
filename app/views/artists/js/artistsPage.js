@@ -1,6 +1,6 @@
 window.onload = function () {
     loadListArtists();
-
+    isBadGuy($('#user').html());
 };
 
 //carica la lista di tutti gli artisti

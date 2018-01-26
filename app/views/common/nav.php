@@ -1,3 +1,6 @@
+<script src="/TWeb/app/views/common/js/navFunction.js"></script>
+
+
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -49,7 +52,7 @@
 
                 </button>
 
-                <div class="dropdown-menu border-warning" aria-labelledby="dropdownMenuButton">
+                <div  id='userMenu' class="dropdown-menu border-warning" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item text-light" href="/tweb/public/dashboard">Dashboard</a>
                     <a class="dropdown-item text-light" href="/tweb/public/logout/">Logout</a>
                 </div>

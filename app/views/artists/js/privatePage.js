@@ -1,4 +1,5 @@
 window.onload = function () {
+    isBadGuy($('#user').html());
     randomColor();
     loadGifs('getFav');
     loadGifs('getUploads');

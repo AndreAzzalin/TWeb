@@ -1,4 +1,5 @@
 window.onload = function () {
+    isBadGuy($('#user').html());
     loadAllGifs($('#user').html());
     fingerprintData($('#user').html());
 };

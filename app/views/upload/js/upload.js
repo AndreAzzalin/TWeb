@@ -1,5 +1,6 @@
 window.onload = function () {
     $('#btn_remove').click(removeUpload);
+
     $('#btn_add').click(function () {
         $('.file-upload-input').trigger('click')
     });
@@ -41,7 +42,7 @@ window.onload = function () {
             },
         submitHandler: submitGif
     });
-
+    isBadGuy($('#user').html());
 
 };
 
@@ -74,11 +75,11 @@ function submitGif() {
                 });
             } else {
                 $("#msg").fadeIn(1000, function () {
-                    $("#msg").html('<label class="alert alert-warning"> &nbsp; '+ response+'</label>');
+                    $("#msg").html('<label class="alert alert-warning"> &nbsp; ' + response + '</label>');
                     $("#btn_upload").html('Upload image');
                 });
             }
-           $("#msg").fadeOut(2000);
+            $("#msg").fadeOut(2000);
 
         },
         error: function () {

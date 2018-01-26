@@ -1,7 +1,7 @@
 window.onload = function () {
     randomColor();
+    isBadGuy($('#user').html());
     loadGifs('getUploads', $('#user').html());
-
 };
 
 

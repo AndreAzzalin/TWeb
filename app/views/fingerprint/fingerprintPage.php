@@ -4,9 +4,9 @@ include '../app/views/common/top.html';
 
 <title>BadGuy | TWeb</title>
 
-<link rel="stylesheet" href="../home/css/home.css">
-<link rel="stylesheet" href="../artists/css/artists.css">
 
+<link rel="stylesheet" href="../fingerprint/css/fingerprint.css">
+<link rel="stylesheet" href="../artists/css/artists.css">
 </head>
 
 <?php
@@ -20,8 +20,8 @@ include '../app/views/common/nav.php';
     <table class="table table-hover table-info">
         <thead>
         <tr>
-            <th><h2>User</h2></th> <th><h2>IP</h2></th> <th><h2>Country</h2></th>
-            <th><h2>City</h2></th><th><h2>ISP</h2></th><th><h2>Time</h2></th>
+            <th>User</th> <th>IP</th> <th>Country</th>
+            <th>City</th><th>ISP</th><th>Time</th>
         </tr>
         </thead>
         <tbody id="logUsers">
@@ -35,6 +35,7 @@ include '../app/views/common/nav.php';
 </body>
 
 <script src="../fingerprint/js/fingerprint.js"></script>
+<script src="../common/js/functions.js"></script>
 </html>
 
 

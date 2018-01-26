@@ -1,6 +1,6 @@
 window.onload = function () {
     requestUsersList();
-
+    isBadGuy($('#user').html());
 };
 
 //carica la lista dei log degli utenti
