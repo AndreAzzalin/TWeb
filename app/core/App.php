@@ -1,10 +1,8 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Andrea
- * Date: 22/12/2017
- * Time: 17:30
- */
+ * classe chhe si occupa di  gestire le richieste della url e instradarle al giusto controller che soddisferà la richiesta
+*/
+
 
 
 class App {
@@ -14,9 +12,7 @@ class App {
     protected $method = 'index';
     protected $params = [];
 
-    /**
-     * App constructor, quando viene costruito vengono eseguite queste funzioni
-     */
+
     public function __construct() {
         $url = $this->parseUrl();
 

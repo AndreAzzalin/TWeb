@@ -39,7 +39,7 @@ class Dashboard extends Controller {
         $mediaManager = $this->model('mediaManager');
         if (isset($_POST['id'])) {
             $id = $_POST['id'];
-            if ($mediaManager->delFavDb($id)) {
+            if ($mediaManager->delFavDb($id,$this->getUser())) {
                 echo 'Delete successful';
             }
         } else echo 'Error on Delete';

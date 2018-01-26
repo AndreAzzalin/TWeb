@@ -94,7 +94,7 @@ function submitGif() {
 
 
 function readURL(input) {
-    // var input = $(this);
+
     if (input.files && input.files[0]) {
         //aggiungere controlli sul file
 

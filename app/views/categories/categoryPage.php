@@ -15,7 +15,7 @@ include '../app/views/common/nav.php';
 
 <div class="container">
     <h1><i class="fa fa-folder-open" aria-hidden="true"></i> Category: <span
-                id="category"><?= $data['category'] ?></span></h1>
+                id="categoryId"><?= $data['category'] ?></span></h1>
     <div id="msg"></div>
 
 

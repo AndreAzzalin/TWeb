@@ -27,10 +27,10 @@ include '../app/views/common/nav.php';
     <div class="info-box">
         <div class="row">
             <div class="col-md-6 col-sx-6 ">
-                <img id="avatar" src="/tweb/app/uploads/2018-01-20_13-45-04_uploadBy_a.gif">
+                <img id="avatar" src="/tweb/app/uploads/2018-01-20_13-45-04_uploadBy_a.gif" alt="">
             </div>
             <div class="col-md-6 col-sx-6 ">
-                <p>
+                <p></p>
                 <h1>
                     GIFs Uploaded:<span id="countUploads">0</span>
                 </h1>
@@ -42,7 +42,7 @@ include '../app/views/common/nav.php';
                 <a class="btn btn-success btn-shadow btn-lg" href="/tweb/public/dashboard#favorited">Go to favorite</a>
                 <a class="btn btn-success btn-shadow btn-lg" href="/tweb/public/dashboard#uploaded"> Go to Upload</a>
 
-                </p>
+                <p></p>
             </div>
 
         </div>

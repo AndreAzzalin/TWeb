@@ -9,9 +9,8 @@
 class Artists extends Controller {
 
 
-    public function index($nickname = null) {
+    public function index() {
         $this->checkLogin();
-        //$this->view('artists/artistsPage');
         $this->view('artists/artistsPage');
 
     }
@@ -21,7 +20,6 @@ class Artists extends Controller {
             $this->checkLogin();
             $this->view('artists/publicPage',['nickname' => $nickname]);
         }
-        //echo 'nickname = '.$nickname;
     }
 
     function getUploads() {
@@ -34,26 +32,6 @@ class Artists extends Controller {
         $this->toJson($mediaManager->getArtistFav($this->getUser()));
     }
 
-    function deleteUploadsGif() {
-        $mediaManager = $this->model('mediaManager');
-        if (isset($_POST['id'])) {
-            $id = $_POST['id'];
-            if ($mediaManager->delUploadsDb($id)) {
-                echo 'Delete successful';
-            }
-        } else echo 'Error on Delete';
-    }
-
-    //elimina GIF dai preferiti
-    function deleteFavGif() {
-        $mediaManager = $this->model('mediaManager');
-        if (isset($_POST['id'])) {
-            $id = $_POST['id'];
-            if ($mediaManager->delFavDb($id)) {
-                echo 'Delete successful';
-            }
-        } else echo 'Error on Delete';
-    }
 
     function getArtistsList() {
         $mediaManager = $this->model('mediaManager');

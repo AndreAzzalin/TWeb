@@ -1,9 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Andrea
- * Date: 26/12/2017
- * Time: 21:46
+*
+ * classe che si occupa di gestire le richieste ricevute dal controller del login e interrogare il db di conseguenza
  */
 require_once '../app/core/DbManager.php';
 

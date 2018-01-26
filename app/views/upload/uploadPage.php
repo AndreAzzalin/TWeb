@@ -40,7 +40,7 @@ include '../app/views/common/nav.php';
                 </div>
             </div>
             <div class="file-upload-content">
-                <img class="file-upload-image" src="" alt="your image"/>
+                <img class="file-upload-image" src="#" alt="your image"/>
                 <div class="image-title-wrap">
 
                     <button id='btn_remove' class="btn btn-danger btn-shadow btn-lg">
@@ -49,25 +49,26 @@ include '../app/views/common/nav.php';
                 </div>
             </div>
             <div class="row">
+
                 <div class="col-md-6">
-                    <p>
+                    <p></p>
                     <h3>Title</h3>
                     <input name="title" class="form-control" type="text" placeholder="Title.." id="titile" required>
-                    </p>
+
                 </div>
 
                 <div class="checkbox col-md-6 col-sx-6 ">
-                    <p>
+                    <p></p>
                     <h3>Category</h3>
-                    <input name="cat[]" type="checkbox" id="category" class="custom-control-label" value="animals">
-                    <label type="checkbox" for="animals">Animals</label>
+                    <input name="cat[]" type="checkbox" class="custom-control-label" value="animals">
+                    <label>Animals</label>
 
-                    <input name="cat[]" type="checkbox" id="category" class="custom-control-label" value="emoticons">
-                    <label type="checkbox" for="emoticons">Emoticons</label>
+                    <input name="cat[]" type="checkbox" class="custom-control-label" value="emoticons">
+                    <label>Emoticons</label>
 
-                    <input name="cat[]" type="checkbox" id="category" class="custom-control-label" value="memes">
-                    <label type="checkbox" for="memes">Memes</label>
-                    </p>
+                    <input name="cat[]" type="checkbox" class="custom-control-label" value="memes">
+                    <label>Memes</label>
+
                 </div>
             </div>
             <p>

@@ -30,7 +30,7 @@ include '../app/views/common/nav.php';
         <div class="gutter-sizer"></div>
          </div>
     </div>
-</div>
+
 
 </body>
 <script src="../home/js/home.js"></script>

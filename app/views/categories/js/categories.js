@@ -1,7 +1,8 @@
 window.onload = function () {
-    category = $('#category').html();
+    category = $('#categoryId').html();
     nickname = $('#user').html();
     loadCategory(category, nickname, 'requestCategory', 'div.grid');
+    console.log(nickname);
 };
 
 
@@ -29,7 +30,7 @@ function loadCategory(category, nickname, method, id) {
 
                 $(id).append($block);
 
-
+                console.log(data);
                 loadButtons(loveBtn, data[i].user, nickname);
             });
             initMasonry(id);

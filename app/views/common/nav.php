@@ -39,13 +39,13 @@
             <div class="dropdown my-2 my-lg-0">
                 <button class="btn btn-danger  btn-shadow " type="button" id="buttonUser" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-user-circle" aria-hidden="true"></i> <a id="user"><?php
+                    <i class="fa fa-user-circle" aria-hidden="true"></i> <i id="user"><?php
                         if (isset($_SESSION['User'])) {
                             echo $_SESSION['User'];
                         } else {
                             echo 'User';
                         }
-                        ?></a>
+                        ?></i>
 
                 </button>
 

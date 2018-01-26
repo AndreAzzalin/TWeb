@@ -5,7 +5,7 @@
  * Date: 22/12/2017
  * Time: 17:33
  *
- * avrò nella cartella controllers un controller per pagina e verra eseguito il controller in base alla richesta del client
+ * classe che si occupa di assegnare per ogni controller la view e il model richiesto per soddisfare una determinata richiesta
  */
 
 class Controller {
