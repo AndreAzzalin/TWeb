@@ -3,7 +3,7 @@ window.onload = function () {
 
 };
 
-//carica la lista di tutti gli artisti
+//carica la lista dei log degli utenti
 function requestUsersList() {
 
     $.ajax({
@@ -13,12 +13,16 @@ function requestUsersList() {
         success: function (data) {
             console.log(data);
             $.each(data, function (i) {
-
                 var artist_id = data[i].nickname;
-                var $block = '<tr id=' + artist_id + '><td><h3>' + data[i].user_id + '</h3></td>';
+                var $block = '<tr id=' + artist_id + '>' +
+                    '<td>' + data[i].user_id + '</td>' +
+                    '<td>' + data[i].ip + '</td>' +
+                    '<td>' + data[i].country + '</td>' +
+                    '<td>' + data[i].city + '</td>' +
+                    '<td>' + data[i].isp + '</td>' +
+                    '<td>' + data[i].time_login + '</td>' +
+                    '</tr>';
                 $('#logUsers').append($block);
-
-
             });
         }
 

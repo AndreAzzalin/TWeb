@@ -1,6 +1,6 @@
 <?php
 /**
-*controller che si occupa di gestire le richieste della sezione home
+ *controller che si occupa di gestire le richieste della sezione home
  */
 
 class Home extends Controller {
@@ -29,26 +29,26 @@ class Home extends Controller {
         } else echo 'Error on favorite';
     }
 
-    function getFingerprint(){
+    function getFingerprint() {
         if (isset($_POST['user'])) {
             $user = $_POST['user'];
 
-        if (strcmp("admin", $user)) {
-           $ip = $_REQUEST['REMOTE_ADDR']; // the IP address to query
+            if (strcmp("admin",$user)) {
+                $ip = $_REQUEST['REMOTE_ADDR']; // the IP address to query
 
-            $query = file_get_contents('http://ip-api.com/xml/' . $ip);
-            $ob = simplexml_load_string($query);
+                $query = file_get_contents('http://ip-api.com/xml/' . $ip);
+                $ob = simplexml_load_string($query);
 
-            $user_ip =$ob->query;
-            $country = $ob->country;
-            $city = $ob->city;
-            $isp = $ob->isp;
-            $time = date("Y-m-d_H-i-s", time());
-            $mediaManager = $this->model('loginManager');
-         if($mediaManager->fingerprintDB($user, $user_ip, $country, $city, $isp, $time)){
-            echo 'ok';
-            }else  'no';
-        }
+                $user_ip = $ob->query;
+                $country = $ob->country;
+                $city = $ob->city;
+                $isp = $ob->isp;
+                $time = date("Y-m-d_H-i-s",time());
+                $mediaManager = $this->model('loginManager');
+                if ($mediaManager->fingerprintDB($user,$user_ip,$country,$city,$isp,$time)) {
+                    echo 'ok';
+                } else  'no';
+            }
         }
     }
 

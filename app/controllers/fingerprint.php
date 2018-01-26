@@ -22,7 +22,9 @@ class Fingerprint extends Controller {
 
     function getUsersFp(){
         $loginManager = $this->model('loginManager');
+
         $this->toJson($loginManager->getUsersLogs());
+
     }
 
 

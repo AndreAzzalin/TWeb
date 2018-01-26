@@ -59,10 +59,11 @@ class LoginManager extends DbManager
     function getUsersLogs(){
         $stmt = $this->db_connection()->prepare("SELECT * FROM fingerprint");
         $stmt->execute();
-        $rows = $stmt->fetch(PDO::FETCH_ASSOC);
-        $users['log'] = $rows;
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $users['log_users'] = $rows;
         return $users;
     }
+
 
 }
 
