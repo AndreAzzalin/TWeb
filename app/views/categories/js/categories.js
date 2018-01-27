@@ -11,7 +11,7 @@ function loadCategory(category, nickname, method, id) {
     $.ajax({
         type: 'POST',
         url: '/tweb/public/categories/' + method,
-        data: {category: category},
+        data: {category: category,nickname:nickname},
         dataType: 'json',
         success: function (data) {
             $.each(data, function (i) {

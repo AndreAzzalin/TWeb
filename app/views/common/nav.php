@@ -1,5 +1,3 @@
-<script src="/TWeb/app/views/common/js/navFunction.js"></script>
-
 
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">

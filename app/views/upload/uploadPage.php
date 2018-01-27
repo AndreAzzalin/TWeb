@@ -25,10 +25,6 @@ include '../app/views/common/nav.php';
 
     <form enctype="multipart/form-data" id="upload_form">
         <div class="file-upload">
-            <button id='btn_add' class="btn btn-warning btn-shadow btn-lg" type="button">
-                Add Image
-            </button>
-
             <div class="image-upload-wrap">
                 <input name="file" id="file" class="file-upload-input" type='file' accept="image/*"/>
                 <div class="drag-text">
@@ -80,7 +76,9 @@ include '../app/views/common/nav.php';
 
 </body>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-<script src="../upload/js/upload.js"></script><script src="../common/js/functions.js"></script>
+<script src="../common/js/functions.js"></script>
+<script src="../upload/js/upload.js"></script>
+
 </html>
 
 

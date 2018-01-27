@@ -41,4 +41,9 @@ class Artists extends Controller {
         $mediaManager = $this->model('mediaManager');
         $this->toJson($mediaManager->getArtistGif($_POST['artist']));
     }
+    //invia alla view tutte le gifs dell'artista richiesto per le pagine pubbliche
+    function requestPublicArtistGifs() {
+        $mediaManager = $this->model('mediaManager');
+        $this->toJson($mediaManager->getArtistPublicGif($_POST['artist'],$_POST['user']));
+    }
 }

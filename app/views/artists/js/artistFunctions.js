@@ -36,7 +36,7 @@ function loadGifs(method) {
                     '        </div>');
 
                 $(id).append($block);
-
+                console.log(data);
                 $('#' + btn_id).addClass('fa fa-times');
                 $('#' + btn_id).click(deleteItEvent);
 

@@ -50,6 +50,7 @@ include '../app/views/common/nav.php';
 
 
 </body>
+
 </html>
 
 

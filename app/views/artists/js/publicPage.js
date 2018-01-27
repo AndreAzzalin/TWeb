@@ -14,8 +14,8 @@ function loadGifs(method, nickname) {
 
     $.ajax({
         type: 'POST',
-        url: '/tweb/public/artists/getArtistGifs',
-        data: {artist: artist},
+        url: '/tweb/public/artists/requestPublicArtistGifs',
+        data: {artist: artist, user: nickname},
         dataType: 'json',
         success: function (data) {
             console.log(data);
@@ -35,11 +35,11 @@ function loadGifs(method, nickname) {
                     '        </div>');
 
                 $(id).append($block);
-
                 loadButtons(loveBtn, data[i].user, nickname);
 
                 $(count).html(i + 1);
-            });
+            })
+            ;
             initMasonry(id);
         },
         error: function () {
@@ -48,7 +48,8 @@ function loadGifs(method, nickname) {
             });
             $("#msg").fadeOut(2500);
         }
-    });
+    })
+    ;
 }
 
 

@@ -68,7 +68,7 @@ function submitGif() {
             $("#btn_upload").html('<i class="fa fa-cog fa-spin fa-fw"></i> &nbsp; Sending ...');
         },
         success: function (response) {
-            if (response == 1) {
+            if (response === 1) {
                 $("#msg").fadeIn(1000, function () {
                     $("#msg").html('<label class="alert alert-success"> &nbsp; Upload successfull!</label>');
                     $("#btn_upload").html('Upload image');

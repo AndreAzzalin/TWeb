@@ -1,4 +1,3 @@
-
 function loveItEvent() {
     var $this = $(this);
     if ($this.hasClass('fa-heart-o')) {
@@ -51,22 +50,23 @@ function initMasonry(id) {
     });
 }
 
-function loadButtons(id,user,nickname){
+function loadButtons(id, user, nickname) {
     if (user === nickname) {
         //è tra i preferiti non permettere di mettere like e riempi il cuore <3
         $('#' + id).addClass('fa-heart');
+        return true;
 
     } else {
         //non è tra i preferiti
         $('#' + id).click(loveItEvent);
         $('#' + id).addClass('fa-heart-o');
-
+        return false
     }
 }
 
 
 function isBadGuy($admin) {
-    if($admin==='admin'){
+    if ($admin === 'admin') {
         $('#userMenu').append('<a class="dropdown-item text-light" href="/tweb/public/fingerprint">BadGuy</a>')
 
     }

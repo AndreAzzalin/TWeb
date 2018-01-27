@@ -33,7 +33,6 @@ include '../app/views/common/nav.php';
 
 
 </body>
-
 <script src="../fingerprint/js/fingerprint.js"></script>
 <script src="../common/js/functions.js"></script>
 </html>

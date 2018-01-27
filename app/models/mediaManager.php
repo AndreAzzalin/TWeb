@@ -22,11 +22,13 @@ class MediaManager extends DbManager {
     }
 
     //ritorna gifs della categoria $category
-    function getCategory($category) {
-        $stmt = $this->db_connection()->prepare("SELECT DISTINCT * FROM categories JOIN gifs ON categories.gif_id = gifs.id LEFT JOIN favorite ON favorite.gif_id=id WHERE category = :category");
+    function getCategory($category,$nickname) {
+        $stmt = $this->db_connection()->prepare("SELECT DISTINCT * FROM categories JOIN gifs ON categories.gif_id = gifs.id AND user=:nickname LEFT JOIN favorite ON favorite.gif_id=id WHERE category = :category");
         $stmt->bindParam(':category',$category);
+        $stmt->bindParam(':nickname',$nickname);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        shuffle($rows);
         $categories['cat'] = $rows;
         return $categories;
     }
@@ -34,8 +36,8 @@ class MediaManager extends DbManager {
     //verifica se $title esiste già come titolo di una gif
     function existTitle($title) {
         $stmt = $this->db_connection()->prepare("SELECT title FROM gifs WHERE title=:title LIMIT 1");
-        $stmt->execute([":title" => $title]);
-        // $row = $stmt->fetch();
+        $stmt->bindParam(':title',$title);
+        $stmt->execute();
         $count = $stmt->rowCount();
         if ($count) {
             return true;
@@ -89,12 +91,24 @@ class MediaManager extends DbManager {
 
     //ritorna tutte le fig dell'artista $user_id
     function getArtistGif($user_id) {
-        $stmt = $this->db_connection()->prepare("SELECT * FROM gifs   WHERE owner=:owner");
+        $stmt = $this->db_connection()->prepare("SELECT DISTINCT * FROM gifs WHERE owner=:owner");
         $stmt->bindParam(':owner',$user_id);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         shuffle($rows);
         $gif['own'] = $rows;
+        return $gif;
+    }
+
+    //ritorna tutte le fig dell'artista $user_id
+    function getArtistPublicGif($user_id,$nickname) {
+        $stmt = $this->db_connection()->prepare("SELECT DISTINCT * FROM gifs LEFT JOIN favorite ON gif_id = id and user=:nickname where owner=:owner");
+        $stmt->bindParam(':owner',$user_id);
+        $stmt->bindParam(':nickname',$nickname);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        shuffle($rows);
+        $gif['public'] = $rows;
         return $gif;
     }
 

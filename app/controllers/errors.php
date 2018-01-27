@@ -1,6 +1,6 @@
 <?php
 /**
-controller che si occupa di gestire le richieste della sezione errori
++controller che si occupa di gestire le richieste della sezione errori
  */
 class Errors extends Controller {
 

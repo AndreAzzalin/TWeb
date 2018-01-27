@@ -2,16 +2,10 @@
 include '../app/views/common/top.html';
 ?>
 <link rel="stylesheet" href="../login/css/style.css">
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-
-<script src="../login/js/login.js"></script>
 <title>Login | Tweb</title>
 </head>
 <body>
 
-<div id="msg">
-    <!-- l'msge verrà visualizzato in questo div -->
-</div>
 
 <div class="container">
 
@@ -21,6 +15,11 @@ include '../app/views/common/top.html';
         <p>SignUp for Upload and share GIFs with other people.</p>
 
     </div>
+
+    <div id="msg">
+        <!-- l'msge verrà visualizzato in questo div -->
+    </div>
+
 
     <div class="container">
         <form id="login-form">
@@ -47,7 +46,7 @@ include '../app/views/common/top.html';
 </div>
 
 </body>
-<?php
-//if (isset($_SESSION) && isset($_COOKIE)){ var_dump($_SESSION); var_dump($_COOKIE['User']); }?>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="../login/js/login.js"></script>
 </html>
 
