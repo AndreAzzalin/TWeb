@@ -21,6 +21,8 @@ include '../app/views/common/nav.php';
         <ul>
             <li><h2>How it works?</h2>
                 <p class="lead">Upload and share GIFs with other people.</p>
+                <p class="lead">Public GIFs: click <i class="fa fa-heart" aria-hidden="true"></i> on top right for add gif to favorite, click on title's gif on bottom for visit artist owner page  </p>
+                <p class="lead">Dashboard GIFs: click <i class="fa fa-times" aria-hidden="true"></i> on top right for remove from favorite or delete from database </p>
             </li>
             <li>
                 <h2>Site Map:</h2>
@@ -32,9 +34,10 @@ include '../app/views/common/nav.php';
             </li>
             <li><h2>Special Thanks to: </h2>
 
-                <p> Arechsteiner for bootstrap template -> <a href="https://github.com/HackerThemes/theme-machine">source code</a>
+                <p> Arechsteiner for bootstrap template -> <a href="https://github.com/HackerThemes/theme-machine">source
+                        code</a>
                 </p>
-                <p>  David DeSandro for Masonry library -> <a href="https://github.com/desandro/masonry">source code</a>
+                <p> David DeSandro for Masonry library -> <a href="https://github.com/desandro/masonry">source code</a>
                 </p>
             </li>
             <li><h2>Other Info:</h2>
@@ -44,13 +47,8 @@ include '../app/views/common/nav.php';
             </li>
         </ul>
     </div>
-
-
 </div>
-
-
 </body>
-
 </html>
 
 

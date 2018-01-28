@@ -12,6 +12,9 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+                <li class="nav-ite">
+                    <a href="/tweb/public/home" class="btn btn-warning btn-shadow">Home</a>
+                </li>
                 <li class="nav-item">
                     <a href="/tweb/public/artists" class="btn btn-warning btn-shadow">Artists</a>
                 </li>

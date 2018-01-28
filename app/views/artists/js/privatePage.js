@@ -48,7 +48,7 @@ function deleteIt(id) {
             $("#msg").fadeIn(1000, function () {
                 $("#msg").html('<label class="alert alert-success"> ' + response + '</label>');
             });
-          //  $("#msg").fadeOut(2500);
+           $("#msg").fadeOut(2500);
 
         },
         error: function () {
