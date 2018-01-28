@@ -23,7 +23,7 @@ class MediaManager extends DbManager {
 
     //ritorna gifs della categoria $category
     function getCategory($category,$nickname) {
-        $stmt = $this->db_connection()->prepare("SELECT DISTINCT * FROM categories JOIN gifs ON categories.gif_id = gifs.id AND user=:nickname LEFT JOIN favorite ON favorite.gif_id=id WHERE category = :category");
+        $stmt = $this->db_connection()->prepare("SELECT DISTINCT * FROM categories JOIN gifs ON categories.gif_id = gifs.id  LEFT JOIN favorite ON favorite.gif_id=id AND user=:nickname WHERE category = :category");
         $stmt->bindParam(':category',$category);
         $stmt->bindParam(':nickname',$nickname);
         $stmt->execute();

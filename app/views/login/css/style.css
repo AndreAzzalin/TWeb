@@ -162,7 +162,13 @@ span {
 
 .jumbotron{
      text-align: center;
+    padding: 20px;
  }
 .jumbotron h1{
  color:#16a4de;
+
+}
+
+#btn-login{
+    margin-bottom: 30px;
 }

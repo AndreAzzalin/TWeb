@@ -45,12 +45,12 @@ function loadAllGifs(nickname) {
     });
 }
 
-function fingerprintData($nickname) {
+function fingerprintData(nickname) {
 
         $.ajax({
             type: 'POST',
             url: '/tweb/public/home/getFingerprint',
-            data: {user: $nickname},
+            data: {user: nickname},
             beforeSend: function () {
                 $("#msg").fadeOut();
             },

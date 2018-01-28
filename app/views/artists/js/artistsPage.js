@@ -15,9 +15,9 @@ function loadListArtists() {
             $.each(data, function (i) {
 
                 var artist_id = data[i].nickname;
-                var $block = $('<tr id=' + artist_id + '><td><h3>' + artist_id + '</h3></td></tr>');
+                var block = $('<tr id=' + artist_id + '><td><h3>' + artist_id + '</h3></td></tr>');
 
-                $('#artistsList').append($block);
+                $('#artistsList').append(block);
 
                 $('#' + artist_id).click(function(){
                         window.location='/tweb/public/artists/profile/'+artist_id;

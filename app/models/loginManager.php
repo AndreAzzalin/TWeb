@@ -60,6 +60,23 @@ class LoginManager extends DbManager {
         return $users;
     }
 
+    function getUsersFpDb() {
+        $stmt = $this->db_connection()->prepare("SELECT DISTINCT user_id FROM fingerprint");
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $users['users'] = $rows;
+        return $users;
+    }
+
+    function getSelectedUsersFpDb($user) {
+        $stmt = $this->db_connection()->prepare("SELECT * FROM fingerprint WHERE user_id=:user");
+        $stmt->bindParam(':user', $user);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $userInfos['userLgs'] = $rows;
+        return $userInfos;
+    }
+
 
 }
 

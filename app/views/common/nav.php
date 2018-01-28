@@ -17,7 +17,7 @@
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
-                        <button class="btn btn-secondary  btn-shadow" type="button" id="dropdownMenuButton"
+                        <button class="btn btn-warning  btn-shadow" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Categories
                         </button>
@@ -29,7 +29,7 @@
                     </div>
                 </li>
                 <li class="nav-ite">
-                    <a href="/tweb/public/upload" class="btn btn-success btn-shadow">Upload</a>
+                    <a href="/tweb/public/upload" class="btn btn-warning btn-shadow">Upload</a>
                 </li>
                 <li class="nav-ite">
                     <a href="/tweb/public/faq" class="btn btn-light btn-shadow">FAQ</a>

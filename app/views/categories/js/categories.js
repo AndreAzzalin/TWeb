@@ -1,17 +1,17 @@
 window.onload = function () {
     category = $('#categoryId').html();
     nickname = $('#user').html();
-    loadCategory(category, nickname, 'requestCategory', 'div.grid');
+    loadCategory(category, nickname, 'div.grid');
     isBadGuy($('#user').html());
 };
 
 
-function loadCategory(category, nickname, method, id) {
+function loadCategory(category, nickname, id) {
 
     $.ajax({
         type: 'POST',
-        url: '/tweb/public/categories/' + method,
-        data: {category: category,nickname:nickname},
+        url: '/tweb/public/categories/requestCategory',
+        data: {category: category, nickname: nickname},
         dataType: 'json',
         success: function (data) {
             $.each(data, function (i) {

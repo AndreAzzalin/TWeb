@@ -23,16 +23,16 @@ function loveIt(id) {
             $("#msg").fadeOut();
         },
         success: function (response) {
-            $("#msg").fadeIn(2000, function () {
+            $("#msg").fadeIn(1500, function () {
                 $("#msg").html('<label class="alert alert-success"> ' + response + '</label>');
             });
-            $("#msg").fadeOut(2500);
+            $("#msg").fadeOut(4000);
         },
         error: function () {
-            $("#msg").fadeIn(2000, function () {
+            $("#msg").fadeIn(1500, function () {
                 $("#msg").html('<label class="alert alert-success"> Error on LoveIt, retry later... </label>');
             });
-            $("#msg").fadeOut(2500);
+            $("#msg").fadeOut(4000);
         }
     });
 }

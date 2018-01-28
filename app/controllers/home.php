@@ -24,7 +24,7 @@ class Home extends Controller {
         if (isset($_POST['id'])) {
             $id = $_POST['id'];
             if ($mediaManager->favGifDb($this->getUser(),$id)) {
-                echo 'u love it, see all in your account page';
+                echo 'you love it, see all favorite on your dashboard';
             }
         } else echo 'Error on favorite';
     }
