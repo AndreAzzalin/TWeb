@@ -1,7 +1,7 @@
 <?php
 
 
-include '../app/views/common/top.html';
+include 'app/views/common/top.html';
 ?>
 <title>Private | TWeb</title>
 
@@ -11,7 +11,7 @@ include '../app/views/common/top.html';
 </head>
 
 <?php
-include '../app/views/common/nav.php';
+include 'app/views/common/nav.php';
 ?>
 
 <div class="container">
@@ -39,8 +39,8 @@ include '../app/views/common/nav.php';
                     GIFs Favorited: <span id="countFav">0</span>
                 </h1>
 
-                <a class="btn btn-success btn-shadow btn-lg" href="/tweb/public/dashboard#favorited">Go to favorite</a>
-                <a class="btn btn-success btn-shadow btn-lg" href="/tweb/public/dashboard#uploaded"> Go to Upload</a>
+                <a class="btn btn-success btn-shadow btn-lg" href="/tweb/dashboard#favorited">Go to favorite</a>
+                <a class="btn btn-success btn-shadow btn-lg" href="/tweb/dashboard#uploaded"> Go to Upload</a>
 
                 <p></p>
             </div>
@@ -73,7 +73,6 @@ include '../app/views/common/nav.php';
 <script src="../artists/js/artistFunctions.js"></script>
 <script src="../common/js/functions.js"></script>
 <script src="../artists/js/privatePage.js"></script>
-
 </html>
 
 

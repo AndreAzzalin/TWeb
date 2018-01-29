@@ -37,7 +37,7 @@ class Upload extends Controller {
                     $owner = $this->getUser();
                     $fileName = $time . '_uploadBy_' . $owner;
                     $sourcePath = $_FILES['file']['tmp_name'];       // Storing source path of the file in a variable
-                    $targetPath = '../app/uploads/' . $fileName . '.gif'; // Target path where file is to be stored
+                    $targetPath = 'app/uploads/' . $fileName . '.gif'; // Target path where file is to be stored
 
 
                     //invio al model le informazioni necessarie per inserire la nuova gif nel db

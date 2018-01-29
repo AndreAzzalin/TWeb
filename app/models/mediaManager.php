@@ -6,7 +6,7 @@
  * Time: 11:01
  * questa classe si occupa di ritornare le rows necessare al controller per passarle alla view
  */
-require_once '../app/core/DbManager.php';
+require_once 'app/core/DbManager.php';
 
 class MediaManager extends DbManager {
 

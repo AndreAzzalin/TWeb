@@ -1,12 +1,12 @@
 <?php
-include '../app/views/common/top.html';
+include 'app/views/common/top.html';
 ?>
 <link rel="stylesheet" href="../home/css/home.css">
 <title>HomePage - TWeb</title>
 </head>
 
 <?php
-include '../app/views/common/nav.php';
+include 'app/views/common/nav.php';
 ?>
 
 <div class="container">

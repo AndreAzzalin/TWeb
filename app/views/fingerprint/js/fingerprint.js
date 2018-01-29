@@ -12,7 +12,7 @@ function requestUsersList() {
     $('#logUsers').empty();
     $.ajax({
         type: 'GET',
-        url: '/tweb/public/fingerprint/getUsersFp',
+        url: '/tweb/fingerprint/getUsersFp',
         dataType: 'json',
         success: function (data) {
             $.each(data, function (i) {
@@ -39,7 +39,7 @@ function requestSelectedUser(user) {
     $('#logUsers').empty();
     $.ajax({
         type: 'POST',
-        url: '/tweb/public/fingerprint/getSelectedUser',
+        url: '/tweb/fingerprint/getSelectedUser',
         data: {user: user},
         dataType: 'json',
         success: function (data) {
@@ -66,7 +66,7 @@ function getUsers() {
 
     $.ajax({
         type: 'GET',
-        url: '/tweb/public/fingerprint/getUsersFingerprint',
+        url: '/tweb/fingerprint/getUsersFingerprint',
         dataType: 'json',
         beforeSend: function () {
             $("#msg").fadeOut();

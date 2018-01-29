@@ -39,7 +39,7 @@ function deleteIt(id) {
 
     $.ajax({
         type: 'POST',
-        url: '/tweb/public/dashboard/delete' + method + 'Gif',
+        url: '/tweb/dashboard/delete' + method + 'Gif',
         data: {id: gif_id},
         beforeSend: function () {
             $("#msg").fadeOut();

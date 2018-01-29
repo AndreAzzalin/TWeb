@@ -9,7 +9,7 @@ window.onload = function () {
 function loadAllGifs(nickname) {
     $.ajax({
         type: 'GET',
-        url: '/tweb/public/home/gifsToJson',
+        url: '/tweb/home/gifsToJson',
         dataType: 'json',
         success: function (data) {
 
@@ -21,7 +21,7 @@ function loadAllGifs(nickname) {
                     '            <img href="#" src="' + src + '" />\n' +
                     '            <div class="grid-item-color">\n' +
                     '                <span class="bottom-left">\n' +
-                    '              <a href="/tweb/public/artists/profile/' + data[i].owner + '">' + data[i].title + ' upload by ' + data[i].owner + ' </a>\n' +
+                    '              <a href="/tweb/artists/profile/' + data[i].owner + '">' + data[i].title + ' upload by ' + data[i].owner + ' </a>\n' +
                     '               </span>\n' +
                     '                <i id="' + loveBtn + '" class="top-right fa fa-3x"></i></a>\n' +
                     '            </div>\n' +
@@ -49,7 +49,7 @@ function fingerprintData(nickname) {
 
         $.ajax({
             type: 'POST',
-            url: '/tweb/public/home/getFingerprint',
+            url: '/tweb/home/getFingerprint',
             data: {user: nickname},
             beforeSend: function () {
                 $("#msg").fadeOut();

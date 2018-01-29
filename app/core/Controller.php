@@ -14,7 +14,7 @@ class Controller
     //il controller crea il model di cui ha bisogno
     protected function model($model)
     {
-        require_once '../app/models/' . $model . '.php';
+        require_once 'app/models/' . $model . '.php';
         return new $model();
     }
 
@@ -22,7 +22,7 @@ class Controller
     protected function view($view, $data = [])
     {
         //creo view richiesta dal client
-        require_once '../app/views/' . $view . '.php';
+        require_once 'app/views/' . $view . '.php';
 
     }
 
@@ -44,7 +44,7 @@ class Controller
     {
         $this->sec_session_start();
         if (!isset($_SESSION['User'])) {
-            $this->redirect('/TWeb/public/');
+            $this->redirect('/TWeb/');
         }
         return $_SESSION['User'];
     }

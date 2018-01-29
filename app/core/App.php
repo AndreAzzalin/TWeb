@@ -15,14 +15,14 @@ class App {
         $url = $this->parseUrl();
 
         //verifico se esiste un controller per la pagina cercata se non esiste rimane il controller home
-        if (file_exists('../app/controllers/' . $url[0] . '.php')) {
+        if (file_exists('app/controllers/' . $url[0] . '.php')) {
             //setto il parametro controller con url[0]
             $this->controller = $url[0];
             unset($url[0]);
         }
 
 
-        require_once '../app/controllers/' . $this->controller . '.php';
+        require_once 'app/controllers/' . $this->controller . '.php';
         //creo un oggetto controller (con il parametro $contrller)
         $this->controller = new $this->controller;
 

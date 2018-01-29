@@ -3,7 +3,7 @@
  *
  * classe che si occupa di gestire le richieste ricevute dal controller del login e interrogare il db di conseguenza
  */
-require_once '../app/core/DbManager.php';
+require_once 'app/core/DbManager.php';
 
 class LoginManager extends DbManager {
 

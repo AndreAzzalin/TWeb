@@ -50,7 +50,7 @@ window.onload = function () {
         //funzione che invia e  riceve risposta dal server tramite ajax con metodo post
         $.ajax({
             type: 'POST',
-            url: '/tweb/public/login/getAction',
+            url: '/tweb/login/getAction',
             data: data,
             beforeSend: function () {
                 $("#msg").fadeOut();
@@ -59,7 +59,7 @@ window.onload = function () {
             success: function (response) {
                 if (response === 'signin') {
                     $("#btn-login").html('<i class="fa fa-cog fa-spin fa-fw"></i>&nbsp; Signing In ...');
-                    setTimeout('window.location.href = "/tweb/public/home/"; ', 4000);
+                    setTimeout('window.location.href = "/tweb/home/"; ', 4000);
                 } else if (response === 'signup') {
                     $("#msg").fadeIn(4000, function () {
                         $("#msg").html('<div class="alert alert-success">Registration successfully! click signIn tab for login !</div>');

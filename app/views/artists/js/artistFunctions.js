@@ -16,7 +16,7 @@ function loadGifs(method) {
 
     $.ajax({
         type: 'GET',
-        url: '/tweb/public/dashboard/' + method,
+        url: '/tweb/dashboard/' + method,
         dataType: 'json',
         success: function (data) {
             $.each(data, function (i) {
@@ -30,7 +30,7 @@ function loadGifs(method) {
                     '                <span class="bottom-left">\n' +
                     '             ' + data[i].title + '\n' +
                     '               </span>\n' +
-                    '                <a href="http://localhost/tweb/public/dashboard#" class="top-right">' +
+                    '                <a href="http://localhost/tweb/dashboard#" class="top-right">' +
                     '                <i id="' + btn_id + '" class="top-right fa fa-3x"></i></a>\n' +
                     '            </div>\n' +
                     '        </div>');
@@ -58,7 +58,7 @@ function loadListArtists() {
 
     $.ajax({
         type: 'GET',
-        url: '/tweb/public/artists/getArtistsList',
+        url: '/tweb/artists/getArtistsList',
         dataType: 'json',
         success: function (data) {
             console.log(data);
@@ -70,7 +70,7 @@ function loadListArtists() {
                 $('#artistsList').append($block);
 
                 $('#' + artist_id).click(
-                    //  window.location.replace('http://localhost/tweb/public/artists/' + artist_id);
+                    //  window.location.replace('http://localhost/tweb/artists/' + artist_id);
                     //loadArtistGifs
                     //  $('#art2').addClass('hover');
                 );

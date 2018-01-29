@@ -17,7 +17,7 @@ function loveIt(id) {
 
     $.ajax({
         type: 'POST',
-        url: '/tweb/public/home/favGif',
+        url: '/tweb/home/favGif',
         data: {id: id},
         beforeSend: function () {
             $("#msg").fadeOut();
@@ -67,7 +67,7 @@ function loadButtons(id, user, nickname) {
 
 function isBadGuy($admin) {
     if ($admin === 'admin') {
-        $('#userMenu').append('<a class="dropdown-item text-light" href="/tweb/public/fingerprint">BadGuy</a>')
+        $('#userMenu').append('<a class="dropdown-item text-light" href="/tweb/fingerprint">BadGuy</a>')
 
     }
 

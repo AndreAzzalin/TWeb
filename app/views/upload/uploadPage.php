@@ -1,5 +1,5 @@
 <?php
-include '../app/views/common/top.html';
+include 'app/views/common/top.html';
 ?>
 <link rel="stylesheet" href="../upload/css/upload.css">
 
@@ -10,7 +10,7 @@ include '../app/views/common/top.html';
 
 
 <?php
-include '../app/views/common/nav.php';
+include 'app/views/common/nav.php';
 ?>
 
 

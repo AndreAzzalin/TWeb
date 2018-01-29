@@ -1,5 +1,5 @@
-ErrorDocument 404    /tweb/public/errors/404
-ErrorDocument 403   /tweb/public/errors/403
-ErrorDocument 500     /tweb/public/errors/500
+ErrorDocument 404    /tweb/errors/404
+ErrorDocument 403   /tweb/errors/403
+ErrorDocument 500     /tweb/errors/500
 
 Options -Indexes

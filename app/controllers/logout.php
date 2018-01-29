@@ -17,6 +17,6 @@ class Logout extends Controller {
         session_unset();
         // Cancella la sessione.
         session_destroy();
-        $this->redirect('http://localhost/TWeb/public/');
+        $this->redirect('http://localhost/TWeb/');
     }
 }

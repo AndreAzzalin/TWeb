@@ -14,7 +14,7 @@ function loadGifs(method, nickname) {
 
     $.ajax({
         type: 'POST',
-        url: '/tweb/public/artists/requestPublicArtistGifs',
+        url: '/tweb/artists/requestPublicArtistGifs',
         data: {artist: artist, user: nickname},
         dataType: 'json',
         success: function (data) {

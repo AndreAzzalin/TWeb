@@ -14,7 +14,7 @@ class Fingerprint extends Controller {
         if ($this->getUser() === 'admin') {
             $this->view('fingerprint/fingerprintPage');
         } else {
-            $this->redirect('/TWeb/public/home');
+            $this->redirect('/TWeb/home');
         }
 
 

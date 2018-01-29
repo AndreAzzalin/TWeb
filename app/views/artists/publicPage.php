@@ -1,7 +1,5 @@
 <?php
-
-
-include '../app/views/common/top.html';
+include 'app/views/common/top.html';
 ?>
 <title><?= $data['nickname'] ?> | TWeb</title>
 
@@ -11,7 +9,7 @@ include '../app/views/common/top.html';
 </head>
 
 <?php
-include '../app/views/common/nav.php';
+include 'app/views/common/nav.php';
 ?>
 
 <div class="container">
@@ -30,7 +28,7 @@ include '../app/views/common/nav.php';
                 <h1>
                     GIFs Uploaded:<span id="countUploads">0</span>
                 </h1>
-                <a href="http://localhost/tweb/public/artists" id="return" class="btn btn-success btn-shadow btn-lg">Return to artists</a>
+                <a href="http://localhost/tweb/artists" id="return" class="btn btn-success btn-shadow btn-lg">Return to artists</a>
                 </p>
             </div>
 

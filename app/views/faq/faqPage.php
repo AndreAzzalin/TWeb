@@ -1,5 +1,5 @@
 <?php
-include '../app/views/common/top.html';
+include 'app/views/common/top.html';
 ?>
 
 <title>Artist | TWeb</title>
@@ -10,7 +10,7 @@ include '../app/views/common/top.html';
 </head>
 
 <?php
-include '../app/views/common/nav.php';
+include 'app/views/common/nav.php';
 ?>
 
 <div class="container">
@@ -26,11 +26,11 @@ include '../app/views/common/nav.php';
             </li>
             <li>
                 <h2>Site Map:</h2>
-                <p> -<a href="/tweb/public/artist"> Artist:</a> browse all artist, and visit their public page</p>
-                <p> -<a href="/tweb/public/categories"> Categories:</a> browse GIFs categories.</p>
-                <p> -<a href="/tweb/public/upload"> Upload:</a> upload and share your GIFs .</p>
-                <p> -<a href="/tweb/public/dashboard"> Dashboard:</a> manage your favorite and uploads GIFs .</p>
-                <p> -<a href="/tweb/public/home"> Home:</a> browse all shared GIFs.</p>
+                <p> -<a href="/tweb/artist"> Artist:</a> browse all artist, and visit their public page</p>
+                <p> -<a href="/tweb/categories"> Categories:</a> browse GIFs categories.</p>
+                <p> -<a href="/tweb/upload"> Upload:</a> upload and share your GIFs .</p>
+                <p> -<a href="/tweb/dashboard"> Dashboard:</a> manage your favorite and uploads GIFs .</p>
+                <p> -<a href="/tweb/home"> Home:</a> browse all shared GIFs.</p>
             </li>
             <li><h2>Special Thanks to: </h2>
 

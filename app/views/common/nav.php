@@ -6,17 +6,17 @@
                 aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="/tweb/public/home">
+        <a class="navbar-brand" href="/tweb/home">
             <h2 id="logo"><i class="fa fa-share-alt" aria-hidden="true"></i>  ShareYourGIFs</h2>
         </a>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-md-0">
                 <li class="nav-ite">
-                    <a href="/tweb/public/home" class="btn btn-warning btn-shadow">Home</a>
+                    <a href="/tweb/home" class="btn btn-warning btn-shadow">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/tweb/public/artists" class="btn btn-warning btn-shadow">Artists</a>
+                    <a href="/tweb/artists" class="btn btn-warning btn-shadow">Artists</a>
                 </li>
                 <li class="nav-item">
                     <div class="dropdown">
@@ -25,17 +25,17 @@
                             Categories
                         </button>
                         <div class="dropdown-menu border-warning " aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item text-light" href="/tweb/public/categories/animals">#animals</a>
-                            <a class="dropdown-item text-light" href="/tweb/public/categories/emoticons">#emoticons</a>
-                            <a class="dropdown-item text-light" href="/tweb/public/categories/memes">#memes</a>
+                            <a class="dropdown-item text-light" href="/tweb/categories/animals">#animals</a>
+                            <a class="dropdown-item text-light" href="/tweb/categories/emoticons">#emoticons</a>
+                            <a class="dropdown-item text-light" href="/tweb/categories/memes">#memes</a>
                         </div>
                     </div>
                 </li>
                 <li class="nav-ite">
-                    <a href="/tweb/public/upload" class="btn btn-warning btn-shadow">Upload</a>
+                    <a href="/tweb/upload" class="btn btn-warning btn-shadow">Upload</a>
                 </li>
                 <li class="nav-ite">
-                    <a href="/tweb/public/faq" class="btn btn-light btn-shadow">FAQ</a>
+                    <a href="/tweb/faq" class="btn btn-light btn-shadow">FAQ</a>
                 </li>
 
             </ul>
@@ -54,8 +54,8 @@
                 </button>
 
                 <div  id='userMenu' class="dropdown-menu border-warning" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item text-light" href="/tweb/public/dashboard">Dashboard</a>
-                    <a class="dropdown-item text-light" href="/tweb/public/logout/">Logout</a>
+                    <a class="dropdown-item text-light" href="/tweb/dashboard">Dashboard</a>
+                    <a class="dropdown-item text-light" href="/tweb/logout/">Logout</a>
                 </div>
             </div>
         </div>

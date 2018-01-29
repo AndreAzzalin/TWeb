@@ -1,5 +1,5 @@
 <?php
-include '../app/views/common/top.html';
+include 'app/views/common/top.html';
 ?>
 
 <title>BadGuy | TWeb</title>
@@ -10,7 +10,7 @@ include '../app/views/common/top.html';
 </head>
 
 <?php
-include '../app/views/common/nav.php';
+include 'app/views/common/nav.php';
 ?>
 
 <div class="container">

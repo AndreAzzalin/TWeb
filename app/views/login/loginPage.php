@@ -1,5 +1,5 @@
 <?php
-include '../app/views/common/top.html';
+include 'app/views/common/top.html';
 ?>
 <link rel="stylesheet" href="../login/css/style.css">
 <title>Login | Tweb</title>

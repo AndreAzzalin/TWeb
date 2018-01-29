@@ -1,6 +1,6 @@
 
 <?php
-include '../app/views/common/top.html';
+include 'app/views/common/top.html';
 ?>
 <link rel="stylesheet" href="../error/css/error.css">
 <title>Error 500</title>

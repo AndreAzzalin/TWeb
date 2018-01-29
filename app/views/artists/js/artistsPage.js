@@ -8,7 +8,7 @@ function loadListArtists() {
 
     $.ajax({
         type: 'GET',
-        url: '/tweb/public/artists/getArtistsList',
+        url: '/tweb/artists/getArtistsList',
         dataType: 'json',
         success: function (data) {
             console.log(data);
@@ -20,7 +20,7 @@ function loadListArtists() {
                 $('#artistsList').append(block);
 
                 $('#' + artist_id).click(function(){
-                        window.location='/tweb/public/artists/profile/'+artist_id;
+                        window.location='/tweb/artists/profile/'+artist_id;
                     }
                 );
             });

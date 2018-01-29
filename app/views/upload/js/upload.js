@@ -58,7 +58,7 @@ function submitGif() {
     //funzione che invia e  riceve risposta dal server tramite ajax con metodo post
     $.ajax({
         type: 'POST',
-        url: '/tweb/public/upload/getNewGif',
+        url: '/tweb/upload/getNewGif',
         data: data,
         contentType: false,
         cache: false,
