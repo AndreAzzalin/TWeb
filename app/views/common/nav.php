@@ -26,7 +26,7 @@
                         </button>
                         <div class="dropdown-menu border-warning " aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item text-light" href="/tweb/categories/animals">#animals</a>
-                            <a class="dropdown-item text-light" href="/tweb/categories/emoticons">#emoticons</a>
+                            <a class="dropdown-item text-light" href="/tweb/categories/emotions">#emotions</a>
                             <a class="dropdown-item text-light" href="/tweb/categories/memes">#memes</a>
                         </div>
                     </div>

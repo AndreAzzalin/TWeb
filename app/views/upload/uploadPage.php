@@ -55,8 +55,8 @@ include 'app/views/common/nav.php';
                     <input name="cat[]" type="checkbox" class="custom-control-label" value="animals">
                     <label>Animals</label>
 
-                    <input name="cat[]" type="checkbox" class="custom-control-label" value="emoticons">
-                    <label>Emoticons</label>
+                    <input name="cat[]" type="checkbox" class="custom-control-label" value="emotions">
+                    <label>Emotions</label>
 
                     <input name="cat[]" type="checkbox" class="custom-control-label" value="memes">
                     <label>Memes</label>

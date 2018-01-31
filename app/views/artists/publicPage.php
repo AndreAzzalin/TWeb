@@ -31,7 +31,6 @@ include 'app/views/common/nav.php';
                 <a href="http://localhost/tweb/artists" id="return" class="btn btn-success btn-shadow btn-lg">Return to artists</a>
                 </p>
             </div>
-
         </div>
     </div>
 

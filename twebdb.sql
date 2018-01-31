@@ -42,7 +42,7 @@ INSERT INTO `categories` (`gif_id`, `category`) VALUES
 (85, 'animals'),
 (86, 'animals'),
 (87, 'animals'),
-(88, 'emoticons');
+(88, 'emotions');
 
 -- --------------------------------------------------------
 

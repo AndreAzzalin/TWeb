@@ -29,6 +29,7 @@ class Home extends Controller {
         } else echo 'Error on favorite';
     }
 
+    //interroga ip-api.com che passandogli l'ip ritorna le informaizoni per la profilazione
     function getFingerprint() {
         if (isset($_POST['user'])) {
             $user = $_POST['user'];

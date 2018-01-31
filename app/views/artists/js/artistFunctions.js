@@ -20,7 +20,6 @@ function loadGifs(method) {
         dataType: 'json',
         success: function (data) {
             $.each(data, function (i) {
-                //       console.log(data);
                 var btn_id = preBtn + '_' + data[i].id;
                 var src = "/tweb/app/uploads/" + data[i].src + ".gif";
 

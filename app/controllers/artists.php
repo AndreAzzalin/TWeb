@@ -30,7 +30,6 @@ class Artists extends Controller {
         $this->toJson($mediaManager->getArtistFav($this->getUser()));
     }
 
-
     function getArtistsList() {
         $mediaManager = $this->model('mediaManager');
         $this->toJson($mediaManager->getAllArtistsDb());

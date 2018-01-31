@@ -12,7 +12,7 @@ include 'app/views/common/top.html';
 
     <div class="jumbotron">
         <h1>WELCOME TO ShareYourGifs</h1>
-        <p>SYG is your top source for the best & newest GIFs online. Find everything from animals GIFs, emoticons GIFs, unique GIFs and more..</p>
+        <p>SYG is your top source for the best & newest GIFs online. Find everything from animals GIFs, emotions GIFs, unique GIFs and more..</p>
         <p>Upload and share GIFs with other people.</p>
         <p>First time here? Click signUp below this banner </p>
 

@@ -1,22 +1,16 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Andrea
- * Date: 10/01/2018
- * Time: 10:52
+ * Controller che gestisce gli artisti e le relative pagine correlate
  */
 
 class Upload extends Controller {
 
 
     public function index() {
-
         $this->checkLogin();
-
         $this->view('upload/uploadPage');
-
-
     }
+
 
     public function getNewGif() {
         $mediaManager = $this->model('mediaManager');
