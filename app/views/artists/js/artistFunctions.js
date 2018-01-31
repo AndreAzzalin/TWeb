@@ -35,7 +35,7 @@ function loadGifs(method) {
                     '        </div>');
 
                 $(id).append($block);
-                console.log(data);
+
                 $('#' + btn_id).addClass('fa fa-times');
                 $('#' + btn_id).click(deleteItEvent);
 
@@ -60,7 +60,7 @@ function loadListArtists() {
         url: '/tweb/artists/getArtistsList',
         dataType: 'json',
         success: function (data) {
-            console.log(data);
+
             $.each(data, function (i) {
 
                 var artist_id = data[i].nickname;
@@ -69,9 +69,6 @@ function loadListArtists() {
                 $('#artistsList').append($block);
 
                 $('#' + artist_id).click(
-                    //  window.location.replace('http://localhost/tweb/artists/' + artist_id);
-                    //loadArtistGifs
-                    //  $('#art2').addClass('hover');
                 );
             });
         },

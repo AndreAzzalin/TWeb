@@ -13,7 +13,7 @@ class MediaManager extends DbManager {
     // ritorna tutte le gifs
     function getAllGifs($user) {
         $stmt = $this->db_connection()->prepare("SELECT  DISTINCT id,title,src,user,owner FROM `favorite` right JOIN gifs on gif_id=id and user=:user_id ");
-        $stmt->bindParam(':user_id',$user);
+        $stmt->bindParam(':user_id', $user);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         shuffle($rows);
@@ -22,10 +22,10 @@ class MediaManager extends DbManager {
     }
 
     //ritorna gifs della categoria $category
-    function getCategory($category,$nickname) {
+    function getCategory($category, $nickname) {
         $stmt = $this->db_connection()->prepare("SELECT DISTINCT * FROM categories JOIN gifs ON categories.gif_id = gifs.id  LEFT JOIN favorite ON favorite.gif_id=id AND user=:nickname WHERE category = :category");
-        $stmt->bindParam(':category',$category);
-        $stmt->bindParam(':nickname',$nickname);
+        $stmt->bindParam(':category', $category);
+        $stmt->bindParam(':nickname', $nickname);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         shuffle($rows);
@@ -36,7 +36,7 @@ class MediaManager extends DbManager {
     //verifica se $title esiste già come titolo di una gif
     function existTitle($title) {
         $stmt = $this->db_connection()->prepare("SELECT title FROM gifs WHERE title=:title LIMIT 1");
-        $stmt->bindParam(':title',$title);
+        $stmt->bindParam(':title', $title);
         $stmt->execute();
         $count = $stmt->rowCount();
         if ($count) {
@@ -55,44 +55,44 @@ class MediaManager extends DbManager {
     }
 
     //inserisce la gif $gif_id nella categoria $cat
-    function uploadCatDb($gif_id,$cat) {
+    function uploadCatDb($gif_id, $cat) {
         $stmt = $this->db_connection()->prepare("INSERT INTO categories (gif_id, category)  VALUES (:gif_id,:category)");
-        $stmt->bindParam(':gif_id',$gif_id);
-        $stmt->bindParam(':category',$cat);
+        $stmt->bindParam(':gif_id', $gif_id);
+        $stmt->bindParam(':category', $cat);
         return $stmt->execute();
     }
 
     //inserisce una nuova gif nel db
-    function uploadDb($title,$src,$owner) {
+    function uploadDb($title, $src, $owner) {
 
         $stmt = $this->db_connection()->prepare("INSERT INTO gifs (title, src,owner)  VALUES (:title,:src,:owner)");
-        $stmt->bindParam(':title',$title);
-        $stmt->bindParam(':src',$src);
-        $stmt->bindParam(':owner',$owner);
+        $stmt->bindParam(':title', $title);
+        $stmt->bindParam(':src', $src);
+        $stmt->bindParam(':owner', $owner);
         return $stmt->execute();
     }
 
     //aggiungeall'utente $user_id la gif favorita $gif_id
-    function favGifDb($user_id,$gif_id) {
+    function favGifDb($user_id, $gif_id) {
         $stmt = $this->db_connection()->prepare("INSERT INTO favorite  VALUES (:user_id,:gif_id)");
-        $stmt->bindParam(':user_id',$user_id);
-        $stmt->bindParam(':gif_id',$gif_id);
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':gif_id', $gif_id);
         return $stmt->execute();
     }
 
 
     //cancella la gif favorita  $gif_id
-    function delFavDb($gif_id,$user_id) {
+    function delFavDb($gif_id, $user_id) {
         $stmt = $this->db_connection()->prepare("DELETE FROM favorite WHERE gif_id=:gif_id AND user=:user_id");
-        $stmt->bindParam(':gif_id',$gif_id);
-        $stmt->bindParam(':user_id',$user_id);
+        $stmt->bindParam(':gif_id', $gif_id);
+        $stmt->bindParam(':user_id', $user_id);
         return $stmt->execute();
     }
 
     //ritorna tutte le fig dell'artista $user_id
     function getArtistGif($user_id) {
         $stmt = $this->db_connection()->prepare("SELECT DISTINCT * FROM gifs WHERE owner=:owner");
-        $stmt->bindParam(':owner',$user_id);
+        $stmt->bindParam(':owner', $user_id);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         shuffle($rows);
@@ -101,10 +101,10 @@ class MediaManager extends DbManager {
     }
 
     //ritorna tutte le fig dell'artista $user_id
-    function getArtistPublicGif($user_id,$nickname) {
+    function getArtistPublicGif($user_id, $nickname) {
         $stmt = $this->db_connection()->prepare("SELECT DISTINCT * FROM gifs LEFT JOIN favorite ON gif_id = id and user=:nickname where owner=:owner");
-        $stmt->bindParam(':owner',$user_id);
-        $stmt->bindParam(':nickname',$nickname);
+        $stmt->bindParam(':owner', $user_id);
+        $stmt->bindParam(':nickname', $nickname);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         shuffle($rows);
@@ -115,7 +115,7 @@ class MediaManager extends DbManager {
     //ritorna tuttie le gif favorite dell utente $user_id
     function getArtistFav($user_id) {
         $stmt = $this->db_connection()->prepare(" SELECT DISTINCT id,title,src,user,owner FROM `favorite`JOIN gifs ON gif_id=id AND user=:user_id");
-        $stmt->bindParam(':user_id',$user_id);
+        $stmt->bindParam(':user_id', $user_id);
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
         shuffle($rows);
@@ -126,7 +126,7 @@ class MediaManager extends DbManager {
     //elimina la gif $gif_id
     function delUploadsDb($gif_id) {
         $stmt = $this->db_connection()->prepare(" DELETE FROM gifs WHERE id=:gif_id");
-        $stmt->bindParam(':gif_id',$gif_id);
+        $stmt->bindParam(':gif_id', $gif_id);
         return $stmt->execute();
     }
 

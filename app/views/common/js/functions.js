@@ -1,3 +1,4 @@
+
 function loveItEvent() {
     var $this = $(this);
     if ($this.hasClass('fa-heart-o')) {
@@ -37,7 +38,7 @@ function loveIt(id) {
     });
 }
 
-//inizializzo i parametri per le dimensioni delle varie colonne
+//inizializzo i parametri per le dimensioni delle varie colonne per Masonry
 function initMasonry(id) {
     var $grid = $(id + '.grid').masonry({
         itemSelector: '.grid-item',
@@ -49,7 +50,7 @@ function initMasonry(id) {
         $grid.masonry();
     });
 }
-
+//gestione logo <3 delle gif
 function loadButtons(id, user, nickname) {
     if (user === nickname) {
         //è tra i preferiti non permettere di mettere like e riempi il cuore <3
@@ -64,11 +65,10 @@ function loadButtons(id, user, nickname) {
     }
 }
 
-
-function isBadGuy($admin) {
-    if ($admin === 'admin') {
+//verifica se l'utente della sessione corrente  è l'admin
+function isBadGuy(admin) {
+    if (admin === 'admin') {
         $('#userMenu').append('<a class="dropdown-item text-light" href="/tweb/fingerprint">BadGuy</a>')
-
     }
 
 }

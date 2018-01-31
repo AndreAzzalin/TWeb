@@ -7,6 +7,7 @@ require_once 'app/core/DbManager.php';
 
 class LoginManager extends DbManager {
 
+    //verifica le credenziali
     public function checkCredential($nickname, $password) {
         //usando prepare() si previene sql injection
         $stmt = $this->db_connection()->prepare("SELECT nickname,psw FROM users WHERE nickname=:nickname LIMIT 1");
@@ -22,6 +23,7 @@ class LoginManager extends DbManager {
         }
     }
 
+    //verifica se esiste già il nickname se non esiste lo aggiunge
     public function register($nickname, $password) {
         //se utente esiste già ritorna UAE altrimenti TRUE o FALSE
         $stmt = $this->db_connection()->prepare("SELECT * FROM users WHERE nickname=:nickname LIMIT 1");
@@ -40,18 +42,15 @@ class LoginManager extends DbManager {
         return false;
     }
 
-    function fingerprintDB($nickname, $ip, $country, $city, $isp, $time) {
-        $stmt = $this->db_connection()->prepare("INSERT INTO fingerprint (user_id, ip,country,city,isp,time_login) VALUES (:user_id,:ip,:country,:city,:isp,:time_login)");
-        $stmt->execute([':user_id' => $nickname, ':ip' => $ip, ':country' => $country, ':city' => $city, ':isp' => $isp, ':time_login' => $time]);
-        return true;
-    }
 
+    //inserisce dati profilazione
     function getUserList($nickname, $ip, $country, $city, $isp, $time) {
         $stmt = $this->db_connection()->prepare("INSERT INTO fingerprint (user_id, ip,country,city,isp,time_login) VALUES (:user_id,:ip,:country,:city,:isp,:time_login)");
         $stmt->execute([':user_id' => $nickname, ':ip' => $ip, ':country' => $country, ':city' => $city, ':isp' => $isp, ':time_login' => $time]);
         return true;
     }
 
+    //seleziona tutti i dati degli utenti profilati
     function getUsersLogs() {
         $stmt = $this->db_connection()->prepare("SELECT * FROM fingerprint");
         $stmt->execute();
@@ -60,6 +59,7 @@ class LoginManager extends DbManager {
         return $users;
     }
 
+    //ritorna tutti gli utenti profilati
     function getUsersFpDb() {
         $stmt = $this->db_connection()->prepare("SELECT DISTINCT user_id FROM fingerprint");
         $stmt->execute();
@@ -68,6 +68,7 @@ class LoginManager extends DbManager {
         return $users;
     }
 
+    //seleziona i dati della profilazione dell utente passato come parametro
     function getSelectedUsersFpDb($user) {
         $stmt = $this->db_connection()->prepare("SELECT * FROM fingerprint WHERE user_id=:user");
         $stmt->bindParam(':user', $user);

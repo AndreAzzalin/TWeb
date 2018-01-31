@@ -30,11 +30,13 @@ function requestUsersList() {
     });
 }
 
+
 function requestSelectedUserEvent() {
     var $this = $(this);
     requestSelectedUser($this.attr('id'));
 }
 
+//richiede di caricare la lista filtrata con l0'utente passto come parametrpo
 function requestSelectedUser(user) {
     $('#logUsers').empty();
     $.ajax({
@@ -62,6 +64,7 @@ function requestSelectedUser(user) {
 
 }
 
+//richiede lista di tutti gli utenti profilati
 function getUsers() {
 
     $.ajax({

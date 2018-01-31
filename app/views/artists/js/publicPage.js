@@ -5,6 +5,7 @@ window.onload = function () {
 };
 
 
+//carica gif favorite o caricate
 function loadGifs(method, nickname) {
     artist = $('#nickname').html();
     var split = method.split("get");
@@ -18,7 +19,7 @@ function loadGifs(method, nickname) {
         data: {artist: artist, user: nickname},
         dataType: 'json',
         success: function (data) {
-            console.log(data);
+
             $.each(data, function (i) {
 
                 var loveBtn = preBtn + '_' + data[i].id;

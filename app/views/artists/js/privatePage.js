@@ -27,6 +27,7 @@ function deleteItEvent() {
 
 }
 
+//invia richiesta cancelazione gif
 function deleteIt(id) {
     initMasonry(id);
     var info = id.split("_");

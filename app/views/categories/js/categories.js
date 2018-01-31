@@ -5,7 +5,7 @@ window.onload = function () {
     isBadGuy($('#user').html());
 };
 
-
+//richiede di caricare la categoria passata come parametro
 function loadCategory(category, nickname, id) {
 
     $.ajax({
@@ -30,7 +30,6 @@ function loadCategory(category, nickname, id) {
 
                 $(id).append($block);
 
-                console.log(data);
                 loadButtons(loveBtn, data[i].user, nickname);
             });
             initMasonry(id);

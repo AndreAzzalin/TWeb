@@ -11,7 +11,6 @@ function loadListArtists() {
         url: '/tweb/artists/getArtistsList',
         dataType: 'json',
         success: function (data) {
-            console.log(data);
             $.each(data, function (i) {
 
                 var artist_id = data[i].nickname;
@@ -19,8 +18,8 @@ function loadListArtists() {
 
                 $('#artistsList').append(block);
 
-                $('#' + artist_id).click(function(){
-                        window.location='/tweb/artists/profile/'+artist_id;
+                $('#' + artist_id).click(function () {
+                        window.location = '/tweb/artists/profile/' + artist_id;
                     }
                 );
             });

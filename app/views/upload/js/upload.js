@@ -46,14 +46,11 @@ window.onload = function () {
 
 };
 
+//invia i dati del file e le varie inforazioni
 function submitGif() {
-    //$("#upload_form").serialize();
+
     var form = $('#upload_form')[0];
     var data = new FormData(form);
-
-    console.log(data); //
-    // console.log($('input[type="file"]').val());
-
 
     //funzione che invia e  riceve risposta dal server tramite ajax con metodo post
     $.ajax({
@@ -89,11 +86,10 @@ function submitGif() {
             $("#msg").fadeOut(2500);
         }
     });
-    //return false;
 
 }
 
-
+//legge il file da url e mostra l'anteprima nel div
 function readURL(input) {
 
     if (input.files && input.files[0]) {

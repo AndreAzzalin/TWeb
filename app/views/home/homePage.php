@@ -10,15 +10,15 @@ include 'app/views/common/nav.php';
 ?>
 
 <div class="container">
-    <h1><i class="fa fa-picture-o" aria-hidden="true"></i> ALL MEMES</h1>
+    <h1><i class="fa fa-picture-o" aria-hidden="true"></i> ALL GIFS</h1>
 
     <div id="msg"></div>
 
     <div class="grid">
         <div class="grid-sizer"></div>
         <div class="gutter-sizer"></div>
-         </div>
     </div>
+</div>
 
 
 </body>

@@ -5,7 +5,7 @@ window.onload = function () {
 };
 
 
-
+//richiede tutte le gifs
 function loadAllGifs(nickname) {
     $.ajax({
         type: 'GET',
@@ -45,21 +45,20 @@ function loadAllGifs(nickname) {
     });
 }
 
+//invia i dati dell'untente
 function fingerprintData(nickname) {
 
-        $.ajax({
-            type: 'POST',
-            url: '/tweb/home/getFingerprint',
-            data: {user: nickname},
-            beforeSend: function () {
-                $("#msg").fadeOut();
-            },
-            success: function (data) {
-                console.log(data);
-            },
-            error: function () {
-                console.log('er');
-            }
-        });
+    $.ajax({
+        type: 'POST',
+        url: '/tweb/home/getFingerprint',
+        data: {user: nickname},
+        beforeSend: function () {
+            $("#msg").fadeOut();
+        },
+        success: function (data) {
+        },
+        error: function () {
+        }
+    });
 
 }

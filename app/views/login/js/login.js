@@ -7,11 +7,11 @@ window.onload = function () {
             {
                 nickname: {
                     required: true,
-                     minlength: 4
+                    minlength: 4
                 },
                 password: {
                     required: true,
-                    minlength:6
+                    minlength: 6
                 },
                 repass: {
                     required: function () {
@@ -29,12 +29,12 @@ window.onload = function () {
             {
                 password: {
                     required: '<div class="alert alert-warning"> Please enter your password </div>',
-                    minlength:'<div class="alert alert-warning"> Please enter at least 6 characters </div>'
+                    minlength: '<div class="alert alert-warning"> Please enter at least 6 characters </div>'
 
                 },
                 nickname: {
                     required: '<div class="alert alert-warning"> Please enter your email address </div>',
-                    minlength:'<div class="alert alert-warning"> Please enter at least 4 characters </div>'
+                    minlength: '<div class="alert alert-warning"> Please enter at least 4 characters </div>'
                 },
                 repass: {
                     required: '<div class="alert alert-warning"> Please enter a secure password </div>',

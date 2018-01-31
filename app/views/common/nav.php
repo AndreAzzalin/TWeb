@@ -1,4 +1,3 @@
-
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -7,7 +6,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="/tweb/home">
-            <h2 id="logo"><i class="fa fa-share-alt" aria-hidden="true"></i>  ShareYourGIFs</h2>
+            <h2 id="logo"><i class="fa fa-share-alt" aria-hidden="true"></i> ShareYourGIFs</h2>
         </a>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -53,7 +52,7 @@
 
                 </button>
 
-                <div  id='userMenu' class="dropdown-menu border-warning" aria-labelledby="dropdownMenuButton">
+                <div id='userMenu' class="dropdown-menu border-warning" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item text-light" href="/tweb/dashboard">Dashboard</a>
                     <a class="dropdown-item text-light" href="/tweb/logout/">Logout</a>
                 </div>
