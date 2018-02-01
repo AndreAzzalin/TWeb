@@ -99,7 +99,8 @@ function readURL(input) {
 
         reader.onload = function (e) {
             $('.image-upload-wrap').hide();
-            $('.file-upload-image').attr('src', e.target.result);
+            $('#preview').append('<img class="file-upload-image" src="'+ e.target.result+'" alt="your image"/>');
+
             $('.file-upload-content').show();
 
             $('.image-title').html(input.files[0].name);

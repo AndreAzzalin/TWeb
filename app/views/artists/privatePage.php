@@ -27,7 +27,7 @@ include 'app/views/common/nav.php';
     <div class="info-box">
         <div class="row">
             <div class="col-md-6 col-sx-6 ">
-                <img id="avatar" src="/tweb/app/uploads/2018-01-20_13-45-04_uploadBy_a.gif" alt="">
+                <img id="avatar" src="../common/images/avatar.gif" alt="avatar" >
             </div>
             <div class="col-md-6 col-sx-6 ">
                 <p></p>
@@ -68,11 +68,10 @@ include 'app/views/common/nav.php';
     </div>
 </div>
 
-
-</body>
 <script src="../artists/js/artistFunctions.js"></script>
 <script src="../common/js/functions.js"></script>
 <script src="../artists/js/privatePage.js"></script>
+</body>
 </html>
 
 

@@ -21,16 +21,16 @@ include 'app/views/common/nav.php';
     <div class="info-box">
         <div class="row">
             <div class="col-md-6 col-sx-6 ">
-                <img id="avatar" src="/tweb/app/uploads/2018-01-20_13-45-04_uploadBy_a.gif">
+                <img id="avatar" src="../common/images/avatar.gif" alt="avatar" >
             </div>
             <div class="col-md-6 col-sx-6 ">
-                <p>
+                <p> </p>
                 <h1>
                     GIFs Uploaded:<span id="countUploads">0</span>
                 </h1>
                 <a href="http://localhost/tweb/artists" id="return" class="btn btn-success btn-shadow btn-lg">Return to
                     artists</a>
-                </p>
+
             </div>
         </div>
     </div>
@@ -46,10 +46,10 @@ include 'app/views/common/nav.php';
     </div>
 </div>
 
-</body>
 <script src="../artists/js/artistFunctions.js"></script>
 <script src="../artists/js/publicPage.js"></script>
 <script src="../common/js/functions.js"></script>
+</body>
 </html>
 
 

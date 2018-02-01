@@ -17,7 +17,7 @@ include 'app/views/common/nav.php';
     <h1><i class="fa fa-eye" aria-hidden="true"></i> BadGuy Page</h1>
 
     <div class="dropdown">
-        <button class="btn btn-warning  btn-shadow" type="button" id="dropdownMenuButton"
+        <button class="btn btn-warning  btn-shadow" type="button" id="dropdownMenuButton2"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Select user...
         </button>
@@ -47,10 +47,9 @@ include 'app/views/common/nav.php';
 
 <div id="publicSection"></div>
 
-
-</body>
 <script src="../fingerprint/js/fingerprint.js"></script>
 <script src="../common/js/functions.js"></script>
+</body>
 </html>
 
 

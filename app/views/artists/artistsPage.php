@@ -20,7 +20,7 @@ include 'app/views/common/nav.php';
     <table class="table table-hover table-info">
         <thead>
         <tr>
-            <th><h2>Nickname</h2></th>
+            <th>Nickname</th>
         </tr>
         </thead>
         <tbody id="artistsList">
@@ -30,11 +30,10 @@ include 'app/views/common/nav.php';
 
 <div id="publicSection"></div>
 
-
-</body>
 <script src="../common/js/functions.js"></script>
 <script src="../artists/js/artistFunctions.js"></script>
 <script src="../artists/js/artistsPage.js"></script>
+</body>
 </html>
 
 

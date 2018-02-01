@@ -31,8 +31,8 @@ include 'app/views/common/nav.php';
                     <h3>Drag and drop a file or select add Image</h3>
                 </div>
             </div>
-            <div class="file-upload-content">
-                <img class="file-upload-image" src="" alt="your image"/>
+            <div id="preview" class="file-upload-content">
+
                 <div class="image-title-wrap">
 
                     <button id='btn_remove' class="btn btn-danger btn-shadow btn-lg">
@@ -74,11 +74,11 @@ include 'app/views/common/nav.php';
     </form>
 </div>
 
-</body>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script src="../common/js/functions.js"></script>
 <script src="../upload/js/upload.js"></script>
 
+</body>
 </html>
 
 

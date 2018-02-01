@@ -26,10 +26,9 @@ include 'app/views/common/nav.php';
 
 </div>
 
-
-</body>
 <script src="../common/js/functions.js"></script>
 <script src="../categories/js/categories.js"></script>
+</body>
 </html>
 
 

@@ -47,8 +47,8 @@ include 'app/views/common/top.html';
     </div>
 </div>
 
-</body>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script src="../login/js/login.js"></script>
+</body>
 </html>
 

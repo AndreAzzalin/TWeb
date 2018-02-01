@@ -45,3 +45,6 @@ td {
 td:hover{
     background: #1d1e2f;
 }
+th{
+    font-size: 30px;
+}
