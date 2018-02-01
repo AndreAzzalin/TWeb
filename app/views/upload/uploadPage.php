@@ -32,7 +32,7 @@ include 'app/views/common/nav.php';
                 </div>
             </div>
             <div class="file-upload-content">
-                <img class="file-upload-image" src="#" alt="your image"/>
+                <img class="file-upload-image" src="" alt="your image"/>
                 <div class="image-title-wrap">
 
                     <button id='btn_remove' class="btn btn-danger btn-shadow btn-lg">
