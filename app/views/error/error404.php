@@ -1,4 +1,3 @@
-
 <?php
 include 'app/views/common/top.html';
 ?>
@@ -13,15 +12,13 @@ include 'app/views/common/top.html';
 
 <div class="container">
 
-    <div id="msg"></div>
 
     <div class="jumbotron">
-            <h1 id="errMsg">ERROR 404!</h1>
-        <p><h3>This page dosen't exists...Dont worry return to our <a href="/tweb/home/">Homepage</a></h3></p>
+        <h1 id="errMsg">ERROR 404!</h1>
+        <h3>This page dosen't exists...Dont worry return to our <a href="/tweb/home/">Homepage</a></h3>
 
     </div>
 
-<div class="container">
 
 </div>
 </body>

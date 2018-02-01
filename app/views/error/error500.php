@@ -1,4 +1,3 @@
-
 <?php
 include 'app/views/common/top.html';
 ?>
@@ -17,13 +16,12 @@ include 'app/views/common/top.html';
 
     <div class="jumbotron">
         <h1 id="errMsg">ERROR 500!</h1>
-        <p><h3>Inernal server error....We will return back soon</h3></p>
+        <h3>Inernal server error....We will return back soon</h3>
 
     </div>
 
-    <div class="container">
 
-    </div>
+</div>
 </body>
 </html>
 
