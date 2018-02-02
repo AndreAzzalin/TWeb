@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Creato il: Feb 01, 2018 alle 02:14
+-- Creato il: Feb 02, 2018 alle 23:22
 -- Versione del server: 5.6.38
 -- Versione PHP: 7.1.12
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `twebdb`
 --
+CREATE DATABASE IF NOT EXISTS `twebdb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `twebdb`;
 
 -- --------------------------------------------------------
 
@@ -66,7 +68,8 @@ INSERT INTO `categories` (`gif_id`, `category`) VALUES
 (117, 'emotions'),
 (118, 'emotions'),
 (118, 'memes'),
-(119, 'animals');
+(119, 'animals'),
+(120, 'memes');
 
 -- --------------------------------------------------------
 
@@ -95,7 +98,8 @@ INSERT INTO `favorite` (`user`, `gif_id`) VALUES
 ('admin', 115),
 ('admin', 106),
 ('admin', 113),
-('admin', 111);
+('admin', 111),
+('test', 120);
 
 -- --------------------------------------------------------
 
@@ -172,7 +176,8 @@ INSERT INTO `gifs` (`id`, `title`, `src`, `owner`) VALUES
 (116, 'homer', '2018-02-01_00-27-17_uploadBy_admin', 'admin'),
 (117, 'good', '2018-02-01_00-27-33_uploadBy_admin', 'admin'),
 (118, 'obama', '2018-02-01_00-27-58_uploadBy_admin', 'admin'),
-(119, 'panda', '2018-02-01_01-18-37_uploadBy_admin', 'admin');
+(119, 'panda', '2018-02-01_01-18-37_uploadBy_admin', 'admin'),
+(120, 'burger', '2018-02-02_17-33-50_uploadBy_kenobi', 'kenobi');
 
 -- --------------------------------------------------------
 
@@ -193,7 +198,8 @@ INSERT INTO `users` (`nickname`, `psw`) VALUES
 ('admin', '$2y$10$9igHYWKjBcP2ae/MGGUAgOlPqUrpIi1kUUhd2VEJjHceTd89qqLci'),
 ('darth', '$2y$10$E06/9HEyek0LYeiIKkSrSuEKa7wcHS5m/q7M50p2yU7ckBObkxGHC'),
 ('kenobi', '$2y$10$H1Tf1HQ.pmOc5deIQ.58E.yZMWQqIyqoYSMaYoU8TQx1jq3R1jphq'),
-('leila', '$2y$10$uKZtdERhRMlctMEKuhGdZ.2cHyOXet6STM0x1sfv82a64P43JhHoO');
+('leila', '$2y$10$uKZtdERhRMlctMEKuhGdZ.2cHyOXet6STM0x1sfv82a64P43JhHoO'),
+('test', '$2y$10$23I1ue8wocRl81WahTR.cOgBaBZcF/njtSll4Z6gBi/H2Pu.PmLmG');
 
 --
 -- Indici per le tabelle scaricate
